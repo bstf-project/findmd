@@ -6,18 +6,18 @@
 		<meta name="keywords" content="" />
 
 		<title></title>
-		
+
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 	<body>
 
-		<div class="title-search-wrapper sm-col-12">
+		<div class="title-search-wrapper col-12">
 			<h3 class="title-name">findMD</h3>
-			<input type="text" name="search-field" class="search-box" value="Columbia, SC"/><br/>
-			<button id="search-button" class="search-button btn btn-primary" type="button">Search</button>
+			<input type="text" name="search-field" id="search-term" class="search-box" placeholder="Enter address"/><br/>
+			<button class="search-button btn btn-primary" type="button">Search</button>
 			<button class ="search-button btn btn-primary" type="button">Filter</button>
 		</div>
 
@@ -34,20 +34,19 @@
 			        {{#data}}
 			        <tr>
 			            <td><a href="{{attribution_url}}" target="_new">{{profile.first_name}} {{profile.last_name}}</a><br>
-			              <img src="{{ratings.0.image_url_small}}"></img></td>
+			              <img  class="doctorimg" src="{{ratings.0.image_url_small}}"></img></td>
 			            <td>{{profile.title}}</td>
-			            <td><img src="{{profile.image_url}}"></img></td>
+			            <td><img class="doctorimg" src="{{profile.image_url}}"></img></td>
 			            <td>{{insurances.insurance_plan}}</td>
 			        </tr>
 			        {{/data}}
 			        </tbody>
 			    </table>
 			</script>
-
 		<section>
 
 			<header>
-				
+
 				<nav>
 
 					<h1>
@@ -61,7 +60,7 @@
 			</header>
 
 			<article id="app">
-				
+
 
 			</article>
 
@@ -70,7 +69,6 @@
 	</body>
 
 </html>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="js/general.js"></script>
-
