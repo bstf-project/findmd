@@ -10,18 +10,25 @@ var distance = 1; //Want to toggle this, distance is in miles
 console.log(api_key);
 
 //Columbia doctors within a 1 mile radius of columbia_coord
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+columbia_coord + ',' +distance+ '&skip=0&limit=30&user_key=' + api_key;
+var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+columbia_coord + ',' +distance+ '&skip=0&limit=10&user_key=' + api_key;
 
 
 // Testing Ajax call here
 
 function displayDoctors (obj) {
-	return( obj.profile.first_name + " " + obj.profile.last_name +"<br/>" + "<img class=docimg src= " + obj.profile.image_url + ">" + "<br/>" + obj.profile.bio + "<br/>" + "<a href=\'htmlPages/doctorinsurance.html\' target=\'blank\'> <button>View Insurances</button> </a>" + "<br/>");
+	return( "<h3>" + obj.profile.first_name + " " + obj.profile.last_name + "</h3>" +
+		"<br/>" + "<img class=docimg src= " + obj.profile.image_url + ">"
+		 + "<br/>" + "<p>" + obj.profile.bio + "</p>" + "<br/>" + 
+		 "<p> Takes the following insurance: </p>" + "<ul>" + obj.insurances.map(getInsurance).join(" ") + "</ul>"  + "<br/>"
+	);
 }
+
+//Insurance button, may reuse
+// + "<a href=\'htmlPages/doctorinsurance.html\' target=\'blank\'> <button>View Insurances</button> </a>" +
 
 //Move the insurance stuff to a new js file. Idea is to separate like you would components in React
 function getInsurance (obj) {
-	return obj.insurance_provider.name;
+	return "<li>" + obj.insurance_plan.name + "</li>";
 }
 
 function displayInsurance (obj) {
@@ -30,7 +37,7 @@ function displayInsurance (obj) {
 
 
 function testInject (data) {
-	document.getElementById('app').innerHTML += "<p class=info>" + data.data.map(displayDoctors).join(" ") + "</p>";
+	document.getElementById('app').innerHTML += "<div class=\'info\''>" + data.data.map(displayDoctors).join(" ") + "</div>";
 
 
 	// document.getElementById('app').innerHTML += "<p>" + data.data[0].profile.first_name + " " + data.data[0].profile.last_name + "</p>";
