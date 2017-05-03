@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 $('#search-button').click(function() {
 
 var api_key = "789b28d7d74840d2eb449527c4d61127";
@@ -52,22 +52,25 @@ function testInject (data) {
 	// data.data.profile.bio => Brief description of doctor
 	// data.data[i].insurances => returns an array of insurances a doctor takes
 	// data.data[i].claims => returns an array of prices for doctor and what procedure
+
 }
-    
+
 		$.ajax({
 			url: resource_url,
 			success: function successHandler(data) {
 				testInject(data);
-			} 
+			}
 		});
-    
+		
+		$(".xbutton").toggleClass("xbuttonanimation")
+
   });
-  
+
   $(".search-box").keypress(function(e) {
+
     if (e.which == 13) {
       $("#search-button").click();
     }
   });
-  
-});
 
+});
