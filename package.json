@@ -1,0 +1,19 @@
+{
+  "name": "blank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-merge-media-queries": "^0.2.1"
+  },
+  "dependencies": {
+    "gulp-uglifycss": "^1.0.8"
+  }
+}
