@@ -12,22 +12,27 @@ var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+c
 
 
 function getInsurance (obj) {
-	return obj.insurance_provider.name;
+	return obj.insurance_plan.name;
+}
+
+
+function displayDoctorName (obj) {
+	return( obj.profile.first_name +  obj.profile.last_name + "<br/>" );
 }
 
 function displayInsurance (obj) {
-	return obj.insurances.map(getInsurance) //this is an array of insurances the doctors accept
+	return ("<h3 class=\'doctor-heading\'>" + obj.profile.first_name + " " + obj.profile.last_name + "</h3>" + "<br/>" + "<p class=\'insurance\'>" + obj.insurances.map(getInsurance) + "</p>" + "<br />"); //this is an array of insurances the doctors accept
 }
 
 function injectInsurance (data) {
-	document.getElementById('app').innerHTML += "<li>" + data.data.map(displayInsurance) + "</li>"; //returns an array of insurances
+	document.getElementById('app').innerHTML += "<div>" + data.data.map(displayInsurance).join("") + "</div>"; //returns an array of insurances
 	//make sure the insurances coincide with doctor profiles => always use same resource_url, skip, and limit numbers the same when doing .ajax call
 }
 
 $.ajax({
 	url: resource_url,
 	success: function successHandler(data) {
-		testInject(data);
+		injectInsurance(data);
 	} 
 });
 
