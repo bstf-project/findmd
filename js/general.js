@@ -16,7 +16,7 @@ var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+c
 // Testing Ajax call here
 
 function displayDoctors (obj) {
-	return( obj.profile.first_name + " " + obj.profile.last_name +"<br/>" + "<img src= " + obj.profile.image_url + ">" + "<br/>" + obj.profile.bio + "<br/>" + "<a href=\'htmlPages/doctorinsurance.html\' target=\'blank\'> <button>View Insurances</button> </a>" + "<br/>");
+	return( obj.profile.first_name + " " + obj.profile.last_name +"<br/>" + "<img class=docimg src= " + obj.profile.image_url + ">" + "<br/>" + obj.profile.bio + "<br/>" + "<a href=\'htmlPages/doctorinsurance.html\' target=\'blank\'> <button>View Insurances</button> </a>" + "<br/>");
 }
 
 //Move the insurance stuff to a new js file. Idea is to separate like you would components in React
@@ -30,7 +30,7 @@ function displayInsurance (obj) {
 
 
 function testInject (data) {
-	document.getElementById('app').innerHTML += "<p class=\'info\'>" + data.data.map(displayDoctors).join(" ") + "</p>";
+	document.getElementById('app').innerHTML += "<p class=info>" + data.data.map(displayDoctors).join(" ") + "</p>";
 
 
 	// document.getElementById('app').innerHTML += "<p>" + data.data[0].profile.first_name + " " + data.data[0].profile.last_name + "</p>";
