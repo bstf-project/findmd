@@ -111,6 +111,13 @@ li {
 
 .docimg {
   border-radius: 50%;
+  float: left;
+  height: 200px; }
+
+.fa-user-md {
+  color: #1C67A6;
+  margin: 10px;
+  font-size: 10rem;
   float: left; }
 
 .doc-distance {
