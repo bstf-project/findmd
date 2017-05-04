@@ -10,7 +10,11 @@ $doctorBlue: #1C67A6;
 body {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
-    background-image: url(/img/background.jpg);
+    background-image: url(http://imageresize.org/Output/rot_24870956-61bb-44fc-abe8-1888d50e9db4.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    max-width: inherit;
+    background-size: 100%;
 }
 
 h1 {
@@ -143,8 +147,6 @@ img {
 
   .info {
     z-index: 2;
-    background-color: rgba(255, 255, 255, 1);
-    backface-visibility: visible;
     animation: animationFrames ease 1s;
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
@@ -174,7 +176,7 @@ img {
     }
 
     100% {
-      opacity:.8;
+      opacity:1;
       transform:  translate(0px,0px)  ;
     }
   }
