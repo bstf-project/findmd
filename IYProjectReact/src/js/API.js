@@ -35,8 +35,14 @@ function doctorName (obj) {
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
 			<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} />
 			<p className="doc-distance">{obj.practices.map(returnDistance)}</p>
-			<p className="doc-specialties">{obj.specialties.map(returnSpecialties)}</p>
-			<p className="doc-bio">{obj.profile.bio}</p>
+			<div>
+				<h4>Specialties:</h4>
+				<p className="doc-specialties">{obj.specialties.map(returnSpecialties)}</p>
+			</div>
+			<div>
+				<h4>About: </h4>
+				<p className="doc-bio">{obj.profile.bio}</p>
+			</div>
 		</div>
 	);
 }
