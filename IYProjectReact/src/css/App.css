@@ -48,7 +48,7 @@ h3 {
   font-size: 50px; }
 
 h4 {
-  color: #333;
+  color: #1C67A6;
   font-size: 25px;
   padding: 10px; }
 
@@ -108,7 +108,17 @@ li {
   padding: 2rem; }
 
 .docimg {
-  border-radius: 50%; }
+  border-radius: 50%;
+  float: left; }
+
+.doc-distance {
+  color: green; }
+
+.doc-bio {
+  color: #1C67A6; }
+
+.doc-specialties {
+  color: #1C67A6; }
 
 img {
   padding: 10px; }

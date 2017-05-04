@@ -27,9 +27,9 @@ function doctorName (obj) {
 		<div className = "api-data">
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
 			<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} />
-			<p>{obj.profile.bio}</p>
-			<p>{obj.practices.map(returnDistance)}</p>
-			<p>{obj.specialties.map(returnSpecialties)}</p>
+			<p className="doc-distance">{obj.practices.map(returnDistance)}</p>
+			<p className="doc-specialties">{obj.specialties.map(returnSpecialties)}</p>
+			<p className="doc-bio">{obj.profile.bio}</p>
 		</div>
 	);
 }

@@ -4,6 +4,8 @@
 
 @import 'mixins';
 
+$doctorBlue: #1C67A6;
+
 body {
     font-family: ProximaNovaReg, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1rem;
@@ -15,7 +17,7 @@ h3 {
 }
 
 h4 {
-  color: #333;
+  color: $doctorBlue;
   font-size: 25px;
   padding: 10px;
 }
@@ -91,6 +93,19 @@ li {
 
 .docimg {
   border-radius: 50%;
+  float: left;
+}
+
+.doc-distance {
+  color: green;
+}
+
+.doc-bio {
+  color: $doctorBlue;
+}
+
+.doc-specialties {
+  color: $doctorBlue;
 }
 
 img {
