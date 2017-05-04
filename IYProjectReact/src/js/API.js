@@ -14,7 +14,14 @@ function doctorBio (obj) {
 }
 
 function returnDistance (obj) {
-	return <p>{obj.distance}  miles away</p>;
+	var statement = Math.round(obj.distance) + " miles away";
+	if (obj.distance < 1) {
+		statement = "<" + Math.round(obj.distance) +" mile away";
+	}
+	else if (Math.round(obj.distance) == 1) {
+		statement = " mile away";
+	}
+	return <p>{statement}</p>;
 }
 
 function returnSpecialties (obj) {

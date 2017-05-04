@@ -17,7 +17,7 @@ h3 {
 }
 
 h4 {
-  color: $doctorBlue;
+  color: #fff;
   font-size: 25px;
   padding: 10px;
 }
@@ -97,15 +97,16 @@ li {
 }
 
 .doc-distance {
-  color: green;
+  color: #000;
+  font-weight: bold;
 }
 
 .doc-bio {
-  color: $doctorBlue;
+  color: #fff;
 }
 
 .doc-specialties {
-  color: $doctorBlue;
+  color: #fff;
 }
 
 img {
@@ -160,13 +161,20 @@ img {
       }
   }
 
-  .api-data {
-    background: rgba(0, 0, 0, 0.2);
+  .api-data { 
+    background: rgba(28, 103, 166, .85);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    width: inherit;
   }
 
+  @media screen only and (min-width: 767px) {
+    .api-data {
+      width: 1%;
+    }
+  }
+ 
   .info {
     z-index: 2;
     background-color: rgba(255, 255, 255, 1);
