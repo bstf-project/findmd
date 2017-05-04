@@ -4,17 +4,23 @@ import axios from 'axios';
 
 var api_key = "789b28d7d74840d2eb449527c4d61127";
 var columbia_coord = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
+var distance = 1; //Want to toggle this
 
 //Columbia doctors within a 1 mile radius of columbia_coord
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + columbia_coord + ',1&skip=0&limit=10&user_key=' + api_key;
+var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + columbia_coord + ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
 
 function doctorBio (obj) {
 	return <p>{obj.profile.bio}</p>;
 }
 
 function returnDistance (obj) {
-	return <p>{obj.distance}</p>
+	return <p>{obj.distance}  miles away</p>;
 }
+
+function returnSpecialties (obj) {
+	return <p>{obj.description}</p>;
+}
+
 
 function doctorName (obj) {
 	return (
@@ -23,6 +29,7 @@ function doctorName (obj) {
 			<img src={obj.profile.image_url} alt={obj.profile.last_name} />
 			<p>{obj.profile.bio}</p>
 			<p>{obj.practices.map(returnDistance)}</p>
+			<p>{obj.specialties.map(returnSpecialties)}</p>
 		</div>
 	);
 }
