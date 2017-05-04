@@ -24,7 +24,7 @@ function returnSpecialties (obj) {
 
 function doctorName (obj) {
 	return (
-		<div>
+		<div className = "api-data">
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
 			<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} />
 			<p>{obj.profile.bio}</p>
