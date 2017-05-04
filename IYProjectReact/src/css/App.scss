@@ -7,7 +7,7 @@
 $doctorBlue: #1C67A6;
 
 body {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Lato', sans-serif;
     font-size: 1rem;
 }
 
@@ -24,6 +24,7 @@ h4 {
 
 p {
   padding: 10px;
+  font-family: 'Source Sans Pro', serif;
 }
 
 a {
@@ -206,7 +207,7 @@ img {
       opacity:0;
       transform:  translate(0px,-100px)  ;
     }
-    
+
     100% {
       opacity:.8;
       transform:  translate(0px,0px)  ;
