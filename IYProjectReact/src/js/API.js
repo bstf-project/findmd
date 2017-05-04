@@ -3,11 +3,12 @@ import axios from 'axios';
 
 
 var api_key = "789b28d7d74840d2eb449527c4d61127";
-var columbia_coord = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
+//var coordinates = "40.7128,-74.006"; //NY City coordinates
+var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
 var distance = 10; //Want to toggle this
 
 //Columbia doctors within a 1 mile radius of columbia_coord
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + columbia_coord + ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
+var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + coordinates+ ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
 
 function doctorBio (obj) {
 	return <p>{obj.profile.bio}</p>;
