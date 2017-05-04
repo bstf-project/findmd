@@ -15,7 +15,11 @@ function doctorBio (obj) {
 
 function returnDistance (obj) {
 	var statement = Math.round(obj.distance) + " miles away";
-	if (obj.distance < 1) {
+
+	if (obj.distance > distance) {
+		statement = "TOO FAR";
+	}
+	else if (obj.distance < 1) {
 		statement = "<" + Math.round(obj.distance) +" mile away";
 	}
 	else if (Math.round(obj.distance) == 1) {
