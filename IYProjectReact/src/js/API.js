@@ -63,7 +63,7 @@ class API extends React.Component {
 	render () {
 		
 		return (
-			<div className = "something">
+			<div className = "info">
 				{this.state.resultArr.map(doctorName)}
 				
 				
