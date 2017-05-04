@@ -70,6 +70,9 @@ td, th {
 li {
   margin: 10px 0; }
 
+.header {
+  padding: 10px; }
+
 .title-search-wrapper {
   width: 100%;
   display: block;
