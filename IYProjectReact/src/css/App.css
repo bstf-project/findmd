@@ -42,7 +42,11 @@ table {
 body {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  background-image: url(/img/background.jpg); }
+  background-image: url(http://imageresize.org/Output/rot_24870956-61bb-44fc-abe8-1888d50e9db4.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  max-width: inherit;
+  background-size: 100%; }
 
 h1 {
   color: #333;
@@ -140,8 +144,6 @@ img {
     width: 1%; } }
 .info {
   z-index: 2;
-  background-color: white;
-  backface-visibility: visible;
   animation: animationFrames ease 1s;
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
@@ -173,7 +175,7 @@ img {
     opacity: 0;
     transform: translate(0px, -100px); }
   100% {
-    opacity: .8;
+    opacity: 1;
     transform: translate(0px, 0px); } }
 @-moz-keyframes animationFrames {
   0% {
