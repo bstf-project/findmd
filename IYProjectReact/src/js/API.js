@@ -25,8 +25,8 @@ function returnSpecialties (obj) {
 function doctorName (obj) {
 	return (
 		<div>
-			<p>{obj.profile.first_name + " " + obj.profile.last_name}</p>
-			<img src={obj.profile.image_url} alt={obj.profile.last_name} />
+			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
+			<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} />
 			<p>{obj.profile.bio}</p>
 			<p>{obj.practices.map(returnDistance)}</p>
 			<p>{obj.specialties.map(returnSpecialties)}</p>
