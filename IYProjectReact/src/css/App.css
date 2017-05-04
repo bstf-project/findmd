@@ -40,13 +40,14 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
+  background-attachment: fixed;
   background-image: url(http://imageresize.org/Output/rot_24870956-61bb-44fc-abe8-1888d50e9db4.jpg);
   background-position: center;
-  background-attachment: fixed;
-  max-width: inherit;
-  background-size: 100%; }
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  max-width: inherit; }
 
 h1 {
   color: #333;
