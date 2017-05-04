@@ -7,9 +7,6 @@ var api_key = "789b28d7d74840d2eb449527c4d61127";
 //var coordinates = "40.7128,-74.006"; //NY City coordinates
 var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
 var distance = 10; //Want to toggle this
-var male_image = "http://sanatoriofueguino.com/img/icono_doctor.png";
-var female_image = "http://www.geneomm.com/wp-content/uploads/2015/08/FEMALE-DOCTOR.jpg";
-
 
 //Columbia doctors within a 1 mile radius of columbia_coord
 var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + coordinates+ ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
@@ -39,8 +36,6 @@ function returnSpecialties (obj) {
 
 
 function doctorName (obj) {
-	console.log(obj.profile.image_url.slice(39));
-	console.log(obj.profile.image_url.length)
 	return (
 		<div className = "api-data container">
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
