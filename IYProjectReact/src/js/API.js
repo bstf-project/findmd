@@ -4,7 +4,7 @@ import axios from 'axios';
 
 var api_key = "789b28d7d74840d2eb449527c4d61127";
 var columbia_coord = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
-var distance = 1; //Want to toggle this
+var distance = 10; //Want to toggle this
 
 //Columbia doctors within a 1 mile radius of columbia_coord
 var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + columbia_coord + ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
@@ -35,7 +35,7 @@ function returnSpecialties (obj) {
 
 function doctorName (obj) {
 	return (
-		<div className = "api-data">
+		<div className = "api-data container">
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
 			<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} />
 			<p className="doc-distance">{obj.practices.map(returnDistance)}</p>
