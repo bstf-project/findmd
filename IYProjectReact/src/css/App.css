@@ -47,6 +47,9 @@ h3 {
   color: #333;
   font-size: 50px; }
 
+p {
+  padding: 10px; }
+
 a {
   text-decoration: none; }
 
@@ -98,6 +101,9 @@ li {
 
 .docimg {
   border-radius: 50%; }
+
+img {
+  padding: 10px; }
 
 .xbutton {
   color: white;
@@ -205,4 +211,4 @@ li {
     opacity: 1;
     -ms-transform: translate(0px, -25px); } }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=App.css.map */

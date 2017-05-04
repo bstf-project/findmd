@@ -13,13 +13,18 @@ h3 {
     color: #333;
     font-size: 50px;
 }
+
+p {
+  padding: 10px;
+}
+
 a {
     text-decoration: none;
 }
 
 a, a:visited {
     color: rgb(84, 180, 210);
-   	font-size: 25px;
+    font-size: 25px;
 }
 
 a:hover {
@@ -75,7 +80,11 @@ li {
 }
 
 .docimg {
-border-radius: 50%;
+  border-radius: 50%;
+}
+
+img {
+  padding: 10px;
 }
 
 .xbutton {

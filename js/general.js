@@ -10,7 +10,7 @@ var distance = 1; //Want to toggle this, distance is in miles
 console.log(api_key);
 
 //Columbia doctors within a 1 mile radius of columbia_coord
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+columbia_coord + ',' +distance+ '&skip=0&limit=10&user_key=' + api_key;
+var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location='+columbia_coord + ',' +distance+ '&skip=0&limit=30&user_key=789b28d7d74840d2eb449527c4d61127';
 
 
 // Testing Ajax call here
