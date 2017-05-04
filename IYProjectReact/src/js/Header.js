@@ -9,7 +9,6 @@ class Header extends React.Component {
 	<div className = "title-search-wrapper">
 
       <h1 className="title-name">findMD</h1>
-       <i className="fa fa-times fa-2x xbutton" aria-hidden="true"></i>
           <input type="text" className="search-field search-box " id="search-term" value="Columbia, SC"/>
           <button {...this.props} id="search-button" className="search-button btn btn-primary" type="button">Search
           </button>
