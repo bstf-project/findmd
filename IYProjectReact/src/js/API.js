@@ -6,7 +6,7 @@ import axios from 'axios';
 var api_key = "789b28d7d74840d2eb449527c4d61127";
 //var coordinates = "40.7128,-74.006"; //NY City coordinates
 var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
-var distance = 10; //Want to toggle this
+var distance = 30; //Want to toggle this
 
 //Columbia doctors within a 1 mile radius of columbia_coord
 var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + coordinates+ ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
@@ -36,6 +36,9 @@ function returnSpecialties (obj) {
 
 
 function doctorName (obj) {
+	console.log(navigator.geolocation.getCurrentPosition(function (position){
+		return position.coords.latitude + " " + position.coords.longitude;
+	})); //This is returning undefined
 	return (
 		<div className = "api-data container">
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
@@ -78,14 +81,16 @@ class API extends React.Component {
 		super();
 
 		this.state = {
-			number: "2",	
-			resultArr: []
+			resultArr: [],
+			latLong: []
 		}
 
 	};
 
 	componentWillMount() {
 
+
+		console.log("This first");
 		axios.get(resource_url)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr); 
@@ -99,8 +104,7 @@ class API extends React.Component {
 		return (
 			<div className = "info">
 				{this.state.resultArr.map(doctorName)}
-				
-				
+	
 			</div>
 		);
 		
