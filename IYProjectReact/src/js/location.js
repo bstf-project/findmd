@@ -3,32 +3,38 @@ import '../css/App.css';
 
 // Attempting to get Geolocation data through the built in browser function
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        null;
-    }
-}
-function showPosition(position) {
-    return ( "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude ); 
-}
-
-
-
 class Location extends React.Component {
 
- render() {
-   return (
-     <div className = "App">
-     Location Component
-       
+    getLocation() {
         
-     </div>
-   );
- }
+        if (navigator.geolocation) {
+            return navigator.geolocation.getCurrentPosition(this.showPosition);
+        } else {
+            null;
+        }
 
-} 
+    }
+
+    showPosition(position) {
+
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+
+        return [String(position.coords.latitude), String(position.coords.longitude)]; 
+    }
+
+    render() {
+       return (
+         <div className = "App">
+
+             {this.getLocation()}
+            
+         </div>
+       );
+     }
+
+}
+
+var coordinates = getLocation(); 
 
 module.exports = Location;

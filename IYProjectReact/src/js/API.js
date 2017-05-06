@@ -8,11 +8,27 @@ var api_key = "789b28d7d74840d2eb449527c4d61127";
 var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
 var distance = 30; //Want to toggle this
 
+//var coordinates = getLocation();
 //Columbia doctors within a 1 mile radius of columbia_coord
 var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + coordinates+ ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
 
-function doctorBio (obj) {
-	return <p>{obj.profile.bio}</p>;
+
+
+
+function showPosition(position) {
+
+    console.log("Position: " + position.coords.latitude + "," + position.coords.longitude);
+
+    return String(position.coords.latitude) + "," + String(position.coords.longitude);
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
 }
 
 function returnDistance (obj) {
@@ -24,7 +40,7 @@ function returnDistance (obj) {
 	else if (obj.distance < 1) {
 		statement = "< " + Math.round(obj.distance) +" mile away";
 	}
-	else if (Math.round(obj.distance) == 1) {
+	else if (Math.round(obj.distance) === 1) {
 		statement = " mile away";
 	}
 	return <p>{statement}</p>;
@@ -36,18 +52,15 @@ function returnSpecialties (obj) {
 
 
 function doctorName (obj) {
-	console.log(navigator.geolocation.getCurrentPosition(function (position){
-		return position.coords.latitude + " " + position.coords.longitude;
-	})); //This is returning undefined
 	return (
-		<div className = "api-data container">
+		<div className="api-data container">	
 			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
 
 
 		<div className="doc-image">
 
 			{ 
-				(obj.profile.image_url.slice(39) == "general_doctor_male.png" || obj.profile.image_url.slice(39) == "general_doctor_female.png") ?  
+				(obj.profile.image_url.slice(39) === "general_doctor_male.png" || obj.profile.image_url.slice(39) === "general_doctor_female.png") ?  
 				<i className="fa fa-user-md fa-5x" aria-hidden="true"></i> :
 				<img className="docimg" src={obj.profile.image_url} alt={obj.profile.last_name} 
 				 />
@@ -71,10 +84,6 @@ function doctorName (obj) {
 	);
 }
 
-function doctorImage (obj) {
-
-}
-
 class API extends React.Component {
 
 	constructor() {
@@ -82,15 +91,22 @@ class API extends React.Component {
 
 		this.state = {
 			resultArr: [],
-			latLong: []
+			latLong: undefined
 		}
 
 	};
 
 	componentWillMount() {
 
+		function Hello () {return "Testing"}
+		this.setState({latLong: Hello()});
+		
+	}
 
-		console.log("This first");
+	componentDidMount() {
+
+		console.log(this.state.latLong);
+		
 		axios.get(resource_url)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr); 
@@ -102,9 +118,8 @@ class API extends React.Component {
 	render () {
 		
 		return (
-			<div className = "info">
+			<div className="info">
 				{this.state.resultArr.map(doctorName)}
-	
 			</div>
 		);
 		
