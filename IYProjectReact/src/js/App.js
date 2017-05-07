@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/App.css';
 import Header from './Header';
-import API from './API';
+import DoctorProfile from './DoctorProfile';
 //import Doctors from './doctors';
 
 class App extends React.Component {
@@ -27,7 +27,7 @@ class App extends React.Component {
      <div className="App">
        
        <Header onClick={this.handleClick} />
-        {this.state.clicked ? <API /> : null} 
+        {this.state.clicked ? <DoctorProfile /> : null} 
       
      </div>
    );

@@ -34,7 +34,7 @@ function returnSpecialties (obj) {
 }
 
 
-function doctorName (obj) {
+function doctorInfo (obj) {
 	//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
 	var doctorSrc = obj.profile.image_url;
 	if (obj.profile.image_url.slice(39) === "general_doctor_male.png") {
@@ -68,7 +68,7 @@ function doctorName (obj) {
 	);
 }
 
-class API extends React.Component {
+class DoctorProfile extends React.Component {
 
 	constructor() {
 		super();
@@ -129,11 +129,11 @@ class API extends React.Component {
 		
 		return (
 			<div className="info">
-				{this.state.resultArr.map(doctorName)}
+				{this.state.resultArr.map(doctorInfo)}
 
 			</div>
 		);
 		
 	}
 }
-module.exports = API;
+module.exports = DoctorProfile;
