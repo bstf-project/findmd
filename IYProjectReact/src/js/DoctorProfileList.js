@@ -31,8 +31,8 @@ class DoctorProfileList extends React.Component {
 	    this.setState({coordinates : userPosition});
 
     	console.log("this.state.coordinates "+ this.state.coordinates);
-	
-		this.APIcall();		   
+
+		this.APIcall();
 	}
 
 	getLocation() {
@@ -56,7 +56,7 @@ class DoctorProfileList extends React.Component {
 		//API call using axios.get
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
-			//console.log(this.state.resultArr); 
+			//console.log(this.state.resultArr);
 		});
 
 	}
@@ -71,19 +71,20 @@ class DoctorProfileList extends React.Component {
 
 		}
 		else {
-		
+
 			return (
 
-				<div>
+				<div className="loading-icon">
 
-					Loading...
-
+					<center><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+					<p>Loading...</p>
+					</center>
 				</div>
 
 			);
 
 		}
-		
+
 	}
 }
 module.exports = DoctorProfileList;
