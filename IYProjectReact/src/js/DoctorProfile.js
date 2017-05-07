@@ -1,27 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-var api_key = "789b28d7d74840d2eb449527c4d61127";
-//var coordinates = "40.7128,-74.006"; //NY City coordinates
-var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
-var distance = 30; //Want to toggle this
-
-//var coordinates = getLocation();
-//Columbia doctors within a 1 mile radius of columbia_coord
-
-
-var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' + coordinates + ',' + distance + '&skip=0&limit=10&user_key=' + api_key;
-
 function returnDistance (obj) {
 	var statement = Math.round(obj.distance) + " miles away";
-
-	//Tests if doctor office is too far away
-	// if (obj.distance > distance) {
-	// 	statement = "TOO FAR";
-	// }
-	// else if (obj.distance < 1) {
-	// 	statement = "< " + Math.round(obj.distance) +" mile away";
-	// }
+	
 	if (Math.round(obj.distance) === 1) {
 	 	statement = Math.round(obj.distance) + " mile away";
 	 }
@@ -86,14 +68,16 @@ class DoctorProfile extends React.Component {
 		this.state = {
 			resultArr: [],
 			testStatement: undefined,
-			latLong: []
+			latLong: [0, 6, 4, 57,456354 ,34573678 ,45645],
+			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
+			coordinates: '34.000,-81.035',
+			distance: 1,
+			api_key: '789b28d7d74840d2eb449527c4d61127'
 		}
 
 	};
 
 	componentWillMount() {
-
-
 
 
 		function getLocation() {
@@ -125,8 +109,8 @@ class DoctorProfile extends React.Component {
 		console.log(this.state.testStatement);
 		console.log(this.state.latLong);
 
-		
-			axios.get(resource_url)
+		//API call using axios.get
+			axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 				.then(response => {this.setState({resultArr: response.data.data});
 				console.log(this.state.resultArr); 
 			});
@@ -140,7 +124,9 @@ class DoctorProfile extends React.Component {
 		return (
 			<div className="info">
 				{this.state.resultArr.map(doctorInfo)}
+				Hello?
 				{this.state.latLong}
+				Wtf
 
 			</div>
 		);
