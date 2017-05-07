@@ -5,36 +5,23 @@ import '../css/App.css';
 
 class Location extends React.Component {
 
-    getLocation() {
-        
-        if (navigator.geolocation) {
-            return navigator.geolocation.getCurrentPosition(this.showPosition);
-        } else {
-            null;
-        }
+ showPosition(position) {
 
-    }
+    console.log("Position: " + String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7));
 
-    showPosition(position) {
-
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
-
-        return [String(position.coords.latitude), String(position.coords.longitude)]; 
-    }
-
-    render() {
-       return (
-         <div className = "App">
-
-             {this.getLocation()}
-            
-         </div>
-       );
-     }
-
+    return String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
+   
 }
 
-var coordinates = getLocation(); 
+ getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+}
 
 module.exports = Location;

@@ -28,6 +28,7 @@ class App extends React.Component {
        
        <Header onClick={this.handleClick} />
         {this.state.clicked ? <API /> : null} 
+      
      </div>
    );
  }
