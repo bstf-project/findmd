@@ -74,7 +74,7 @@ class DoctorProfileList extends React.Component {
 		
 			return (
 
-				<div className="info">
+				<div>
 
 					Loading...
 
