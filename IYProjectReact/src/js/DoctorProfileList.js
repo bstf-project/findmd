@@ -41,7 +41,7 @@ class DoctorProfileList extends React.Component {
 
 	        navigator.geolocation.getCurrentPosition(this.showPosition);
 
-	    }else {
+	    } else {
 
 	    	this.APIcall();
 
