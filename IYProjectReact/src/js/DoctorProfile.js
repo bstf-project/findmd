@@ -47,7 +47,7 @@ function doctorInfo (obj) {
 
 	return (
 		<div className="api-data container">	
-			<h4>{obj.profile.first_name + " " + obj.profile.last_name}</h4>
+			<h3>{obj.profile.first_name + " " + obj.profile.last_name}</h3>
 
 
 			<div className="doc-image">

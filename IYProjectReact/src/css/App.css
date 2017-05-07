@@ -53,6 +53,13 @@ h1 {
   color: #333;
   font-size: 50px; }
 
+h3 {
+  color: #1C67A6;
+  border-bottom: 1px solid #1C67A6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  padding: 10px; }
+
 h4 {
   color: #1C67A6;
   font-size: 25px;
@@ -134,12 +141,14 @@ li {
   color: #000; }
 
 img {
-  padding: 10px; }
+  padding: 10px;
+  padding-right: 30px; }
 
 .api-data {
-  background: rgba(255, 255, 255, 0.9);
+  /*Taking this off for now
+  background: rgba(255, 255, 255, 0.9);*/
   border-style: solid;
-  border-width: 3px;
+  border-width: 1px;
   border-color: #1C67A6;
   border-radius: 10px;
   padding: 10px;
