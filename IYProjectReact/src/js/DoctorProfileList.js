@@ -13,7 +13,7 @@ class DoctorProfileList extends React.Component {
 		this.state = {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
-			coordinates: '34.000,-81.035',
+			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127'
 		}
@@ -23,14 +23,16 @@ class DoctorProfileList extends React.Component {
 	};
 
 	showPosition(position) {
-    	console.log(this.state.coordinates);
+
     	var userPosition = String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
 
-    	return userPosition;
+    	console.log("userPosition " + userPosition);
 
 	    this.setState({coordinates : userPosition});
 
-			   
+    	console.log("this.state.coordinates "+ this.state.coordinates);
+	
+		this.APIcall();		   
 	}
 
 	getLocation() {
@@ -39,18 +41,22 @@ class DoctorProfileList extends React.Component {
 
 	        navigator.geolocation.getCurrentPosition(this.showPosition);
 
-	    }
+	    }else {
 
-	    this.APIcall();
+	    	this.APIcall();
+
+	    }
 
 	}
 
 	APIcall() {
 
+		console.log("API call " + this.state.coordinates);
+
 		//API call using axios.get
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
-			console.log(this.state.resultArr); 
+			//console.log(this.state.resultArr); 
 		});
 
 	}
