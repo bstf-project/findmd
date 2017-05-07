@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
-
 var api_key = "789b28d7d74840d2eb449527c4d61127";
 //var coordinates = "40.7128,-74.006"; //NY City coordinates
 var coordinates = "34.000,-81.035"; //Lat and Lon values of Columbia, SC
@@ -17,15 +15,17 @@ var resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=' +
 function returnDistance (obj) {
 	var statement = Math.round(obj.distance) + " miles away";
 
-	if (obj.distance > distance) {
-		statement = "TOO FAR";
-	}
-	else if (obj.distance < 1) {
-		statement = "< " + Math.round(obj.distance) +" mile away";
-	}
-	else if (Math.round(obj.distance) === 1) {
-		statement = " mile away";
-	}
+	//Tests if doctor office is too far away
+	// if (obj.distance > distance) {
+	// 	statement = "TOO FAR";
+	// }
+	// else if (obj.distance < 1) {
+	// 	statement = "< " + Math.round(obj.distance) +" mile away";
+	// }
+	if (Math.round(obj.distance) === 1) {
+	 	statement = Math.round(obj.distance) + " mile away";
+	 }
+
 	return (
 		<div className="doctor-offices">
 			<h2>{obj.visit_address.street + " " + obj.visit_address.city + ", " + obj.visit_address.state + " " + obj.visit_address.zip}</h2>
@@ -86,7 +86,7 @@ class DoctorProfile extends React.Component {
 		this.state = {
 			resultArr: [],
 			testStatement: undefined,
-			latLong: undefined
+			latLong: []
 		}
 
 	};
@@ -94,17 +94,17 @@ class DoctorProfile extends React.Component {
 	componentWillMount() {
 
 
-		function showPosition(position) {
+
+
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(function showPosition(position) {
 
 		    console.log("Position: " + String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7));
 
 		    return String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
 		   
-		}
-
-		function getLocation() {
-		    if (navigator.geolocation) {
-		        navigator.geolocation.getCurrentPosition(showPosition);
+		});
 
 		    } else {
 		        alert("Geolocation is not supported by this browser.");
@@ -140,6 +140,7 @@ class DoctorProfile extends React.Component {
 		return (
 			<div className="info">
 				{this.state.resultArr.map(doctorInfo)}
+				{this.state.latLong}
 
 			</div>
 		);
