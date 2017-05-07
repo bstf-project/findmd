@@ -26,7 +26,13 @@ function returnDistance (obj) {
 	else if (Math.round(obj.distance) === 1) {
 		statement = " mile away";
 	}
-	return <p>{statement}</p>;
+	return (
+		<div className="doctor-offices">
+			<h2>{obj.visit_address.street + " " + obj.visit_address.city + ", " + obj.visit_address.state + " " + obj.visit_address.zip}</h2>
+			<p>{statement}</p>
+		</div>
+		
+	);
 }
 
 function returnSpecialties (obj) {
@@ -54,16 +60,20 @@ function doctorInfo (obj) {
 				<img className="docimg" src={doctorSrc} alt={obj.profile.last_name} />		
 			</div>
 
+			<div>
+				<h4>About: </h4>
+				<p className="doc-bio">{obj.profile.bio}</p>
+			</div>			
 
-			<p className="doc-distance">{obj.practices.map(returnDistance)}</p>
 			<div>
 				<h4>Specialties:</h4>
 				<p className="doc-specialties">{obj.specialties.map(returnSpecialties)}</p>
 			</div>
+
 			<div>
-				<h4>About: </h4>
-				<p className="doc-bio">{obj.profile.bio}</p>
-			</div>
+				<h4>Offices</h4>
+				<p className="doc-distance">{obj.practices.map(returnDistance)}</p>
+			</div>			
 		</div>
 	);
 }
