@@ -24,10 +24,13 @@ class DoctorProfiles extends React.Component {
 		}
 
 		function returnDistance (item) {
-			var statement = Math.round(item.distance) + " miles away";
+			var statement = Math.round(item.distance) + " miles from your location";
 
 			if (Math.round(item.distance) === 1) {
-			 	statement = Math.round(item.distance) + " mile away";
+			 	statement = Math.round(item.distance) + " mile from your location";
+			 }
+			 else if (Math.round(item.distance) < 1) {
+			 	statement = " < 1 mile from your location";
 			 }
 
 			return (
@@ -41,11 +44,17 @@ class DoctorProfiles extends React.Component {
 
 		//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
 		var doctorSrc = item.profile.image_url;
+
 		if (item.profile.image_url.slice(39) === "general_doctor_male.png") {
+
 			doctorSrc = "http://www.bloomfieldhealth.org/assets/images/doctors/9.png";
+
 		}
+
 		else if (item.profile.image_url.slice(39) === "general_doctor_female.png") {
+
 			doctorSrc = "https://img.clipartfest.com/3473fe27a237ac460a90f94f8fd47b9b_doctor-icon-doctor-icon-clipart_2100-2400.png";
+
 		}
 
 		return (
