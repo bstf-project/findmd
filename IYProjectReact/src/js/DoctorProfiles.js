@@ -6,15 +6,6 @@ import React from 'react';
 
 class DoctorProfiles extends React.Component {
 
-	// constructor() {
-	// super();
-
-	// this.returnSpecialties = this.returnSpecialties.bind(this);
-	// this.returnDistance = this.returnDistance.bind(this);
-
-	// }
-
-
 	generateDoctors(item) {
 
 		console.log(item);
@@ -59,7 +50,7 @@ class DoctorProfiles extends React.Component {
 
 		return (
 			<div className="api-data container">	
-				<h3>{item.profile.first_name + " " + item.profile.last_name}</h3>
+				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
 				<div className="doc-image">
