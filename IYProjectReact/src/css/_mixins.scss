@@ -26,3 +26,11 @@
   -o-transition: $args;
   transition: $args;
 }
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
