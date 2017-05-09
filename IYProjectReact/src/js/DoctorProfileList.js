@@ -27,6 +27,7 @@ class DoctorProfileList extends React.Component {
 
 	};
 // Toronto coordinates: 34.052,-118.243
+// Los Angeles, CA coordinates: 34.0522,-118.2437
 
 	showPosition(position) {
 
@@ -71,7 +72,7 @@ class DoctorProfileList extends React.Component {
 		//Need to write an if statement to test if the coordinate or zip code value is in the proper format, APICall will trigger if format is correct
 		{this.setState({coordinates: e.target.value})}
 
-		this.APIcall();
+		this.APIcall(); 
 	}
 
 	render () {
@@ -81,16 +82,19 @@ class DoctorProfileList extends React.Component {
 			return (
 				<div>
 
-					<form>
-				        <input
-						className="search-box"	        	
-				          type="text"
-				          value={this.state.coordinates}
-				          ref="filterTextInput"
-				          onChange={this.handleChange}
-				        />
+					<div className="search-wrapper">
+						<form>
+					        <input
+							className="search-box"	        	
+					          type="text"
+					          value={this.state.coordinates}
+					          ref="filterTextInput"
+					          onChange={this.handleChange}
+					        />
 
-		      		</form>
+			      		</form>
+			      		<button className="search-button" onClick={this.handleChange}>Search</button>
+		      		</div>
 					
 					<InsuranceFilter insuranceData={this.state.resultArr} />
 					<DoctorProfiles doctorData={this.state.resultArr}/>
