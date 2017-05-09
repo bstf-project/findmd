@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
+import InsuranceFilter from './InsuranceFilter';
+import SearchBar from './SearchBar';
 
 class DoctorProfileList extends React.Component {
 
@@ -9,18 +11,22 @@ class DoctorProfileList extends React.Component {
 
 		this.showPosition = this.showPosition.bind(this);
 		this.getLocation = this.getLocation.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 
 		this.state = {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			distance: 1,
-			api_key: '789b28d7d74840d2eb449527c4d61127'
+			api_key: '789b28d7d74840d2eb449527c4d61127',
+			insurance: undefined,
+			searchValue: "This is the search value"
 		}
 
 		this.getLocation();
 
 	};
+// Toronto coordinates: 34.052,-118.243
 
 	showPosition(position) {
 
@@ -61,12 +67,34 @@ class DoctorProfileList extends React.Component {
 
 	}
 
+	handleChange (e) {
+		//Need to write an if statement to test if the coordinate or zip code value is in the proper format, APICall will trigger if format is correct
+		{this.setState({coordinates: e.target.value})}
+
+		this.APIcall();
+	}
+
 	render () {
 
 		if(this.state.resultArr !== undefined) {
 
 			return (
-				<DoctorProfiles doctorData={this.state.resultArr}/>
+				<div>
+
+					<form>
+				        <input
+						className="search-box"	        	
+				          type="text"
+				          value={this.state.coordinates}
+				          ref="filterTextInput"
+				          onChange={this.handleChange}
+				        />
+
+		      		</form>
+					
+					<InsuranceFilter insuranceData={this.state.resultArr} />
+					<DoctorProfiles doctorData={this.state.resultArr}/>
+				</div>
 			);
 
 		}

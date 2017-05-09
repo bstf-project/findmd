@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
 import DoctorProfileList from './DoctorProfileList';
+import InsuranceFilter from './InsuranceFilter';
+
+
+
 //import Doctors from './doctors';
 
-class App extends React.Component {
+class App extends Component {
 
  render() {
    return (
      <div className="App">
-       
+
       <Header />
-      <DoctorProfileList />
-      
+      <DoctorProfileList />  
      </div>
    );
  }
@@ -20,3 +23,8 @@ class App extends React.Component {
 } 
 
 module.exports = App;
+
+
+// Google Maps API KEY: AIzaSyC2NcoiiaD1fEQ3dIjewq6IouHDcBABOwc
+
+
