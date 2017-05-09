@@ -6,7 +6,6 @@
 
 $doctorBlue: #1C67A6;
 
-
 body {
     background-attachment: fixed;
     background-image: url(https://mrtimtang.files.wordpress.com/2010/05/sky.png);
@@ -145,6 +144,14 @@ form {
     margin: 20px 1px;
 }
 
+.leaflet-container {
+    height: 300px;
+    width: 600px;
+    display: block;
+    position: relative !important;
+    margin: 0 auto;
+}
+
 #app {
   padding:2rem;
 }
@@ -176,7 +183,7 @@ form {
   color: #000;
 }
 
-img {
+.docimg {
   padding: 10px;
   margin-right: 30px;
 }
