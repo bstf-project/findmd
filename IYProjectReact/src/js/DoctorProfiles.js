@@ -1,38 +1,41 @@
 import React from 'react';
 
 
-
-
-
 class DoctorProfiles extends React.Component {
 
 	generateDoctors(item) {
-
+		
 		//console.log(item);
 
 		function returnSpecialties (item) {
 			return <p>{item.description}</p>;
 		}
 
-		function returnDistance (item) {
-			var statement = Math.round(item.distance) + " miles from your location";
+		function returnOffices (item) {
+			//Checks if office is within search area
 
-			if (Math.round(item.distance) === 1) {
-			 	statement = Math.round(item.distance) + " mile from your location";
-			 }
-			 else if (Math.round(item.distance) < 1) {
-			 	statement = " < 1 mile from your location";
-			 }
+			if (item.distance < 10) {
 
+				var statement = Math.round(item.distance) + " miles from your location";
 
-			return (
-				<div className="doctor-offices">
-					<ul>
-						<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
-						<p>{statement}</p>
-					</ul>
-				</div>			
-			);
+				if (Math.round(item.distance) === 1) {
+				 	statement = Math.round(item.distance) + " mile from your location";
+				 }
+				 else if (Math.round(item.distance) < 1) {
+				 	statement = " < 1 mile from your location";
+				 }
+
+					return (
+						<div className="doctor-offices">
+							<ul>
+								<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
+								<p>{statement}</p>
+							</ul>
+						</div>			
+					);
+			}
+			else {return null}
+
 		}
 
 		//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
@@ -64,7 +67,7 @@ class DoctorProfiles extends React.Component {
 					<div className="doc-specialties">{item.specialties.map(returnSpecialties)}</div>
 				
 					<h4>Offices</h4>
-					{item.practices.map(returnDistance)}
+					{item.practices.map(returnOffices)}
 
 					<h4>About: </h4>
 					<p className="doc-bio">{item.profile.bio}</p>					
@@ -83,6 +86,7 @@ class DoctorProfiles extends React.Component {
 			<div>
 
 				{this.props.doctorData.map(this.generateDoctors)}
+				
 
 
 			</div>

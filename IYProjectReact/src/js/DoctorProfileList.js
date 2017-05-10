@@ -123,7 +123,7 @@ class DoctorProfileList extends React.Component {
 		      		</div>
 					
 					<InsuranceFilter insuranceData={this.state.resultArr} />
-					<DoctorProfiles doctorData={this.state.resultArr}/>
+					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);
 
