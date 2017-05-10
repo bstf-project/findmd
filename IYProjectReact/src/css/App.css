@@ -156,6 +156,13 @@ form {
   font-size: 1rem;
   margin: 20px 1px; }
 
+.leaflet-container {
+  height: 300px;
+  width: 600px;
+  display: block;
+  position: relative !important;
+  margin: 0 auto; }
+
 #app {
   padding: 2rem; }
 
@@ -181,7 +188,7 @@ form {
 .doc-specialties {
   color: #000; }
 
-img {
+.docimg {
   padding: 10px;
   margin-right: 30px; }
 

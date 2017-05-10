@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
+import Leaflet from './Leaflet';
 import DoctorProfileList from './DoctorProfileList';
 import InsuranceFilter from './InsuranceFilter';
 
@@ -15,16 +16,15 @@ class App extends Component {
      <div className="App">
 
       <Header />
-      <DoctorProfileList />  
+      <Leaflet />
+      <DoctorProfileList />
+
      </div>
    );
  }
-
-} 
+}
 
 module.exports = App;
 
 
 // Google Maps API KEY: AIzaSyC2NcoiiaD1fEQ3dIjewq6IouHDcBABOwc
-
-
