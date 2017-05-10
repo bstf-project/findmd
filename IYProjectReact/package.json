@@ -6,7 +6,8 @@
     "google-maps-react": "^1.0.19",
     "handlebars": "^4.0.7",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-native-geocoder": "^0.4.8"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

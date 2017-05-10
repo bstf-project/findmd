@@ -3,6 +3,10 @@ import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
 import InsuranceFilter from './InsuranceFilter';
 import SearchBar from './SearchBar';
+var zipcodes = require('zipcodes');
+
+
+
 
 class DoctorProfileList extends React.Component {
 
@@ -11,7 +15,10 @@ class DoctorProfileList extends React.Component {
 
 		this.showPosition = this.showPosition.bind(this);
 		this.getLocation = this.getLocation.bind(this);
+		this.updateCoords = this.updateCoords.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+	
+		
 
 		this.state = {
 			resultArr: undefined,
@@ -24,6 +31,7 @@ class DoctorProfileList extends React.Component {
 		}
 
 		this.getLocation();
+
 
 	};
 // Toronto coordinates: 34.052,-118.243
@@ -52,14 +60,20 @@ class DoctorProfileList extends React.Component {
 
 	    	this.APIcall();
 
+
 	    }
 
 	}
+	
 
 	APIcall() {
 
 		console.log("API call " + this.state.coordinates);
-
+		
+		// var hills = zipcodes.lookup(90210);
+		// console.log(hills);
+		// console.log("HILLSLAT: " + hills.latitude);
+		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
@@ -68,10 +82,16 @@ class DoctorProfileList extends React.Component {
 
 	}
 
+	updateCoords (e) {
+		var convertedCoords= String(zipcodes.lookup(e.target.value).latitude + "," +zipcodes.lookup(e.target.value).longitude);
+		console.log(convertedCoords);
+
+		{this.setState({coordinates: convertedCoords})}
+	}
+
+
 	handleChange (e) {
 		//Need to write an if statement to test if the coordinate or zip code value is in the proper format, APICall will trigger if format is correct
-		{this.setState({coordinates: e.target.value})}
-
 		this.APIcall(); 
 	}
 
@@ -89,11 +109,11 @@ class DoctorProfileList extends React.Component {
 					          type="text"
 					          value={this.state.coordinates}
 					          ref="filterTextInput"
-					          onChange={this.handleChange}
+					          onChange={this.updateCoords}
 					        />
 
 			      		</form>
-			      		<button className="search-button" onClick={this.handleChange}>Search</button>
+			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 					
 					<InsuranceFilter insuranceData={this.state.resultArr} />

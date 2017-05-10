@@ -4,7 +4,7 @@ import React from 'react';
 class InsuranceFilter extends React.Component {
 
 	generateInsurance (item) {
-		console.log(item);
+		//console.log(item);
 
 		function getDoctorInsurance (obj) {
 			return (obj.insurance_plan.name + ", ");

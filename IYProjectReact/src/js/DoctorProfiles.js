@@ -8,7 +8,7 @@ class DoctorProfiles extends React.Component {
 
 	generateDoctors(item) {
 
-		console.log(item);
+		//console.log(item);
 
 		function returnSpecialties (item) {
 			return <p>{item.description}</p>;
