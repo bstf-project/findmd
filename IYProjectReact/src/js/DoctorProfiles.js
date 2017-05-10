@@ -24,12 +24,14 @@ class DoctorProfiles extends React.Component {
 			 	statement = " < 1 mile from your location";
 			 }
 
+
 			return (
 				<div className="doctor-offices">
-					<h2>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</h2>
-					<p>{statement}</p>
-				</div>
-				
+					<ul>
+						<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
+						<p>{statement}</p>
+					</ul>
+				</div>			
 			);
 		}
 
@@ -53,24 +55,20 @@ class DoctorProfiles extends React.Component {
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
-				<div className="doc-image">
-					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />		
-				</div>
+				
+					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />	
+						
 
-				<div>
-					<h4>About: </h4>
-					<p className="doc-bio">{item.profile.bio}</p>
-				</div>			
-
-				<div>
+				
 					<h4>Specialties:</h4>
 					<div className="doc-specialties">{item.specialties.map(returnSpecialties)}</div>
-				</div>
-
-				<div>
+				
 					<h4>Offices</h4>
-					<div className="doc-distance">{item.practices.map(returnDistance)}</div>
-				</div>			
+					{item.practices.map(returnDistance)}
+
+					<h4>About: </h4>
+					<p className="doc-bio">{item.profile.bio}</p>					
+						
 			</div>
 		);
 

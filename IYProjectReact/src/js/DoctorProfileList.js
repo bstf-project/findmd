@@ -3,7 +3,7 @@ import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
 import InsuranceFilter from './InsuranceFilter';
 import SearchBar from './SearchBar';
-var zipcodes = require('zipcodes');
+import zipcodes from 'zipcodes';
 
 
 
@@ -27,7 +27,6 @@ class DoctorProfileList extends React.Component {
 			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			insurance: undefined,
-			searchValue: "This is the search value"
 		}
 
 		this.getLocation();
@@ -75,24 +74,31 @@ class DoctorProfileList extends React.Component {
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=50&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
-			//console.log(this.state.resultArr);
+			console.log(this.state.resultArr);
 		});
 
 	}
 
 	updateCoords (e) {
-		var convertedCoords= String(zipcodes.lookup(e.target.value).latitude + "," +zipcodes.lookup(e.target.value).longitude);
-		console.log(convertedCoords);
+		if (e.target.value.length === 5 ) {
 
-		{this.setState({coordinates: convertedCoords})}
+			var convertedCoords= String(zipcodes.lookup(e.target.value).latitude + "," +zipcodes.lookup(e.target.value).longitude);
+			console.log(convertedCoords);
+		}
+
+
+			{this.setState({coordinates: convertedCoords})}
+		
+
 	}
 
 
 	handleChange (e) {
-		//Need to write an if statement to test if the coordinate or zip code value is in the proper format, APICall will trigger if format is correct
+
 		this.APIcall(); 
+
 	}
 
 	render () {
@@ -107,7 +113,7 @@ class DoctorProfileList extends React.Component {
 					        <input
 							className="search-box"	        	
 					          type="text"
-					          value={this.state.coordinates}
+					          placeholder="Search by zipcode"
 					          ref="filterTextInput"
 					          onChange={this.updateCoords}
 					        />
@@ -129,7 +135,7 @@ class DoctorProfileList extends React.Component {
 				<div className="loading-icon">
 
 					<center><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-					<p>Loading...</p>
+					<p>Fetching doctors near you</p>
 					</center>
 				</div>
 
