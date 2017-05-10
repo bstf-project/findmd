@@ -1,28 +1,28 @@
 import React from 'react';
-import InsuranceFilter from './InsuranceFilter';
+
 
 
 class DoctorProfiles extends React.Component {
 
-	generateDoctors(item) {
+	generateDoctors(item, i) {
 		
 		//console.log(item);
 
-		function returnSpecialties (item) {
-			return <p>{item.description}</p>;
+		function returnSpecialties (item, i) {
+			return <p key={"key" + i}>{item.description}</p>;
 		}
 
 		
-		function returnInsurance (item) {
+		function returnInsurance (item, i) {
 			//item.insurance_plan.name
-			return <p>{item.insurance_plan.name}</p>
+			return <p key={"key" + i}>{item.insurance_plan.name}</p>
 
 		}
 
-		function returnOffices (item) {
+		function returnOffices (item, i) {
 			//Checks if office is within search area
 
-			if (item.distance < 10) {
+			//if (item.distance < 10) {
 
 				var statement = Math.round(item.distance) + " miles from your location";
 
@@ -34,15 +34,15 @@ class DoctorProfiles extends React.Component {
 				 }
 
 					return (
-						<div className="doctor-offices">
+						<div key={"key" + i} className="doctor-offices">
 							<ul>
 								<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
 								<p>{statement}</p>
 							</ul>
 						</div>			
 					);
-			}
-			else {return null}
+			// }
+			// else {return null}
 
 		}
 
@@ -62,7 +62,7 @@ class DoctorProfiles extends React.Component {
 		}
 
 		return (
-			<div className="api-data container">	
+			<div key={"key" + i} className="api-data container">	
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
@@ -72,28 +72,28 @@ class DoctorProfiles extends React.Component {
 					<div className="dropdown">				
 					<h4>Specialties</h4>
 						<div className="dropdown-content doc-specialties">
-							<p>{item.specialties.map(returnSpecialties)}</p>
+							{item.specialties.map(returnSpecialties)}
 						</div>
 					</div>
 				
 					<div className="dropdown">
 					<h4>Offices</h4>
 						<div className="dropdown-content">
-							<p>{item.practices.map(returnOffices)}</p>
+							{item.practices.map(returnOffices)}
 						</div>
 					</div>
 
 					<div className="dropdown">
 					<h4>Bio</h4>
 						<div className="dropdown-content doc-bio">
-							<p>{item.profile.bio}</p>
+							{item.profile.bio}
 						</div>
 					</div>
 
 					<div className="dropdown">
 					<h4>Insurances</h4>
-						<div className="dropdown-content">
-							<p>{item.insurances.map(returnInsurance)}</p>
+						<div className="dropdown-content insurance-options">
+							{item.insurances.map(returnInsurance)}
 						</div>
 					</div>					
 						

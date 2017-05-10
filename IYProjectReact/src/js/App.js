@@ -3,7 +3,7 @@ import '../css/App.css';
 import Header from './Header';
 import Leaflet from './Leaflet';
 import DoctorProfileList from './DoctorProfileList';
-import InsuranceFilter from './InsuranceFilter';
+
 
 
 

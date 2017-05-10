@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
-import markericon from 'leaflet/dist/images/marker-icon.png';
+
 
 
 class Leaflet extends Component {
@@ -30,7 +30,7 @@ class Leaflet extends Component {
             attribution='&copy; <a href="#'
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
-          <Marker src={markericon} position={position}>
+          <Marker position={position}>
             <Popup>
               <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
             </Popup>

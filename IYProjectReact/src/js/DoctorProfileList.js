@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
-import SearchBar from './SearchBar';
 import zipcodes from 'zipcodes';
 
 
@@ -67,7 +66,7 @@ class DoctorProfileList extends React.Component {
 	APIcall() {
 
 		console.log("API call " + this.state.coordinates);
-		
+		console.log(zipcodes.lookupByName('Columbia', 'SC'));
 		// var hills = zipcodes.lookup(90210);
 		// console.log(hills);
 		// console.log("HILLSLAT: " + hills.latitude);
@@ -88,7 +87,7 @@ class DoctorProfileList extends React.Component {
 		}
 
 
-			{this.setState({coordinates: convertedCoords})}
+			this.setState({coordinates: convertedCoords})
 		
 
 	}

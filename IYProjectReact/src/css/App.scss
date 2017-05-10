@@ -193,19 +193,8 @@ form {
 }
 
 .insurance-options {
-  font-size: 25px;
-  border: 1px solid #000;
-  padding: 1rem;
-  margin: 0 auto;
-  width: 50%;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.5);
-
-    .insurance-data {
-      display: block;
-    }
-  }
+  min-width: 30vw!important;
+  right: -9vw;
 }
 
 .insurance-data {
