@@ -72,7 +72,7 @@ class DoctorProfileList extends React.Component {
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=50&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});

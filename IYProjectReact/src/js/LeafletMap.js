@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css'
 
 
 
-class Leaflet extends Component {
+class LeafletMap extends Component {
 
   constructor() {
 
@@ -48,4 +47,4 @@ class Leaflet extends Component {
 
 }
 
-export default Leaflet;
+export default LeafletMap;
