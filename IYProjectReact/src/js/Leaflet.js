@@ -21,6 +21,7 @@ class Leaflet extends Component {
   render() {
 
     const position = [this.state.lat, this.state.lng];
+    const anotherPosition = [34.015, -81.029];
 
     return (
       <div >
@@ -32,6 +33,11 @@ class Leaflet extends Component {
           <Marker src={markericon} position={position}>
             <Popup>
               <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+            </Popup>
+          </Marker>
+          <Marker position={anotherPosition}>
+            <Popup>
+              <span>Butthole</span>
             </Popup>
           </Marker>
         </Map>

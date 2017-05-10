@@ -1,4 +1,5 @@
 import React from 'react';
+import InsuranceFilter from './InsuranceFilter';
 
 
 class DoctorProfiles extends React.Component {
@@ -9,6 +10,13 @@ class DoctorProfiles extends React.Component {
 
 		function returnSpecialties (item) {
 			return <p>{item.description}</p>;
+		}
+
+		
+		function returnInsurance (item) {
+			//item.insurance_plan.name
+			return <p>{item.insurance_plan.name}</p>
+
 		}
 
 		function returnOffices (item) {
@@ -60,17 +68,34 @@ class DoctorProfiles extends React.Component {
 
 				
 					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />	
-						
-
+					
+					<div className="dropdown">				
+					<h4>Specialties</h4>
+						<div className="dropdown-content doc-specialties">
+							<p>{item.specialties.map(returnSpecialties)}</p>
+						</div>
+					</div>
 				
-					<h4>Specialties:</h4>
-					<div className="doc-specialties">{item.specialties.map(returnSpecialties)}</div>
-				
+					<div className="dropdown">
 					<h4>Offices</h4>
-					{item.practices.map(returnOffices)}
+						<div className="dropdown-content">
+							<p>{item.practices.map(returnOffices)}</p>
+						</div>
+					</div>
 
-					<h4>About: </h4>
-					<p className="doc-bio">{item.profile.bio}</p>					
+					<div className="dropdown">
+					<h4>Bio</h4>
+						<div className="dropdown-content doc-bio">
+							<p>{item.profile.bio}</p>
+						</div>
+					</div>
+
+					<div className="dropdown">
+					<h4>Insurances</h4>
+						<div className="dropdown-content">
+							<p>{item.insurances.map(returnInsurance)}</p>
+						</div>
+					</div>					
 						
 			</div>
 		);
@@ -86,6 +111,7 @@ class DoctorProfiles extends React.Component {
 			<div>
 
 				{this.props.doctorData.map(this.generateDoctors)}
+
 				
 
 

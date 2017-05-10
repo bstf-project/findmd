@@ -35,7 +35,7 @@ class InsuranceFilter extends React.Component {
 	render () {
 		return (
 			<div>
-				"Something"
+				
 				<div className="insurance-options">
 					Insurance Options
 					<div className="insurance-data">{this.props.insuranceData.map(this.generateInsurance)}</div>
