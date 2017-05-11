@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import Header from './Header';
-import LeafletMap from './LeafletMap';
+// import LeafletMap from './LeafletMap';
 import DoctorProfileList from './DoctorProfileList';
 
 
@@ -16,7 +16,7 @@ class App extends Component {
      <div className="App">
 
       <Header />
-      <LeafletMap />
+   
       <DoctorProfileList />
 
      </div>

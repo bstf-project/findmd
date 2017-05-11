@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
+import LeafletMap from './LeafletMap.js';
 
 
 
@@ -120,7 +121,7 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 					
-				
+					<LeafletMap />
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);

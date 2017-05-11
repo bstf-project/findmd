@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import '../css/App.css';
 
 
 
@@ -10,9 +11,9 @@ class LeafletMap extends Component {
     super();
 
     this.state = {
-      lat: 34.016,
-      lng: -81.030,
-      zoom: 15,
+      lat: 34.09,
+      lng: -118.41,
+      zoom: 12,
     };
 
   }
