@@ -23,8 +23,7 @@ class DoctorMarkersData extends Component {
 
 			for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
-				console.log(this.props.doctorMarkers[i][j]);
-
+				
 				var positionString = this.props.doctorMarkers[i][j];
 
 				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7); 
@@ -37,7 +36,7 @@ class DoctorMarkersData extends Component {
 
 				positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
 
-				console.log(positionStringArray);
+				
 				
 				ArrayOfMarkers.push(
 					<Marker position={positionStringArray}></Marker>

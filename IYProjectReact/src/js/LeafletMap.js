@@ -7,22 +7,23 @@ import '../css/App.css';
 
 class LeafletMap extends Component {
 
+
   constructor() {
+
 
     super();
 
     this.state = {
-      lat: 34.016,
-      lng: -81.030,
-      zoom: 12,
-      doctorArray: []
+      zoom: 8,
+      coordinates: undefined
     };
 
   }
 
-  componentDidMount () {
-    //console.log(this.props.doctorLocations.map(this.generateMarkers)[0]);
-  }
+
+
+
+
 
   generateDoctorLatLong (array) {
   
@@ -41,9 +42,13 @@ class LeafletMap extends Component {
 
 
   render() {
+    var centerLat = Number(this.props.centerLocation.slice(0, 4));
+    var centerLng = Number(this.props.centerLocation.slice(6));
+    console.log("LAT " + centerLat);
+    console.log("LON " + centerLng);
+    console.log(Number(this.props.centerLocation.length));
 
-   
-    const position = [this.state.lat, this.state.lng];
+    var position = [centerLat, centerLng];
      /*
     const anotherPosition = [34.015, -81.029];
     var exampleDoctor = [34.078659, -80.950507];
@@ -60,22 +65,13 @@ class LeafletMap extends Component {
 
           <DoctorMarkersData doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)} />
 
-          {/*
+          
           <Marker position={position}>
             <Popup>
               <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
             </Popup>
           </Marker>
-          <Marker position={[34.015, -81.029]}>
-            <Popup>
-              <span>Butthole</span>
-            </Popup>
-          </Marker>
-          <Marker position={exampleDoctor}>
-            <Popup>
-              <span>Veronica Hinkle, NP</span>
-            </Popup>
-          </Marker> */}
+
           
         </Map>
       </div>

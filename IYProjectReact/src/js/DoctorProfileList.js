@@ -37,7 +37,7 @@ class DoctorProfileList extends React.Component {
 
 	showPosition(position) {
 
-    	var userPosition = String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
+    	var userPosition = String(position.coords.latitude).slice(0, 5) + "," + String(position.coords.longitude).slice(0, 6);
 
     	console.log("userPosition " + userPosition);
 
@@ -127,7 +127,7 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 					
-					<LeafletMap doctorLocations={this.state.resultArr.map(this.mapLocations)} />
+					<LeafletMap centerLocation={this.state.coordinates} doctorLocations={this.state.resultArr.map(this.mapLocations)} />
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);
