@@ -121,7 +121,7 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 					
-					<LeafletMap />
+					<LeafletMap doctorData={this.state.resultArr} />
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);

@@ -11,12 +11,18 @@ class LeafletMap extends Component {
     super();
 
     this.state = {
-      lat: 34.09,
-      lng: -118.41,
+      lat: 34.016,
+      lng: -81.030,
       zoom: 12,
     };
 
   }
+
+  generateMarkers (obj, i) {
+    console.log(obj);
+    return obj.practices;
+  }
+
 
   render() {
 
@@ -25,6 +31,7 @@ class LeafletMap extends Component {
 
     return (
       <div >
+
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='&copy; <a href="#'
