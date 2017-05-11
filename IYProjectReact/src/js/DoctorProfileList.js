@@ -130,9 +130,6 @@ class DoctorProfileList extends React.Component {
 					
 					<LeafletMap centerLocation={this.state.coordinates} doctorLocations={this.state.resultArr.map(this.mapLocations)} />
 
-
-					<LeafletMap doctorLocations={this.state.resultArr.map(this.mapLocations)} />
-
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);

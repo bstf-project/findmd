@@ -42,11 +42,21 @@ class LeafletMap extends Component {
 
 
   render() {
-    var centerLat = Number(this.props.centerLocation.slice(0, 4));
-    var centerLng = Number(this.props.centerLocation.slice(6));
+    //I JUST FUCKING HAD THIS WORKING!!! --> Node was deleted issue
+    var centerLat;
+    var centerLng;
+    if (Number(this.props.centerLocation.length) < 10) {
+      centerLat = Number(this.props.centerLocation.slice(0, 2))
+      centerLng = Number(this.props.centerLocation.slice(3))
+    }
+    else {   
+      centerLat = Number(this.props.centerLocation.slice(0, 4));
+      centerLng = Number(this.props.centerLocation.slice(6));
+    }
+
     console.log("LAT " + centerLat);
     console.log("LON " + centerLng);
-    console.log(Number(this.props.centerLocation.length));
+    
 
     var position = [centerLat, centerLng];
      /*
