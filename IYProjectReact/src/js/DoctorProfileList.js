@@ -67,7 +67,7 @@ class DoctorProfileList extends React.Component {
 	APIcall() {
 
 		console.log("API call " + this.state.coordinates);
-		console.log(zipcodes.lookupByName('Columbia', 'SC'));
+		//console.log(zipcodes.lookupByName('Columbia', 'SC'));
 		// var hills = zipcodes.lookup(90210);
 		// console.log(hills);
 		// console.log("HILLSLAT: " + hills.latitude);
@@ -100,6 +100,12 @@ class DoctorProfileList extends React.Component {
 
 	}
 
+	mapLocations (obj) {
+		return obj.practices;
+		//returns an array of objects inside of it
+	}
+
+
 	render () {
 
 		if(this.state.resultArr !== undefined) {
@@ -121,7 +127,7 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 					
-					<LeafletMap doctorData={this.state.resultArr} />
+					<LeafletMap doctorLocations={this.state.resultArr.map(this.mapLocations)} />
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>
 			);
