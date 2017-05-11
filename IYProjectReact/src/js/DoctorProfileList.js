@@ -16,8 +16,8 @@ class DoctorProfileList extends React.Component {
 		this.getLocation = this.getLocation.bind(this);
 		this.updateCoords = this.updateCoords.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-	
-		
+
+
 
 		this.state = {
 			resultArr: undefined,
@@ -62,7 +62,7 @@ class DoctorProfileList extends React.Component {
 	    }
 
 	}
-	
+
 
 	APIcall() {
 
@@ -89,14 +89,14 @@ class DoctorProfileList extends React.Component {
 
 
 			this.setState({coordinates: convertedCoords})
-		
+
 
 	}
 
 
 	handleChange (e) {
 
-		this.APIcall(); 
+		this.APIcall();
 
 	}
 
@@ -116,9 +116,9 @@ class DoctorProfileList extends React.Component {
 					<div className="search-wrapper">
 						<form>
 					        <input
-							className="search-box"	        	
+							className="search-box"
 					          type="text"
-					          placeholder="Search by zipcode"
+					          placeholder="Search by zip code"
 					          ref="filterTextInput"
 					          onChange={this.updateCoords}
 					        />
@@ -126,7 +126,7 @@ class DoctorProfileList extends React.Component {
 			      		</form>
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
-					
+
 					<LeafletMap doctorLocations={this.state.resultArr.map(this.mapLocations)} />
 					<DoctorProfiles searchRadius={this.state.distance} doctorData={this.state.resultArr}/>
 				</div>

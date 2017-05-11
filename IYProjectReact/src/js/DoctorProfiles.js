@@ -5,14 +5,14 @@ import React from 'react';
 class DoctorProfiles extends React.Component {
 
 	generateDoctors(item, i) {
-		
+
 		//console.log(item);
 
 		function returnSpecialties (item, i) {
 			return <p key={"key" + i}>{item.description}</p>;
 		}
 
-		
+
 		function returnInsurance (item, i) {
 			//item.insurance_plan.name
 			return <p key={"key" + i}>{item.insurance_plan.name}</p>
@@ -39,7 +39,7 @@ class DoctorProfiles extends React.Component {
 								<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
 								<p>{statement}</p>
 							</ul>
-						</div>			
+						</div>
 					);
 			// }
 			// else {return null}
@@ -62,20 +62,20 @@ class DoctorProfiles extends React.Component {
 		}
 
 		return (
-			<div key={"key" + i} className="api-data container">	
+			<div key={"key" + i} className="api-data container">
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
-				
-					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />	
-					
-					<div className="dropdown">				
+
+					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />
+
+					<div className="dropdown">
 					<h4>Specialties</h4>
 						<div className="dropdown-content doc-specialties">
 							{item.specialties.map(returnSpecialties)}
 						</div>
 					</div>
-				
+
 					<div className="dropdown">
 					<h4>Offices</h4>
 						<div className="dropdown-content">
@@ -95,8 +95,8 @@ class DoctorProfiles extends React.Component {
 						<div className="dropdown-content insurance-options">
 							{item.insurances.map(returnInsurance)}
 						</div>
-					</div>					
-						
+					</div>
+
 			</div>
 		);
 
@@ -112,7 +112,7 @@ class DoctorProfiles extends React.Component {
 
 				{this.props.doctorData.map(this.generateDoctors)}
 
-				
+
 
 
 			</div>
