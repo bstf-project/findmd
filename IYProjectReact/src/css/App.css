@@ -79,7 +79,7 @@ h3 {
 
 h4 {
   color: #1C67A6;
-  font-size: 25px;
+  font-size: 1rem;
   padding: 10px; }
 
 p {
@@ -115,8 +115,8 @@ li {
   text-align: center; }
 
 .title-name {
-  height: 16rem;
-  width: 24rem;
+  height: 8rem;
+  width: 12rem;
   background-image: url(../img/logo2.gif);
   background-size: 100%;
   margin: 0 auto;
@@ -146,6 +146,13 @@ form {
 .content-placeholder {
   font-size: 5rem; }
 
+.loading-icon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px; }
+
 .search-button {
   display: inline-block;
   padding: 10px;
@@ -158,11 +165,12 @@ form {
 
 .leaflet-container {
   border-radius: 5px;
-  height: 75vh;
-  width: 90vw;
+  height: 25rem;
+  width: 50%;
   display: block;
   position: relative !important;
-  margin: 0 auto; }
+  margin-left: 3rem;
+  float: left; }
 
 #app {
   padding: 2rem; }
@@ -228,7 +236,9 @@ form {
   border-color: #1C67A6;
   border-radius: 10px;
   padding: 10px;
-  margin: 10px auto; }
+  width: 30rem;
+  margin-right: 3rem;
+  float: right; }
 
 @media screen only and (min-width: 767px) {
   .api-data {
