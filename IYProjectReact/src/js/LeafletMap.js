@@ -20,11 +20,6 @@ class LeafletMap extends Component {
 
   }
 
-
-
-
-
-
   generateDoctorLatLong (array) {
   
 
@@ -38,6 +33,13 @@ class LeafletMap extends Component {
     
     return array.map(fetchCoords);
 
+  }
+
+  generateDoctorNames (array) {
+    function fetchNames (obj) {
+      return obj.name;
+    }
+    return array.map(fetchNames);
   }
 
 
@@ -73,7 +75,7 @@ class LeafletMap extends Component {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
-          <DoctorMarkersData doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)} />
+          <DoctorMarkersData doctorNames={this.props.doctorLocations.map(this.generateDoctorNames)} doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)} />
 
           
           <Marker position={position}>
