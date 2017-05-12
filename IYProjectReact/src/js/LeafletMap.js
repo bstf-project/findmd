@@ -52,25 +52,9 @@ class LeafletMap extends Component {
      console.log("LATSTRING " + this.props.centerLocation.slice(0, 5));
      console.log("LONSTRING " + this.props.centerLocation.slice(7) );
 
-
-    // if (Number(this.props.centerLocation.length) < 14) {
-    //   centerLat = Number(this.props.centerLocation.slice(0, 5)).toFixed(3);
-    //   centerLng = Number(this.props.centerLocation.slice(6)).toFixed(3);
-    // }     
-    //Don't need these
-    if (Number(this.props.centerLocation.length) === 12) {
-      centerLat = Number(this.props.centerLocation.slice(0, 5)).toFixed(3);
-      centerLng = Number(this.props.centerLocation.slice(6)).toFixed(3);
-    }
-    else if (Number(this.props.centerLocation.length) === 13) {
-      centerLat = Number(this.props.centerLocation.slice(0, 5)).toFixed(3);
-      centerLng = Number(this.props.centerLocation.slice(6)).toFixed(3);      
-    }
-
-    else {   
-      centerLat = Number(this.props.centerLocation.slice(0, 4)).toFixed(3);
-      centerLng = Number(this.props.centerLocation.slice(7)).toFixed(3);
-    }
+    centerLat = Number(this.props.centerLocation.slice(0, 4)).toFixed(3);
+    centerLng = Number(this.props.centerLocation.slice(7)).toFixed(3);
+   
 
 
     console.log("LAT " + centerLat);

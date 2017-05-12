@@ -40,6 +40,7 @@ class DoctorMarkersData extends Component {
 					<Marker position={positionStringArray}>
 						<Popup>
 			              <span>{this.props.doctorNames[i][j]}</span>
+			              
 			            </Popup>
 					</Marker>
 				);
