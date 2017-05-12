@@ -23,7 +23,7 @@ class DoctorProfileList extends React.Component {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
-			distance: 50,
+			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			insurance: undefined,
 		}
@@ -37,7 +37,7 @@ class DoctorProfileList extends React.Component {
 
 	showPosition(position) {
 
-    	var userPosition = String(position.coords.latitude).slice(0, 5) + "," + String(position.coords.longitude).slice(0, 6);
+    	var userPosition = String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
 
     	console.log("userPosition " + userPosition);
 
@@ -73,7 +73,7 @@ class DoctorProfileList extends React.Component {
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=50&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=5&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
@@ -82,8 +82,9 @@ class DoctorProfileList extends React.Component {
 
 	updateCoords (e) {
 		if (e.target.value.length === 5 ) {
-
-			var convertedCoords= String(zipcodes.lookup(e.target.value).latitude + "," +zipcodes.lookup(e.target.value).longitude);
+			console.log("Zipcode LAT " + zipcodes.lookup(e.target.value).latitude );
+			console.log("Zipcode Lon " + zipcodes.lookup(e.target.value).longitude);
+			var convertedCoords= String(Number(zipcodes.lookup(e.target.value).latitude).toFixed(3) + "," + Number(zipcodes.lookup(e.target.value).longitude).toFixed(3));
 			console.log(convertedCoords);
 		}
 
