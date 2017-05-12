@@ -23,7 +23,7 @@ class DoctorProfileList extends React.Component {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
-			distance: 1,
+			distance: 50,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			insurance: undefined,
 		}

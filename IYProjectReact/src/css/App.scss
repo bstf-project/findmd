@@ -163,6 +163,20 @@ form {
     float: left;
 }
 
+.leaflet-popup-content {
+    margin: 13px 0px;
+    /* line-height: 1.4; */
+    border-radius: none;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 8px;
+    /* text-align: left; */
+    border-radius: 12px;
+    font-size: 25px;
+    width: 26rem;
+}
+
 #app {
   padding:2rem;
 }
