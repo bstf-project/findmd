@@ -69,12 +69,14 @@ class DoctorProfileList extends React.Component {
 
 		console.log("API call " + this.state.coordinates);
 		//console.log(zipcodes.lookupByName('Columbia', 'SC'));
-		var hills = zipcodes.lookup(90210);
-		console.log(hills);
+		var zipcodeObject = zipcodes.lookup(29118);
+		console.log(zipcodeObject);
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=20&user_key=' + this.state.api_key)
+
+		//Skip limit affects if small town doctors get returned, apparently
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=2&limit=20&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
