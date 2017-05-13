@@ -174,7 +174,8 @@ form {
 .leaflet-container {
   border-radius: 5px;
   height: 100%;
-  width: 100%;
+  /*width: 25%;*/
+  width: 66%;
   display: block;
   position: fixed !important;
   float: left;
@@ -257,10 +258,11 @@ form {
   border-color: #1C67A6;
   border-radius: 10px;
   padding: 10px;
-  width: 30rem;
-  /*margin-right: 3rem;*/
-  float: left;
-  display: none; }
+  width: 33%;
+  margin-right: 5px;
+  /* float: right; */
+  display: block;
+  /* display: none; */ }
 
 @media screen only and (min-width: 767px) {
   .api-data {

@@ -4,12 +4,25 @@ import React from 'react';
 
 class DoctorProfiles extends React.Component {
 
+	generateUIDs () {
+		var uidArray = [];
+		var uids;
+		for (var i = 0; i < this.props.doctorLocations.length; i++) {
+
+			for (var j = 0; j < this.props.doctorLocations[i].length; j++) {
+				uids = this.props.doctorLocationUIDS[i][j];
+				uidArray.push(uids);
+			}
+		}
+		return uidArray;
+	}
+
 	generateDoctors(item, i) {
 
 		//console.log(item);
 
 		function returnSpecialties (item, i) {
-			return <p key={"key" + i}>{item.description}</p>;
+			return <p key={"key" + i}>{item.name}</p>;
 		}
 
 
@@ -62,7 +75,7 @@ class DoctorProfiles extends React.Component {
 		}
 
 		return (
-			<div key={"key" + i} className="api-data container">
+			<div key={"key" + i} id={item.profile.first_name} className="api-data container">
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
@@ -80,6 +93,7 @@ class DoctorProfiles extends React.Component {
 					<h4>Offices</h4>
 						<div className="dropdown-content">
 							{item.practices.map(returnOffices)}
+
 						</div>
 					</div>
 

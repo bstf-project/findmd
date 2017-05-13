@@ -22,13 +22,10 @@ class LeafletMap extends Component {
 
   generateDoctorLatLong (array) {
   
-
-    function fetchCoords (obj) {
-      
+    function fetchCoords (obj) {    
       return (
         obj.lat + ", " + obj.lon
       );
-
     }
     
     return array.map(fetchCoords);
@@ -41,6 +38,14 @@ class LeafletMap extends Component {
     }
     return array.map(fetchNames);
   }
+
+  generateDoctorUIDS (array) {
+    function fetchUIDS (obj) {
+      return obj.uid;
+    }
+
+    return array.map(fetchUIDS);
+  } 
 
 
   render() {
@@ -82,8 +87,8 @@ class LeafletMap extends Component {
     // }
 
     // else {   
-      centerLat = Number(this.props.centerLocation.slice(0, 4)).toFixed(3);
-      centerLng = Number(this.props.centerLocation.slice(7)).toFixed(3);
+      centerLat = Number(this.props.centerLocation.slice(0, 6));
+      centerLng = Number(this.props.centerLocation.slice(7));
     //}
 
 
@@ -106,12 +111,20 @@ class LeafletMap extends Component {
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
           />
 
-          <DoctorMarkersData doctorNames={this.props.doctorLocations.map(this.generateDoctorNames)} doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)} />
+          <DoctorMarkersData 
+            doctorNames={this.props.doctorLocations.map(this.generateDoctorNames)}
+            doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)}
+            doctorUIDS={this.props.doctorLocations.map(this.generateDoctorUIDS)}
+            doctorData={this.props.doctorData}
+             />
+            }
+            }
 
           
           <Marker position={position}>
             <Popup>
-              <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+              <span>Your location</span>
+              
             </Popup>
           </Marker>
 
