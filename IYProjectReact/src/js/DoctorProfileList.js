@@ -74,7 +74,7 @@ class DoctorProfileList extends React.Component {
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=1&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=20&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
@@ -141,11 +141,6 @@ class DoctorProfileList extends React.Component {
 					
 					<DoctorProfiles searchRadius={this.state.distance} 
 					doctorData={this.state.resultArr}
-					doctorLocationUIDS={this.state.resultArr.map(this.mapLocations).map(function (array) {
-						return array.map(function(obj) {
-							return obj.uid;
-						})
-					})}
 					/>
 
 					{/*

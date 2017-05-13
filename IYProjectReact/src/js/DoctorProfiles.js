@@ -4,19 +4,6 @@ import React from 'react';
 
 class DoctorProfiles extends React.Component {
 
-	generateUIDs () {
-		var uidArray = [];
-		var uids;
-		for (var i = 0; i < this.props.doctorLocations.length; i++) {
-
-			for (var j = 0; j < this.props.doctorLocations[i].length; j++) {
-				uids = this.props.doctorLocationUIDS[i][j];
-				uidArray.push(uids);
-			}
-		}
-		return uidArray;
-	}
-
 	generateDoctors(item, i) {
 
 		//console.log(item);
@@ -75,7 +62,8 @@ class DoctorProfiles extends React.Component {
 		}
 
 		return (
-			<div key={"key" + i} id={item.profile.first_name} className="api-data container">
+			//Created id here by mapping over the practices array and digging into the obj and grabbing the obj's uid
+			<div key={"key" + i} id={item.uid} className="api-data container">
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 
