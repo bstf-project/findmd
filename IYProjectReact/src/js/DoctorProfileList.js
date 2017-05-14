@@ -3,7 +3,7 @@ import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
-import DoctorUIDProfiles from './DoctorUIDProfiles';
+
 
 
 
@@ -69,8 +69,6 @@ class DoctorProfileList extends React.Component {
 
 		console.log("API call " + this.state.coordinates);
 		//console.log(zipcodes.lookupByName('Columbia', 'SC'));
-		var zipcodeObject = zipcodes.lookup(29118);
-		console.log(zipcodeObject);
 		// console.log("HILLSLAT: " + hills.latitude);
 		// console.log("HILLSLONG: " + hills.longitude);
 		//API call using axios.get
@@ -90,6 +88,9 @@ class DoctorProfileList extends React.Component {
 			console.log("Zipcode Lon " + zipcodes.lookup(e.target.value).longitude);
 			var convertedCoords= String(Number(zipcodes.lookup(e.target.value).latitude).toFixed(3) + "," + Number(zipcodes.lookup(e.target.value).longitude).toFixed(3));
 			console.log(convertedCoords);
+
+			var zipcodeObject = zipcodes.lookup(e.target.value);
+			console.log(zipcodeObject);
 		}
 
 
@@ -141,14 +142,10 @@ class DoctorProfileList extends React.Component {
 					/>
 
 					
-					<DoctorProfiles searchRadius={this.state.distance} 
+					<DoctorProfiles 
+					searchRadius={this.state.distance} 
 					doctorData={this.state.resultArr}
 					/>
-
-					{/*
-					<DoctorUIDProfiles />
-
-					*/}
 				</div>
 			);
 

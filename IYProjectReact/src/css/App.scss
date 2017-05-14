@@ -68,6 +68,7 @@ a {
 a, a:visited {
     color: rgb(84, 180, 210);
     font-size: 25px;
+    text-decoration: none!important;
 }
 
 a:hover {
@@ -120,6 +121,8 @@ form {
     text-align: center;
     margin: 0 auto;
     width: 100%;
+    position: fixed;
+    z-index: 99;
 }
 
 .search-box {
@@ -263,7 +266,7 @@ form {
     border-style: solid;
     border-width: 1px;
     border-color: #1C67A6;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     padding: 10px;
     width: 33%;
     margin-right: 5px;

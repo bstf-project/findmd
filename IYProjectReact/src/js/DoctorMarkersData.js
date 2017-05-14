@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
-import DoctorUIDProfiles from './DoctorUIDProfiles';
 
 class DoctorMarkersData extends Component {
 
@@ -39,15 +38,14 @@ class DoctorMarkersData extends Component {
 				//{this.props.doctorNames[i][j]} =>Put this back in if shit fucks up
 				ArrayOfMarkers.push(
 					<Marker position={positionStringArray}>
-						<Popup id={this.props.doctorUIDS[i][j]}>
+						<Popup>
 			              
 			            <a href={"#" +this.props.profileUIDS[i]}>
-				            <h3>
-				            	{this.props.doctorNames[i][j]}
-				            	{/*
-				            	<DoctorUIDProfiles uid={this.props.doctorUIDS[i][j]} />
-				            	*/}
-				            </h3>
+				            
+				            	<span>{this.props.doctorNames[i][j]}</span>
+
+				         	
+				            
 				        </a>
 			            
 			              
@@ -66,6 +64,8 @@ class DoctorMarkersData extends Component {
 	}
 
 	render() {
+
+		console.log(this.props.profileUIDS);
 
 		return (
 
