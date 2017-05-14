@@ -125,7 +125,8 @@ li {
   background-position: center;
   position: fixed;
   z-index: 1;
-  margin-left: 2rem; }
+  margin-left: 2rem;
+  pointer-events: none; }
   .title-name:after {
     content: "";
     display: table;
@@ -139,7 +140,8 @@ form {
   margin: 0 auto;
   width: 100%;
   position: fixed;
-  z-index: 99; }
+  z-index: 99;
+  pointer-events: none; }
 
 .search-box {
   z-index: 1;
@@ -149,7 +151,8 @@ form {
   border-radius: 2px;
   height: 5%;
   font-size: 15px;
-  position: relative; }
+  position: relative;
+  pointer-events: auto; }
 
 .content-placeholder {
   font-size: 5rem; }
@@ -172,7 +175,8 @@ form {
   font-size: 1rem;
   margin: 20px 1px;
   z-index: 1;
-  position: relative; }
+  position: relative;
+  pointer-events: auto; }
 
 .leaflet-container {
   border-radius: 5px;
@@ -261,11 +265,11 @@ form {
   border-color: #1C67A6;
   /*border-radius: 10px;*/
   padding: 10px;
+  height: 100vh;
   width: 33%;
   margin-right: 5px;
   /* float: right; */
-  display: block;
-  /* display: none; */ }
+  display: block; }
 
 @media screen only and (min-width: 767px) {
   .api-data {

@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
 
+var Scroll  = require('react-scroll');
+
+var scroll     = Scroll.animateScroll;
+
+
+
 class DoctorMarkersData extends Component {
 
 	constructor() {
@@ -9,7 +15,7 @@ class DoctorMarkersData extends Component {
 
 		this.generateDoctorMarkers = this.generateDoctorMarkers.bind(this);
 
-	}	
+	}
 
 	generateDoctorMarkers() {
 		var ArrayOfMarkers = [];
@@ -23,9 +29,9 @@ class DoctorMarkersData extends Component {
 
 			for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
-				
+
 				//var positionString = this.props.doctorMarkers[i][j];
-				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7); 
+				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7);
 				var positionStringLon = this.props.doctorMarkers[i][j].slice(10);
 
 				var positionStringArray = [];
@@ -34,21 +40,21 @@ class DoctorMarkersData extends Component {
 
 				positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
 
-				
+
 				//{this.props.doctorNames[i][j]} =>Put this back in if shit fucks up
 				ArrayOfMarkers.push(
 					<Marker position={positionStringArray}>
 						<Popup>
-			              
-			            <a href={"#" +this.props.profileUIDS[i]}>
-				            
+
+			            <a href={"#"  +this.props.profileUIDS[i] }>
+
 				            	<span>{this.props.doctorNames[i][j]}</span>
 
-				         	
-				            
+
+
 				        </a>
-			            
-			              
+
+
 
 			            </Popup>
 					</Marker>
@@ -60,7 +66,7 @@ class DoctorMarkersData extends Component {
 		}
 
 		return ArrayOfMarkers
-		
+
 	}
 
 	render() {

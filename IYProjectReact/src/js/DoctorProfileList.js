@@ -74,7 +74,7 @@ class DoctorProfileList extends React.Component {
 		//API call using axios.get
 
 		//Skip limit affects if small town doctors get returned, apparently
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=2&limit=20&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=20&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
@@ -127,23 +127,23 @@ class DoctorProfileList extends React.Component {
 					          placeholder="Search by zip code"
 					          ref="filterTextInput"
 					          onChange={this.updateCoords}
-					         
+
 					        />
 
 			      		</form>
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
 		      		</div>
 
-					
-					<LeafletMap 
-					centerLocation={this.state.coordinates} 
+
+					<LeafletMap
+					centerLocation={this.state.coordinates}
 					doctorLocations={this.state.resultArr.map(this.mapLocations)}
-					doctorData={this.state.resultArr} 
+					doctorData={this.state.resultArr}
 					/>
 
-					
-					<DoctorProfiles 
-					searchRadius={this.state.distance} 
+
+					<DoctorProfiles
+					searchRadius={this.state.distance}
 					doctorData={this.state.resultArr}
 					/>
 				</div>
