@@ -46,7 +46,8 @@ class DoctorMarkersData extends Component {
 					<Marker position={positionStringArray}>
 						<Popup>
 
-			            <a href={"#"  +this.props.profileUIDS[i] }>
+			            <a href={"#"  +this.props.profileUIDS[i] }
+										>
 
 				            	<span>{this.props.doctorNames[i][j]}</span>
 
@@ -68,6 +69,8 @@ class DoctorMarkersData extends Component {
 		return ArrayOfMarkers
 
 	}
+
+
 
 	render() {
 
