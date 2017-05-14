@@ -63,7 +63,7 @@ class DoctorProfiles extends React.Component {
 
 		return (
 			//Created id here by mapping over the practices array and digging into the obj and grabbing the obj's uid
-			<div key={"key" + i} id={item.uid} className="api-data container">
+			<div key={"key" + i} id={item.uid} className="api-data container doctor-profile">
 				<h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3>
 
 

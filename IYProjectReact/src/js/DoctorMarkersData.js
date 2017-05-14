@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
+import '../css/App.css';
 
 class DoctorMarkersData extends Component {
 
@@ -9,6 +10,10 @@ class DoctorMarkersData extends Component {
 
 		this.generateDoctorMarkers = this.generateDoctorMarkers.bind(this);
 
+	}
+
+	toggle () {
+		this.setState({hide: !this.state.hide});
 	}	
 
 	generateDoctorMarkers() {
@@ -40,16 +45,12 @@ class DoctorMarkersData extends Component {
 					<Marker position={positionStringArray}>
 						<Popup>
 			              
-			            <a href={"#" +this.props.profileUIDS[i]}>
-				            
-				            	<span>{this.props.doctorNames[i][j]}</span>
+				            <a href={"#" +this.props.profileUIDS[i]}>
+					            
+					            <span>{this.props.doctorNames[i][j]}</span>
 
-				         	
+					        </a>
 				            
-				        </a>
-			            
-			              
-
 			            </Popup>
 					</Marker>
 				);

@@ -74,7 +74,7 @@ class DoctorProfileList extends React.Component {
 		//API call using axios.get
 
 		//Skip limit affects if small town doctors get returned, apparently
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=2&limit=20&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=20&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
