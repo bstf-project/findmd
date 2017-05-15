@@ -83,7 +83,9 @@ class DoctorProfileList extends React.Component {
 
 
 	updateCoords (e) {
-		if (e.target.value.length === 5 ) {
+		if (e.target.value.length === 5 && e.keyCode === 13 ) {
+			e.preventDefault();
+
 			console.log("Zipcode LAT " + zipcodes.lookup(e.target.value).latitude );
 			console.log("Zipcode Lon " + zipcodes.lookup(e.target.value).longitude);
 			var convertedCoords= String(Number(zipcodes.lookup(e.target.value).latitude).toFixed(3) + "," + Number(zipcodes.lookup(e.target.value).longitude).toFixed(3));
@@ -98,6 +100,7 @@ class DoctorProfileList extends React.Component {
 
 
 	}
+
 
 
 	handleChange (e) {
@@ -126,7 +129,7 @@ class DoctorProfileList extends React.Component {
 					          type="text"
 					          placeholder="Search by zip code"
 					          ref="filterTextInput"
-					          onChange={this.updateCoords}
+					          onKeyDown={this.updateCoords}
 
 					        />
 
