@@ -35,7 +35,7 @@ class DoctorMarkersData extends Component {
 				positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
 
 
-				//{this.props.doctorNames[i][j]} =>Put this back in if shit fucks up
+					
 				ArrayOfMarkers.push(
 					<Marker position={positionStringArray}>
 						<Popup>
