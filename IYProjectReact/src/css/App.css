@@ -210,7 +210,7 @@ form {
 
 .docimg {
   float: left;
-  height: 175px;
+  height: 155px;
   padding: .2em;
   margin: 1.1em; }
 
@@ -244,6 +244,9 @@ form {
 .insurance-options {
   min-width: 30vw !important;
   right: -9vw; }
+
+.view-more {
+  margin-left: 2em; }
 
 .dropdown {
   cursor: pointer;
