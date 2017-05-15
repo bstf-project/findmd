@@ -37,23 +37,22 @@ class DoctorMarkersData extends Component {
 
 				//{this.props.doctorNames[i][j]} =>Put this back in if shit fucks up
 				ArrayOfMarkers.push(
-					<Marker position={positionStringArray}>
-						<Popup>
+          <Marker position={positionStringArray}>
+              <Popup>
 
-			            <a href={"#" +this.props.profileUIDS[i]}>
+              <a href={"#" +this.props.profileUIDS[i]}>
 
-				            	<span>{this.props.doctorNames[i][j]}</span>
-
-
-
-				        </a>
+                      <span>{this.props.doctorNames[i][j]}</span>
 
 
 
-			            </Popup>
-					</Marker>
-				);
+              </a>
 
+
+
+              </Popup>
+          </Marker>
+      );
 
 			}
 

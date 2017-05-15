@@ -46,19 +46,21 @@ h3 {
   color: $doctorBlue;
   border-bottom: 1px solid $doctorBlue;
   font-family: 'Raleway', sans-serif;
-  font-size: 35px;
+  font-size: 2rem;
   padding: 10px;
 }
 
 h4 {
   color: $doctorBlue;
   font-size: 1rem;
-  padding: 10px;
+  line-height: 20px;
+  padding: 5px;
 }
 
 p {
   padding: 10px;
-  font-family: 'Source Sans Pro', serif;
+  font-family: 'Lato', serif;
+
 }
 
 a {
@@ -218,19 +220,21 @@ form {
 .doc-distance {
   color: #000;
   font-weight: bold;
-}
+  margin-left: 5px;
+  }
 
 .doc-bio {
   color: #000;
-  line-height: 1.5;
+  line-height: 1.5rem;
   min-width: 500px!important;
-  right: -17rem;
+  font-family: Lato;
 }
 
 .doc-specialties {
   color: #000;
   min-width: 35vw!important;
   right: -13vw;
+  display: inline;
 }
 
 .docimg {
@@ -251,7 +255,6 @@ form {
     cursor: pointer;
     position: relative;
     display: inline-block;
-
     &:hover {
       .dropdown-content {
         display: block;
@@ -275,6 +278,7 @@ form {
     border-style: solid;
     border-width: 1px;
     border-color: #1C67A6;
+    font-size: .8rem;
     /*border-radius: 10px;*/
     padding: 10px;
     height: 100vh;
@@ -283,6 +287,7 @@ form {
     margin-right: 5px;
     /* float: right; */
     display: block;
+    overflow:auto;
   }
 
   .doctor-profile.hidden {
