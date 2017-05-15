@@ -26,7 +26,7 @@ class DoctorProfileList extends React.Component {
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
-			amountReturned: 20,
+			amountReturned: 10,
 			skip_limit: 0
 			
 		}
@@ -119,7 +119,7 @@ class DoctorProfileList extends React.Component {
 	addDoctor () {
 		console.log("addDoctor button clicked!")
 		this.setState({
-			amountReturned: this.state.amountReturned + 1
+			amountReturned: this.state.amountReturned + 10
 		})
 
 		this.APIcall();
