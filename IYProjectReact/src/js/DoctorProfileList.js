@@ -18,13 +18,14 @@ class DoctorProfileList extends React.Component {
 		this.updateCoords = this.updateCoords.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.addDoctor = this.addDoctor.bind(this);
+		this.increaseRadius = this.increaseRadius.bind(this);
 
 
 		this.state = {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
-			distance: 1,
+			distance: 10,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: 10,
 			skip_limit: 0
@@ -79,6 +80,7 @@ class DoctorProfileList extends React.Component {
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
+			console.log(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key);
 		});
 
 	}
@@ -126,6 +128,14 @@ class DoctorProfileList extends React.Component {
 		
 	}
 
+	increaseRadius () {
+		this.setState({
+			distance: this.state.distance + 10
+		})
+
+		this.APIcall();
+	}
+
 
 	render () {
 
@@ -133,8 +143,8 @@ class DoctorProfileList extends React.Component {
 
 			return (
 				<div>
-
 					<div className="search-wrapper">
+					<button className="search-button btn-primary" onClick={this.increaseRadius}>Within {this.state.distance} miles</button>
 						<form>
 					        <input
 							className="search-box"
