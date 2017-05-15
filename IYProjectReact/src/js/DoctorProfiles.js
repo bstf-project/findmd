@@ -37,7 +37,7 @@ class DoctorProfiles extends React.Component {
 						<div key={"key" + i} className="doctor-offices">
 							<ul>
 								<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
-								<p>{statement}</p>
+								<li>{statement}</li>
 							</ul>
 						</div>
 					);
