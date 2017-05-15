@@ -37,23 +37,22 @@ class DoctorMarkersData extends Component {
 
 					
 				ArrayOfMarkers.push(
-					<Marker position={positionStringArray}>
-						<Popup>
+          <Marker position={positionStringArray}>
+              <Popup>
 
-			            <a href={"#" +this.props.profileUIDS[i]}>
+              <a href={"#" +this.props.profileUIDS[i]}>
 
-				            	<span>{this.props.doctorNames[i][j]}</span>
-
-
-
-				        </a>
+                      <span>{this.props.doctorNames[i][j]}</span>
 
 
 
-			            </Popup>
-					</Marker>
-				);
+              </a>
 
+
+
+              </Popup>
+          </Marker>
+      );
 
 			}
 

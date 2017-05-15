@@ -72,14 +72,14 @@ class DoctorProfiles extends React.Component {
 
 					<div className="dropdown">
 					<h4>Specialties</h4>
-						<div className="dropdown-content doc-specialties">
+						<div className="doc-specialties">
 							{item.specialties.map(returnSpecialties)}
 						</div>
 					</div>
 
 					<div className="dropdown">
 					<h4>Offices</h4>
-						<div className="dropdown-content">
+						<div className="doc-offices">
 							{item.practices.map(returnOffices)}
 
 						</div>
@@ -87,14 +87,14 @@ class DoctorProfiles extends React.Component {
 
 					<div className="dropdown">
 					<h4>Bio</h4>
-						<div className="dropdown-content doc-bio">
+						<div className="doc-bio">
 							{item.profile.bio}
 						</div>
 					</div>
 
 					<div className="dropdown">
 					<h4>Insurances</h4>
-						<div className="dropdown-content insurance-options">
+						<div className="insurance-options">
 							{item.insurances.map(returnInsurance)}
 						</div>
 					</div>
