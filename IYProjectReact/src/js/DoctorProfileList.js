@@ -17,7 +17,7 @@ class DoctorProfileList extends React.Component {
 		this.getLocation = this.getLocation.bind(this);
 		this.updateCoords = this.updateCoords.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-
+		this.addDoctor = this.addDoctor.bind(this);
 
 
 		this.state = {
@@ -26,7 +26,9 @@ class DoctorProfileList extends React.Component {
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
-			insurance: undefined,
+			amountReturned: 20,
+			skip_limit: 0
+			
 		}
 
 		this.getLocation();
@@ -74,7 +76,7 @@ class DoctorProfileList extends React.Component {
 		//API call using axios.get
 
 		//Skip limit affects if small town doctors get returned, apparently
-		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip=0&limit=20&user_key=' + this.state.api_key)
+		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
 			.then(response => {this.setState({resultArr: response.data.data});
 			console.log(this.state.resultArr);
 		});
@@ -114,6 +116,16 @@ class DoctorProfileList extends React.Component {
 		//returns an array of objects inside of it
 	}
 
+	addDoctor () {
+		console.log("addDoctor button clicked!")
+		this.setState({
+			amountReturned: this.state.amountReturned + 1
+		})
+
+		this.APIcall();
+		
+	}
+
 
 	render () {
 
@@ -134,7 +146,9 @@ class DoctorProfileList extends React.Component {
 					        />
 
 			      		</form>
-			      		<button className="search-button btn-primary" onClick={this.handleChange}>Search</button>
+			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
+						<button className="search-button btn-primary" onClick={this.addDoctor}>+</button>
+
 		      		</div>
 
 
