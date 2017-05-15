@@ -53,14 +53,14 @@ h3 {
 h4 {
   color: $doctorBlue;
   font-size: 1rem;
-  line-height: 20px;
-  padding: 5px;
+  margin: .5em 0;
+//  padding: 5px;
 }
 
 p {
-  padding: 10px;
+//  padding: 10px;
   font-family: 'Lato', serif;
-
+  margin-bottom: .5em;
 }
 
 a {
@@ -205,9 +205,12 @@ form {
 }
 
 .docimg {
-  border-radius: 50%;
+  //border-radius: 50%;
   float: left;
-  height: 200px;
+  height: 175px;
+  padding: .2em;
+  margin: 1.1em;
+
 }
 
 .fa-user-md {
@@ -220,14 +223,18 @@ form {
 .doc-distance {
   color: #000;
   font-weight: bold;
-  margin-left: 5px;
   }
 
 .doc-bio {
   color: #000;
-  line-height: 1.5rem;
+  //line-height: 1.5rem;
   min-width: 500px!important;
   font-family: Lato;
+}
+
+.doc-bio-container {
+  display: none;
+
 }
 
 .doc-specialties {
@@ -237,9 +244,8 @@ form {
   display: inline;
 }
 
-.docimg {
-  padding: 10px;
-  margin-right: 30px;
+.doc-insurances-container {
+  display: none;
 }
 
 .insurance-options {
@@ -247,9 +253,6 @@ form {
   right: -9vw;
 }
 
-.insurance-data {
-  display: none;
-}
 
 .dropdown {
     cursor: pointer;
@@ -281,9 +284,8 @@ form {
     font-size: .8rem;
     /*border-radius: 10px;*/
     padding: 10px;
-    height: 100vh;
     width: 33%;
-    height: 100vh;
+    height: auto;
     margin-right: 5px;
     /* float: right; */
     display: block;

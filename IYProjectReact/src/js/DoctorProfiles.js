@@ -84,14 +84,14 @@ class DoctorProfiles extends React.Component {
 
 					<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />
 
-					<div className="dropdown">
+					<div className="doc-specialties-container">
 					<h4>Specialties</h4>
 						<div className="doc-specialties">
 							{item.specialties.map(returnSpecialties)}
 						</div>
 					</div>
 
-					<div className="dropdown">
+					<div className="doc-offices-container">
 					<h4>Offices</h4>
 						<div className="doc-offices">
 							<p>{item.practices[0].visit_address.street + " " + item.practices[0].visit_address.city + ", " + item.practices[0].visit_address.state + " " + item.practices[0].visit_address.zip}</p>
@@ -105,19 +105,21 @@ class DoctorProfiles extends React.Component {
 						</div>
 					</div>
 
-					<div className="dropdown">
+					<div className="doc-bio-container">
 					<h4>Bio</h4>
 						<div className="doc-bio">
 							{item.profile.bio}
 						</div>
 					</div>
 
-					<div className="dropdown">
+					<div className="doc-insurances-container">
 					<h4>Insurances</h4>
 						<div className="insurance-options">
 							{item.insurances.map(returnInsurance)}
 						</div>
 					</div>
+
+				<button className="view-more btn-primary">View More</button>
 
 			</div>
 		);

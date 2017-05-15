@@ -80,12 +80,11 @@ h3 {
 h4 {
   color: #1C67A6;
   font-size: 1rem;
-  line-height: 20px;
-  padding: 5px; }
+  margin: .5em 0; }
 
 p {
-  padding: 10px;
-  font-family: 'Lato', serif; }
+  font-family: 'Lato', serif;
+  margin-bottom: .5em; }
 
 a {
   text-decoration: none; }
@@ -210,9 +209,10 @@ form {
   padding: 2rem; }
 
 .docimg {
-  border-radius: 50%;
   float: left;
-  height: 200px; }
+  height: 175px;
+  padding: .2em;
+  margin: 1.1em; }
 
 .fa-user-md {
   color: #1C67A6;
@@ -222,14 +222,15 @@ form {
 
 .doc-distance {
   color: #000;
-  font-weight: bold;
-  margin-left: 5px; }
+  font-weight: bold; }
 
 .doc-bio {
   color: #000;
-  line-height: 1.5rem;
   min-width: 500px !important;
   font-family: Lato; }
+
+.doc-bio-container {
+  display: none; }
 
 .doc-specialties {
   color: #000;
@@ -237,16 +238,12 @@ form {
   right: -13vw;
   display: inline; }
 
-.docimg {
-  padding: 10px;
-  margin-right: 30px; }
+.doc-insurances-container {
+  display: none; }
 
 .insurance-options {
   min-width: 30vw !important;
   right: -9vw; }
-
-.insurance-data {
-  display: none; }
 
 .dropdown {
   cursor: pointer;
@@ -273,9 +270,8 @@ form {
   font-size: .8rem;
   /*border-radius: 10px;*/
   padding: 10px;
-  height: 100vh;
   width: 33%;
-  height: 100vh;
+  height: auto;
   margin-right: 5px;
   /* float: right; */
   display: block;
