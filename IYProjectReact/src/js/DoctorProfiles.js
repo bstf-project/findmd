@@ -6,7 +6,7 @@ class DoctorProfiles extends React.Component {
 
 	generateDoctors(item, i) {
 
-		//console.log(item);
+		console.log(item);
 
 		function returnSpecialties (item, i) {
 			return <p key={"key" + i}>{item.name}</p>;
@@ -46,6 +46,20 @@ class DoctorProfiles extends React.Component {
 
 		}
 
+		function returnPhone (item) {
+
+			if (item.phones.map(function (obj) {return obj.type}) == 'landline') {
+				return (
+					<div> 
+					{item.phones[0].number};
+					</div>
+				)				
+			}
+			else {null}
+
+
+		}
+
 		//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
 		var doctorSrc = item.profile.image_url;
 
@@ -80,8 +94,14 @@ class DoctorProfiles extends React.Component {
 					<div className="dropdown">
 					<h4>Offices</h4>
 						<div className="doc-offices">
-							{item.practices.map(returnOffices)}
+							<p>{item.practices[0].visit_address.street + " " + item.practices[0].visit_address.city + ", " + item.practices[0].visit_address.state + " " + item.practices[0].visit_address.zip}</p>
+						</div>
+					</div>
 
+					<div className="dropdown">
+					<h4>Office Number:</h4>
+						<div className="doc-offices">
+							<p>{item.practices[0].phones[0].number}</p>
 						</div>
 					</div>
 
