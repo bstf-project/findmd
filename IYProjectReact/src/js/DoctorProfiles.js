@@ -132,7 +132,7 @@ class DoctorProfiles extends React.Component {
 
 		return (
 
-			<div>
+			<div className="doctors">
 
 				{this.props.doctorData.map(this.generateDoctors)}
 

@@ -29,7 +29,7 @@ class DoctorProfileList extends React.Component {
 			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: 10,
-			skip_limit: 0
+			skip_limit: 2
 			
 		}
 
@@ -169,7 +169,7 @@ class DoctorProfileList extends React.Component {
 					<LeafletMap
 					centerLocation={this.state.coordinates}
 					doctorLocations={this.state.resultArr.map(this.mapLocations)}
-					doctorData={this.state.resultArr}
+					doctorArray={this.state.resultArr}
 					/>
 
 					<DoctorProfiles
