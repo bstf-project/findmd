@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+//import DisplayDoctorProfiles from './displayDoctorProfiles';
 import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
@@ -25,7 +26,7 @@ class DoctorProfileList extends React.Component {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
-			distance: 10,
+			distance: 1,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: 10,
 			skip_limit: 0
@@ -87,8 +88,8 @@ class DoctorProfileList extends React.Component {
 
 
 	updateCoords (e) {
-		if (e.target.value.length === 5 && e.keyCode === 13 ) {
-			e.preventDefault();
+		if (e.target.value.length === 5) {
+			//e.preventDefault();
 
 			console.log("Zipcode LAT " + zipcodes.lookup(e.target.value).latitude );
 			console.log("Zipcode Lon " + zipcodes.lookup(e.target.value).longitude);
@@ -102,7 +103,10 @@ class DoctorProfileList extends React.Component {
 
 			this.setState({coordinates: convertedCoords})
 
-
+		if (e.keyCode === 13 )	{
+			e.preventDefault();
+			this.APIcall();
+		}
 	}
 
 
@@ -168,11 +172,10 @@ class DoctorProfileList extends React.Component {
 					doctorData={this.state.resultArr}
 					/>
 
-
 					<DoctorProfiles
 					searchRadius={this.state.distance}
 					doctorData={this.state.resultArr}
-					/>
+					/>					
 				</div>
 			);
 

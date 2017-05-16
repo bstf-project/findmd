@@ -42,7 +42,7 @@ class DoctorMarkersData extends Component {
 
               <a href={"#" +this.props.profileUIDS[i]}>
 
-                      <span>{this.props.doctorNames[i][j]}</span>
+                      <h2>{this.props.doctorNames[i][j]}</h2>
 
 
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-
 class DoctorProfiles extends React.Component {
+
 
 	generateDoctors(item, i) {
 
@@ -147,3 +147,6 @@ class DoctorProfiles extends React.Component {
 
 }
 module.exports = DoctorProfiles;
+
+
+
