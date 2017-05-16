@@ -101,14 +101,18 @@ class LeafletMap extends Component {
     const anotherPosition = [34.015, -81.029];
     var exampleDoctor = [34.078659, -80.950507];
     */
-
+// var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+//   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+//   subdomains: 'abcd',
+//   maxZoom: 19
+// });
     return (
       <div >
         
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='&copy; <a href="#'
-            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
           />
 
           <DoctorMarkersData 
