@@ -35,7 +35,6 @@ class DoctorMarkersData extends Component {
 				positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
 
 
-					
 				ArrayOfMarkers.push(
           <Marker position={positionStringArray}>
               <Popup>

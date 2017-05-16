@@ -19,46 +19,34 @@ class DoctorProfiles extends React.Component {
 
 		}
 
-		function returnOffices (item, i) {
-			//Checks if office is within search area
+		// May need to use below function later
+		// function returnOffices (item, i) {
+		// 	//Checks if office is within search area
 
-			//if (item.distance < 10) {
+		// 	//if (item.distance < 10) {
 
-				var statement = Math.round(item.distance) + " miles from your location";
+		// 		var statement = Math.round(item.distance) + " miles from your location";
 
-				if (Math.round(item.distance) === 1) {
-				 	statement = Math.round(item.distance) + " mile from your location";
-				 }
-				 else if (Math.round(item.distance) < 1) {
-				 	statement = " < 1 mile from your location";
-				 }
+		// 		if (Math.round(item.distance) === 1) {
+		// 		 	statement = Math.round(item.distance) + " mile from your location";
+		// 		 }
+		// 		 else if (Math.round(item.distance) < 1) {
+		// 		 	statement = " < 1 mile from your location";
+		// 		 }
 
-					return (
-						<div key={"key" + i} className="doctor-offices">
-							<ul>
-								<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
-								<li>{statement}</li>
-							</ul>
-						</div>
-					);
-			// }
-			// else {return null}
+		// 			return (
+		// 				<div key={"key" + i} className="doctor-offices">
+		// 					<ul>
+		// 						<li>{item.visit_address.street + " " + item.visit_address.city + ", " + item.visit_address.state + " " + item.visit_address.zip}</li>
+		// 						<li>{statement}</li>
+		// 					</ul>
+		// 				</div>
+		// 			);
+		// 	// }
+		// 	// else {return null}
 
-		}
+		// }
 
-		function returnPhone (item) {
-
-			if (item.phones.map(function (obj) {return obj.type}) == 'landline') {
-				return (
-					<div> 
-					{item.phones[0].number};
-					</div>
-				)				
-			}
-			else {null}
-
-
-		}
 
 		//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
 		var doctorSrc = item.profile.image_url;

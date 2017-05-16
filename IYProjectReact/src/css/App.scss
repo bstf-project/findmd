@@ -180,6 +180,17 @@ form {
     top:0px;
 }
 
+.leaflet-control-zoom {
+  position: relative;
+  top: 85vh;
+  /* z-index: 100000; */
+  left: 62vw;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
 @media only screen and (max-width: 850px) {
   .leaflet-container {
     width: 100%;

@@ -7,7 +7,8 @@ import LeafletMap from './LeafletMap.js';
 
 
 
-
+var defaultDistance = 1;
+var defaultAmountReturned = 10;
 
 class DoctorProfileList extends React.Component {
 
@@ -26,9 +27,9 @@ class DoctorProfileList extends React.Component {
 			resultArr: undefined,
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
-			distance: 1,
+			distance: defaultDistance,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
-			amountReturned: 10,
+			amountReturned: defaultAmountReturned,
 			skip_limit: 2
 			
 		}
@@ -79,8 +80,11 @@ class DoctorProfileList extends React.Component {
 
 		//Skip limit affects if small town doctors get returned, apparently
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
+
 			.then(response => {this.setState({resultArr: response.data.data});
+
 			console.log(this.state.resultArr);
+			
 			console.log(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key);
 		});
 
@@ -105,6 +109,8 @@ class DoctorProfileList extends React.Component {
 
 		if (e.keyCode === 13 )	{
 			e.preventDefault();
+			this.setState({distance: defaultDistance});
+			this.setState({amountReturned: defaultAmountReturned})
 			this.APIcall();
 		}
 	}
@@ -125,7 +131,7 @@ class DoctorProfileList extends React.Component {
 	addDoctor () {
 		console.log("addDoctor button clicked!")
 		this.setState({
-			amountReturned: this.state.amountReturned + 10
+			amountReturned: this.state.amountReturned += 10
 		})
 
 		this.APIcall();
@@ -134,7 +140,7 @@ class DoctorProfileList extends React.Component {
 
 	increaseRadius () {
 		this.setState({
-			distance: this.state.distance + 10
+			distance: this.state.distance += 10
 		})
 
 		this.APIcall();
