@@ -85,7 +85,7 @@ class DoctorProfiles extends React.Component {
 			<ScrollableAnchor id={item.uid}> 
 			<div key={"key" + i}  className="api-data container doctor-profile">
 		
-				<a href="#"><h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3></a>
+				<a href={"https://google.com/#q=" + item.profile.first_name + "+" + item.profile.last_name + "+" + item.profile.title} target="_blank"><h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3></a>
 
 
 						{<div>

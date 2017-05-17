@@ -109,7 +109,7 @@ class LeafletMap extends Component {
     return (
       <div >
         
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={position} zoom={this.state.zoom} animate={true}>
           <TileLayer
             attribution='&copy; <a href="#'
             url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
@@ -118,6 +118,7 @@ class LeafletMap extends Component {
           <DoctorMarkersData 
             doctorArray={this.props.doctorArray}
             doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)}
+
             doctorUIDS={this.props.doctorLocations.map(this.generateDoctorUIDS)}
             profileUIDS={this.props.doctorArray.map(function(obj) {return obj.uid})}
             doctorNames={this.props.doctorArray.map(function(obj) {return obj.profile.first_name + " " + obj.profile.last_name + ", " + obj.profile.title })}
