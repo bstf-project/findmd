@@ -95,12 +95,26 @@ class DoctorMarkersData extends Component {
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
               		<h2>{this.props.doctorNames[i]}</h2>
+              		<h4>Specialties: {this.props.doctorArray[i].specialties[0].name}</h4>
+              		<h4>Main office</h4>
+              		<div className="doc-offices">
+	              		<p>
+		              		{this.props.doctorArray[i].practices[0].visit_address.street +
+		              		" " + this.props.doctorArray[i].practices[0].visit_address.city +
+		              		", " + this.props.doctorArray[i].practices[0].visit_address.state +
+		              		" " + this.props.doctorArray[i].practices[0].visit_address.zip}
+	              		</p>
+	              	</div>
+              		   
+              		<div><img src={'"' + this.props.doctorArray[i].profile.img_url+ '"'}  alt={this.props.doctorArray[i].profile.last_name} /></div>
                       
               </a>
 
 
 
               </Popup>
+              		}
+              		}
               		}
           </Marker>
       );
