@@ -129,7 +129,7 @@ li {
   background-position: center;
   position: fixed;
   z-index: 1;
-  margin-left: 2rem;
+  margin-left: 0rem;
   pointer-events: none; }
   .title-name:after {
     content: "";
@@ -141,9 +141,10 @@ li {
   z-index: 2;
   display: block;
   pointer-events: none;
-  margin: 0 auto;
+  margin: 6rem 0 0 0.5rem;
   width: 150px;
-  float: right; }
+  float: right;
+  position: fixed; }
 
 .search-box {
   padding: 13px;

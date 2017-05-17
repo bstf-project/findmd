@@ -116,19 +116,20 @@ li {
   @include clearfix;
   position: fixed;
   z-index: 1;
-  margin-left: 2rem;
+  margin-left: 0rem;
   pointer-events: none;
 }
 
 
 .search-wrapper {
     text-align: center;
-   z-index: 2;
+    z-index: 2;
     display: block;
-    pointer-events:none;
-    margin: 0 auto;
+    pointer-events: none;
+    margin: 6rem 0 0 0.5rem;
     width: 150px;
-    float:right;
+    float: right;
+    position: fixed;
 }
 
 .search-box {

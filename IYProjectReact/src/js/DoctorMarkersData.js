@@ -64,23 +64,20 @@ class DoctorMarkersData extends Component {
 		//console.log("### " + this.props.doctorMarkers);
 
 
-		for (var i = 0; i < this.props.doctorMarkers2.length; i++) {
+		for (var i = 0; i < this.props.doctorMarkers.length; i++) {
 
 			//console.log("i: " + this.props.doctorMarkers[i]);
 
-			// for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
+			 for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
 
 				//var positionString = this.props.doctorMarkers[i][j];
-				console.log(this.props.doctorMarkers2[i].length);
-				console.log(this.props.doctorMarkers2[i]);
+				console.log(this.props.doctorMarkers[i].length);
+				console.log(this.props.doctorMarkers[i]);
 
-				var positionStringLon;
-				var positionStringLat = this.props.doctorMarkers2[i].slice(0, 7);
-				if (this.props.doctorMarkers2[i].length < 20) {
-					positionStringLon = this.props.doctorMarkers2[i].slice(9);
-				}
-				else {positionStringLon = this.props.doctorMarkers2[i].slice(10);}
+				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7);
+				var positionStringLon = this.props.doctorMarkers[i][j].slice(10);
+
 				
 				console.log("Marker lat length: "+ positionStringLat + " " + positionStringLat.length);
 				console.log("Marker lon length: "+ positionStringLon + " " + positionStringLon.length);
@@ -108,7 +105,7 @@ class DoctorMarkersData extends Component {
           </Marker>
       );
 
-			
+			}
 
 		}
 
