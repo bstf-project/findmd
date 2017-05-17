@@ -3,7 +3,7 @@ import '../css/App.css';
 import Header from './Header';
 // import LeafletMap from './LeafletMap';
 import DoctorProfileList from './DoctorProfileList';
-
+import ReallySmoothScroll from 'really-smooth-scroll';
 
 class App extends Component {
 

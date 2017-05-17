@@ -32,7 +32,7 @@ class DoctorProfileList extends React.Component {
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: defaultAmountReturned,
 			skip_limit: 2
-			
+
 		}
 
 		this.getLocation();
@@ -137,7 +137,7 @@ class DoctorProfileList extends React.Component {
 		})
 
 		this.APIcall();
-		
+
 	}
 
 	increaseRadius () {
@@ -155,8 +155,8 @@ class DoctorProfileList extends React.Component {
 
 			return (
 				<div>
+					<div className="wrap">
 					<div className="search-wrapper">
-					<button className="search-button btn-primary" onClick={this.increaseRadius}>Within {this.state.distance} miles</button>
 						<form>
 					        <input
 							className="search-box"
@@ -169,10 +169,12 @@ class DoctorProfileList extends React.Component {
 
 			      		</form>
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
-						<button className="search-button btn-primary" onClick={this.addDoctor}>+</button>
+								<button className="search-button plus-radius btn-primary" onClick={this.increaseRadius}>Within {this.state.distance} miles</button>
+						<button className="search-button btn-primary" onClick={this.addDoctor}>+ Radius</button>
 
-		      		</div>
-
+		      		
+						</div>
+					</div>
 
 					<LeafletMap
 					centerLocation={this.state.coordinates}
@@ -183,7 +185,7 @@ class DoctorProfileList extends React.Component {
 					<DoctorProfiles
 					searchRadius={this.state.distance}
 					doctorData={this.state.resultArr}
-					/>					
+					/>
 				</div>
 			);
 
