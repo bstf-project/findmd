@@ -99,7 +99,7 @@ class DoctorProfiles extends React.Component {
 							</div>
 		
 							<div className="doc-offices-container">
-							<h4>Offices</h4>
+							<h4>Main Office</h4>
 								<div className="doc-offices">
 									<p>{item.practices[0].visit_address.street + " " + item.practices[0].visit_address.city + ", " + item.practices[0].visit_address.state + " " + item.practices[0].visit_address.zip}</p>
 								</div>
