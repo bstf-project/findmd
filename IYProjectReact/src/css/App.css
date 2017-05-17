@@ -240,7 +240,9 @@ li {
   float: left;
   height: 155px;
   padding: .2em;
-  margin: 1.1em; }
+  margin: 1.1em;
+  border: 5px solid #aeb2ca;
+  border-radius: 5px; }
 
 .fa-user-md {
   color: #1C67A6;

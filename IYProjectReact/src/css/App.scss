@@ -242,11 +242,12 @@ li {
 }
 
 .docimg {
-  //border-radius: 50%;
-  float: left;
-  height: 155px;
-  padding: .2em;
-  margin: 1.1em;
+    float: left;
+    height: 155px;
+    padding: .2em;
+    margin: 1.1em;
+    border: 5px solid #aeb2ca;
+    border-radius: 5px;
 
 }
 
