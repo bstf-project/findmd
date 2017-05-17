@@ -116,11 +116,11 @@ class LeafletMap extends Component {
           />
 
           <DoctorMarkersData 
-            doctorNames={this.props.doctorLocations.map(this.generateDoctorNames)}
+            doctorArray={this.props.doctorArray}
             doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)}
             doctorUIDS={this.props.doctorLocations.map(this.generateDoctorUIDS)}
             profileUIDS={this.props.doctorArray.map(function(obj) {return obj.uid})}
-            doctorArray={this.props.doctorArray.map(function(obj) {return obj.profile.first_name + " " + obj.profile.last_name + ", " + obj.profile.title })}
+            doctorNames={this.props.doctorArray.map(function(obj) {return obj.profile.first_name + " " + obj.profile.last_name + ", " + obj.profile.title })}
              />
             }
             }
