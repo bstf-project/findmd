@@ -8,7 +8,8 @@
     "handlebars": "^4.0.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-native-geocoder": "^0.4.8"
+    "react-native-geocoder": "^0.4.8",
+    "react-scrollable-anchor": "^0.4.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

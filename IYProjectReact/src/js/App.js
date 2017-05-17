@@ -5,11 +5,6 @@ import Header from './Header';
 import DoctorProfileList from './DoctorProfileList';
 
 
-
-
-
-//import Doctors from './doctors';
-
 class App extends Component {
 
  render() {

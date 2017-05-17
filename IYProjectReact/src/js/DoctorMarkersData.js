@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
 
+
 class DoctorMarkersData extends Component {
 
 	constructor() {
@@ -9,6 +10,18 @@ class DoctorMarkersData extends Component {
 
 		this.generateDoctorMarkers = this.generateDoctorMarkers.bind(this);
 
+		this.state = {
+			doctorResultsArr: undefined,
+			doctor_url: 'https://api.betterdoctor.com/2016-03-01/doctors/',
+			doctor_uid: '333d4bb6fcf640e18e93b11b00fe09eb',
+			api_key: '789b28d7d74840d2eb449527c4d61127'
+ 
+		}
+
+	}
+
+	click () {
+		console.log("HELLO");
 	}
 
 	generateDoctorMarkers() {
@@ -39,15 +52,16 @@ class DoctorMarkersData extends Component {
           <Marker position={positionStringArray}>
               <Popup>
 
-              <a href={"#" +this.props.profileUIDS[i]}>
+              <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
-              		<h2>{this.props.doctorArray[i]}</h2>
+              		<h2>{this.props.doctorNames[i]}</h2>
                       
               </a>
 
 
 
               </Popup>
+              		}
           </Marker>
       );
 

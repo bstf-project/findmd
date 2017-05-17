@@ -1,5 +1,6 @@
 import React from 'react';
-import ToggleDisplay from 'react-toggle-display';
+//import ToggleDisplay from 'react-toggle-display';
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 
 class DoctorProfiles extends React.Component {
@@ -81,7 +82,9 @@ class DoctorProfiles extends React.Component {
 
 		return (
 			//Created id here by mapping over the practices array and digging into the obj and grabbing the obj's uid
-			<div key={"key" + i} id={item.uid} className="api-data container doctor-profile">
+			<ScrollableAnchor id={item.uid}> 
+			<div key={"key" + i}  className="api-data container doctor-profile">
+		
 				<a href="#"><h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3></a>
 
 
@@ -125,8 +128,9 @@ class DoctorProfiles extends React.Component {
 		
 						<button className="view-more btn-primary">View More</button>
 					</div>}
-
+			
 			</div>
+			</ScrollableAnchor>
 		);
 
 	}
@@ -139,7 +143,7 @@ class DoctorProfiles extends React.Component {
 
 			<div className="doctors">
 
-				<button onClick={this.onClick} className="btn btn-primary">Click me</button>
+				
 				{this.state.showReply && this.props.doctorData.map(this.generateDoctors)}
 
 
@@ -153,6 +157,8 @@ class DoctorProfiles extends React.Component {
 
 }
 module.exports = DoctorProfiles;
+
+
 
 
 
