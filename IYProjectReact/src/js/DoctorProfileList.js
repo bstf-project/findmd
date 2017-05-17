@@ -169,8 +169,8 @@ class DoctorProfileList extends React.Component {
 
 			      		</form>
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
-								<button className="search-button plus-radius btn-primary" onClick={this.increaseRadius}>Within {this.state.distance} miles</button>
-						<button className="search-button btn-primary" onClick={this.addDoctor}>+ Radius</button>
+								<button className="search-button plus-radius btn-primary" onClick={this.increaseRadius}>+ Expand Search Radius <h2>Within {this.state.distance} miles</h2></button>
+						<button className="search-button btn-primary" onClick={this.addDoctor}>+ More Doctors <h2>Returned: {this.state.amountReturned}</h2></button>
 
 		      		
 						</div>

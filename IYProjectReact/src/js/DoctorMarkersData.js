@@ -2,6 +2,40 @@ import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
 
 
+// generateDoctorMarkers2 () {
+// 	var ArrayOfMarkers = [];
+
+	// for (var i = 0; i < this.props.doctorMarkers2.length; i++) {
+	// 			var positionStringLat = this.props.doctorMarkers[i].slice(0, 7);
+	// 			var positionStringLon = this.props.doctorMarkers[i].slice(10);
+
+	// 			var positionStringArray = [];
+	// 			// console.log("LAT " + positionStringLat);
+	// 			// console.log("LON " + positionStringLon);
+
+	// 			positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
+
+	// 			ArrayOfMarkers.push(
+	// 		          <Marker position={positionStringArray}>
+	// 		              <Popup>
+
+	// 		              <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
+
+	// 		              		<h2>{this.props.doctorNames[i]}</h2>
+			                      
+	// 		              </a>
+
+
+
+	// 		              </Popup>
+			              		
+	// 		          </Marker> 
+	// 		    )
+	// 		}
+	// 		return ArrayOfMarkers;
+	// }
+
+
 class DoctorMarkersData extends Component {
 
 	constructor() {
@@ -30,20 +64,29 @@ class DoctorMarkersData extends Component {
 		//console.log("### " + this.props.doctorMarkers);
 
 
-		for (var i = 0; i < this.props.doctorMarkers.length; i++) {
+		for (var i = 0; i < this.props.doctorMarkers2.length; i++) {
 
 			//console.log("i: " + this.props.doctorMarkers[i]);
 
-			for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
+			// for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
 
 				//var positionString = this.props.doctorMarkers[i][j];
-				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7);
-				var positionStringLon = this.props.doctorMarkers[i][j].slice(10);
+				console.log(this.props.doctorMarkers2[i].length);
+				console.log(this.props.doctorMarkers2[i]);
+
+				var positionStringLon;
+				var positionStringLat = this.props.doctorMarkers2[i].slice(0, 7);
+				if (this.props.doctorMarkers2[i].length < 20) {
+					positionStringLon = this.props.doctorMarkers2[i].slice(9);
+				}
+				else {positionStringLon = this.props.doctorMarkers2[i].slice(10);}
+				
+				console.log("Marker lat length: "+ positionStringLat + " " + positionStringLat.length);
+				console.log("Marker lon length: "+ positionStringLon + " " + positionStringLon.length);
+
 
 				var positionStringArray = [];
-				// console.log("LAT " + positionStringLat);
-				// console.log("LON " + positionStringLon);
 
 				positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
 
@@ -65,7 +108,7 @@ class DoctorMarkersData extends Component {
           </Marker>
       );
 
-			}
+			
 
 		}
 

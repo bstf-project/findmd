@@ -67,6 +67,7 @@ class DoctorProfiles extends React.Component {
 
 		//Checking for doctor images and swapping out Better Doctor's placeholder image with our own
 		var doctorSrc = item.profile.image_url;
+		var phoneNumber = Number(item.practices[0].phones[0].number);
 
 		if (item.profile.image_url.slice(39) === "general_doctor_male.png") {
 
@@ -82,53 +83,56 @@ class DoctorProfiles extends React.Component {
 
 		return (
 			//Created id here by mapping over the practices array and digging into the obj and grabbing the obj's uid
-			<ScrollableAnchor id={item.uid}> 
+			<ScrollableAnchor id={item.uid}>
 			<div key={"key" + i}  className="api-data container doctor-profile">
-		
+
 				<a href={"https://google.com/#q=" + item.profile.first_name + "+" + item.profile.last_name + "+" + item.profile.title} target="_blank"><h3>{item.profile.first_name + " " + item.profile.last_name + ", " + item.profile.title}</h3></a>
 
 
 						{<div>
 							<img className="docimg" src={doctorSrc} alt={item.profile.last_name} />
-		
+
 							<div className="doc-specialties-container">
 							<h4>Specialties</h4>
 								<div className="doc-specialties">
 									{item.specialties.map(returnSpecialties)}
 								</div>
 							</div>
-		
+
 							<div className="doc-offices-container">
 							<h4>Main Office</h4>
 								<div className="doc-offices">
 									<p>{item.practices[0].visit_address.street + " " + item.practices[0].visit_address.city + ", " + item.practices[0].visit_address.state + " " + item.practices[0].visit_address.zip}</p>
 								</div>
 							</div>
-		
+
 							<div className="dropdown">
-							<h4>Office Number:</h4>
+							
 								<div className="doc-offices">
-									<p>{item.practices[0].phones[0].number}</p>
+									<a href={"tel:" + phoneNumber}>
+									<h2>Call this office</h2>
+									</a>
+							
 								</div>
 							</div>
-		
+
 							<div className="doc-bio-container">
 							<h4>Bio</h4>
 								<div className="doc-bio">
 									{item.profile.bio}
 								</div>
 							</div>
-		
+
 							<div className="doc-insurances-container">
 							<h4>Insurances</h4>
 								<div className="insurance-options">
 									{item.insurances.map(returnInsurance)}
 								</div>
 							</div>
-		
-						<button className="view-more btn-primary">View More</button>
+
+						
 					</div>}
-			
+
 			</div>
 			</ScrollableAnchor>
 		);
@@ -143,7 +147,7 @@ class DoctorProfiles extends React.Component {
 
 			<div className="doctors">
 
-				
+
 				{this.state.showReply && this.props.doctorData.map(this.generateDoctors)}
 
 
@@ -157,8 +161,3 @@ class DoctorProfiles extends React.Component {
 
 }
 module.exports = DoctorProfiles;
-
-
-
-
-
