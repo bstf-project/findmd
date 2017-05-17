@@ -87,8 +87,17 @@ h4 {
   margin: .5em 0; }
 
 p {
+  /*padding: 10px;*/
   font-family: 'Lato', serif;
   margin-bottom: .5em; }
+
+.span-class {
+  color: #1C67A6;
+  font-family: 'Lato';
+  font-size: 1rem;
+  padding: 5px;
+  position: relative;
+  bottom: 10px; }
 
 a {
   text-decoration: none; }

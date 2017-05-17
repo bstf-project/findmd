@@ -110,7 +110,8 @@ class DoctorProfiles extends React.Component {
 							
 								<div className="doc-offices">
 									<a href={"tel:" + phoneNumber}>
-									<h2>Call this office</h2>
+									<i className="fa fa-mobile fa-2x" aria-hidden="true"><span className="span-class">Call office</span></i>
+
 									</a>
 							
 								</div>
