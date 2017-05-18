@@ -66,7 +66,22 @@ class DoctorMarkersData extends Component {
 
 		for (var i = 0; i < this.props.doctorMarkers.length; i++) {
 
-			//console.log("i: " + this.props.doctorMarkers[i]);
+			var imgSrc = this.props.doctorArray[i].profile.image_url;			
+
+			if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_male.png") {
+
+				imgSrc = "http://www.bloomfieldhealth.org/assets/images/doctors/9.png";
+
+			}
+
+			else if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_female.png") {
+
+				imgSrc = "https://img.clipartfest.com/3473fe27a237ac460a90f94f8fd47b9b_doctor-icon-doctor-icon-clipart_2100-2400.png";
+
+			}
+			
+
+			console.log("HELLO" + this.props.doctorArray[i].profile.image_url);
 
 			 for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
@@ -94,19 +109,22 @@ class DoctorMarkersData extends Component {
 
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
-              		<h2>{this.props.doctorNames[i]}</h2>
-              		<h4>Specialties: {this.props.doctorArray[i].specialties[0].name}</h4>
-              		<h4>Main office</h4>
-              		<div className="doc-offices">
-	              		<p>
-		              		{this.props.doctorArray[i].practices[0].visit_address.street +
-		              		" " + this.props.doctorArray[i].practices[0].visit_address.city +
-		              		", " + this.props.doctorArray[i].practices[0].visit_address.state +
-		              		" " + this.props.doctorArray[i].practices[0].visit_address.zip}
-	              		</p>
-	              	</div>
+              		<h4>{this.props.doctorNames[i]}</h4>
+              		<h2>{this.props.doctorArray[i].specialties[0].name}</h2>
+              		
+              		<h2>
+		              {this.props.doctorAddress[i][j]}
+	              	</h2>
+	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
+	              	<a href={"tel:" + this.props.doctorPhones[i][j]}>
+	              	<i className="fa fa-mobile fa-2x"><span className="span-class">Call</span></i></a>
+	              	<a href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank"> 
+	              	<i className="fa fa-google fa-2x"><span className="span-class">Search</span></i>
+
+	              	</a>
+
               		   
-              		<div><img src={'"' + this.props.doctorArray[i].profile.img_url+ '"'}  alt={this.props.doctorArray[i].profile.last_name} /></div>
+              		
                       
               </a>
 
