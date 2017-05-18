@@ -71,15 +71,15 @@ h1 {
   font-size: 50px; }
 
 h2 {
-  font-family: 'Raleway';
-  font-size: 17px; }
-
-h3 {
   color: #1C67A6;
   /*border-bottom: 1px solid $doctorBlue;*/
   font-family: 'Raleway', sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 10px; }
+
+h3 {
+  font-family: 'Raleway';
+  font-size: 17px; }
 
 h4 {
   color: #1C67A6;

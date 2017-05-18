@@ -43,17 +43,21 @@ h1 {
 }
 
 h2 {
+  color: $doctorBlue;
+  /*border-bottom: 1px solid $doctorBlue;*/
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+h3 {
   font-family: 'Raleway';
   font-size: 17px;
 }
 
-h3 {
-  color: $doctorBlue;
-  /*border-bottom: 1px solid $doctorBlue;*/
-  font-family: 'Raleway', sans-serif;
-  font-size: 2rem;
-  padding: 10px;
-}
+
+
+
 
 h4 {
   color: $doctorBlue;

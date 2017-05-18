@@ -230,6 +230,7 @@ class DoctorProfileList extends React.Component {
 
 					<center><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 					<p>Fetching doctors near you</p>
+				
 					</center>
 				</div>
 
