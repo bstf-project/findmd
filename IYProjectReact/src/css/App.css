@@ -191,7 +191,7 @@ li {
   border-radius: 5px;
   height: 100%;
   /*width: 25%;*/
-  width: 66%;
+  width: 100%;
   display: block;
   position: fixed !important;
   float: left;
@@ -285,7 +285,7 @@ li {
 
 .insurance-options {
   min-width: 30vw !important;
-  right: -9vw; }
+  right: -8vw; }
 
 .view-more {
   margin-left: 2em; }
