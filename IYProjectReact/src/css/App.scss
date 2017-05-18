@@ -83,7 +83,7 @@ a {
 
 a, a:visited {
     color: rgb(84, 180, 210);
-    //font-size: 25px;
+    font-size: 25px;
     text-decoration: none!important;
 }
 
@@ -253,6 +253,8 @@ font-size: .8rem;
 font-weight: bold;
 }
 
+
+
 .distance-away {
   font-size: .8rem;
   line-height: .8rem;
@@ -267,11 +269,12 @@ font-weight: bold;
     font-size: 25px;
     width: auto;
     height: auto;
-    min-width: 300px;
+    min-width: 325px;
 }
 
 .google-search {
-font-size: 1.8rem;
+font-size: 2.5rem;
+margin-left: .9rem;
 }
 
 #app {
@@ -358,13 +361,19 @@ font-size: 1.8rem;
   display: block;
 }
 
-.google-search, .mobile {
-  display: block;
+.specialties {
+  font-weight:400;
+}
+
+.mobile {
+  margin-left: 1rem;
+font-size: 3.8rem;
+text-align: center;
 }
 
 .contact-wrapper {
-  margin: .3 5rem;
-  padding: 1rem;
+  margin: 0 auto;
+  //padding: .2rem;
 
 }
 
