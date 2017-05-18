@@ -58,7 +58,7 @@ h3 {
 h4 {
   color: $doctorBlue;
   font-size: 1rem;
-  margin: .5em 0;
+//  margin: .5em 0;
 //  padding: 5px;
 }
 
@@ -83,7 +83,7 @@ a {
 
 a, a:visited {
     color: rgb(84, 180, 210);
-    font-size: 25px;
+    //font-size: 25px;
     text-decoration: none!important;
 }
 
@@ -101,7 +101,7 @@ td, th {
 }
 
 li {
-  margin: 10px 0;
+  //margin: 10px 0;
 }
 
 .header {
@@ -244,11 +244,19 @@ li {
 .leaflet-popup-content h4 {
   font-size: 1.5rem;
   font-family: Lato;
+  //font-weight: 600;
+  text-align: center;
 }
 
 .leaflet-popup-content h2 {
 font-size: .8rem;
 font-weight: bold;
+}
+
+.distance-away {
+  font-size: .8rem;
+  line-height: .8rem;
+  color: darkgreen;
 }
 
 .leaflet-popup-content-wrapper {
@@ -262,8 +270,8 @@ font-weight: bold;
     min-width: 300px;
 }
 
-.google-search, .mobile {
-font-size: 2rem;
+.google-search {
+font-size: 1.8rem;
 }
 
 #app {
@@ -273,13 +281,11 @@ font-size: 2rem;
 .docimg {
     float: left;
     height: 155px;
-    //padding: .2em;
+    padding: .2em;
     margin: 1rem;
     border: 5px solid #aeb2ca;
     border-radius: 5px;
     position: relative;
-    bottom: 1rem;
-
 }
 
 .fa-user-md {
@@ -357,7 +363,9 @@ font-size: 2rem;
 }
 
 .contact-wrapper {
-  margin: .3 0rem;
+  margin: .3 5rem;
+  padding: 1rem;
+
 }
 
 .doctors-returned, .doctors-radius {

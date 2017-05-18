@@ -83,8 +83,7 @@ h3 {
 
 h4 {
   color: #1C67A6;
-  font-size: 1rem;
-  margin: .5em 0; }
+  font-size: 1rem; }
 
 p {
   /*padding: 10px;*/
@@ -104,7 +103,6 @@ a {
 
 a, a:visited {
   color: #54b4d2;
-  font-size: 25px;
   text-decoration: none !important; }
 
 a:hover {
@@ -116,9 +114,6 @@ th {
 
 td, th {
   padding-right: 20px; }
-
-li {
-  margin: 10px 0; }
 
 .header {
   padding: 10px; }
@@ -237,11 +232,17 @@ li {
 
 .leaflet-popup-content h4 {
   font-size: 1.5rem;
-  font-family: Lato; }
+  font-family: Lato;
+  text-align: center; }
 
 .leaflet-popup-content h2 {
   font-size: .8rem;
   font-weight: bold; }
+
+.distance-away {
+  font-size: .8rem;
+  line-height: .8rem;
+  color: darkgreen; }
 
 .leaflet-popup-content-wrapper {
   background-color: rgba(255, 255, 255, 0.9);
@@ -253,8 +254,8 @@ li {
   height: auto;
   min-width: 300px; }
 
-.google-search, .mobile {
-  font-size: 2rem; }
+.google-search {
+  font-size: 1.8rem; }
 
 #app {
   padding: 2rem; }
@@ -262,11 +263,11 @@ li {
 .docimg {
   float: left;
   height: 155px;
+  padding: .2em;
   margin: 1rem;
   border: 5px solid #aeb2ca;
   border-radius: 5px;
-  position: relative;
-  bottom: 1rem; }
+  position: relative; }
 
 .fa-user-md {
   color: #1C67A6;
@@ -325,7 +326,8 @@ li {
   display: block; }
 
 .contact-wrapper {
-  margin: .3 0rem; }
+  margin: .3 5rem;
+  padding: 1rem; }
 
 .doctors-returned, .doctors-radius {
   background-color: white;

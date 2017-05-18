@@ -112,21 +112,23 @@ class DoctorMarkersData extends Component {
               		<h4>{this.props.doctorNames[i]}</h4>
 	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
 
+
+
 									<div className="contact-wrapper">
 
 									<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
-	              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class">Call</span></i></a>
-								</div>
+	              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class"></span></i></a>
+
 
 	              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
-	              	<i className="google-search fa fa-google fa-2x"><span className="span-class ">Search</span></i></a>
+	              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
+									</div>
 
 									<h2 className="specialties">{this.props.doctorArray[i].specialties[0].name}</h2>
 
               		<h2 className="address">
-		              {this.props.doctorAddress[i][j]}
-		              <p>{this.props.doctorDistance[i][j] + " miles from your location"}</p>
-	              	</h2>
+		              {this.props.doctorAddress[i][j]}</h2>
+												<p className="distance-away">{this.props.doctorDistance[i][j] + " miles from your location"}</p>
 
 
 
