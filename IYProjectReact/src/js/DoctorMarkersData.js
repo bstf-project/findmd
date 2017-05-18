@@ -91,12 +91,13 @@ class DoctorMarkersData extends Component {
 	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
 
 									<div className="contact-wrapper">
+
 									<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
-	              	<i className="mobile fa fa-mobile fa-2x"><span className="span-class">Call</span></i></a>
+	              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class">Call</span></i></a>
 								</div>
 
 	              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
-	              	<i className="google-search fa fa-google fa-1x"><span className="span-class ">Search</span></i>
+	              	<i className="google-search fa fa-google fa-2x"><span className="span-class ">Search</span></i></a>
 
 									<h2 className="specialties">{this.props.doctorArray[i].specialties[0].name}</h2>
 
@@ -106,7 +107,7 @@ class DoctorMarkersData extends Component {
 	              	</h2>
 
 
-	              	</a>
+
 
 
 

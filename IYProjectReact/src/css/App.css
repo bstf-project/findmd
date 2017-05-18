@@ -253,8 +253,8 @@ li {
   height: auto;
   min-width: 300px; }
 
-.google-search {
-  display: inline; }
+.google-search, .mobile {
+  font-size: 2rem; }
 
 #app {
   padding: 2rem; }
