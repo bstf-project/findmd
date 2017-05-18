@@ -34,7 +34,8 @@ class DoctorProfileList extends React.Component {
 			distance: defaultDistance,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: defaultAmountReturned,
-			skip_limit: 2
+			skip_limit: 2,
+			map_zoom: 13
 
 		}
 
@@ -59,13 +60,13 @@ class DoctorProfileList extends React.Component {
 	}
 
 	getLocation() {
-
+		console.log('getting geolocation...');
 	    if (navigator.geolocation) {
-
+	    	console.log(navigator.geolocation.getCurrentPosition(this.showPosition));
 	        navigator.geolocation.getCurrentPosition(this.showPosition);
 
 	    } else {
-
+	    	console.log('geolocation fail!!!@#$%^&*()');
 	    	this.APIcall();
 
 
@@ -187,7 +188,7 @@ class DoctorProfileList extends React.Component {
 				<div>
 					<div className="wrap">
 					<div className="search-wrapper">
-						<form>
+						<form id="zipcode">
 					        <input
 							className="search-box"
 					          type="text"
@@ -198,6 +199,7 @@ class DoctorProfileList extends React.Component {
 					        />
 
 			      		</form>
+
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
 								<button className="search-button doctors-radius" disabled>Radius <h2>Within {this.state.distance} miles</h2></button>
 								<button className="plus-button  btn-primary" onClick={this.increaseRadius}>+</button>
@@ -216,6 +218,8 @@ class DoctorProfileList extends React.Component {
 					centerLocation={this.state.coordinates}
 					doctorLocations={this.state.resultArr.map(this.mapLocations)}
 					doctorArray={this.state.resultArr}
+					distance={this.state.distance}
+					mapZoom={this.state.map_zoom}
 					/>
 
 				</div>
@@ -230,6 +234,7 @@ class DoctorProfileList extends React.Component {
 
 					<center><i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 					<p>Fetching doctors near you</p>
+
 					</center>
 				</div>
 

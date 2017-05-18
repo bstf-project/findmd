@@ -13,12 +13,30 @@ class LeafletMap extends Component {
 
     super();
 
+    this.changeZoom = this.changeZoom.bind(this);
+
     this.state = {
-      zoom: 8,
+      zoom: 13,
       coordinates: undefined
+
     };
 
+    // this.changeZoom();    
+
   }
+
+  changeZoom () {
+    if (this.props.distance > 1) {
+      this.setState({zoom: this.state.zoom += 3});
+    }
+    else if (this.props.distance > 10) {
+      this.setState({zoom: this.state.zoom += 1});
+    }
+    else if (this.props.distance > 20) {
+      this.setState({zoom: this.state.zoom += 1});
+    }
+  }
+
 
   generateDoctorLatLong (array) {
   
@@ -144,6 +162,7 @@ class LeafletMap extends Component {
           />
 
           <DoctorMarkersData 
+            radius={this.props.distance}
             doctorArray={this.props.doctorArray}
             doctorMarkers={this.props.doctorLocations.map(this.generateDoctorLatLong)}
             doctorDistance={this.props.doctorLocations.map(this.generateDistance)}

@@ -2,40 +2,6 @@ import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
 
 
-// generateDoctorMarkers2 () {
-// 	var ArrayOfMarkers = [];
-
-	// for (var i = 0; i < this.props.doctorMarkers2.length; i++) {
-	// 			var positionStringLat = this.props.doctorMarkers[i].slice(0, 7);
-	// 			var positionStringLon = this.props.doctorMarkers[i].slice(10);
-
-	// 			var positionStringArray = [];
-	// 			// console.log("LAT " + positionStringLat);
-	// 			// console.log("LON " + positionStringLon);
-
-	// 			positionStringArray.push(Number(positionStringLat), Number(positionStringLon));
-
-	// 			ArrayOfMarkers.push(
-	// 		          <Marker position={positionStringArray}>
-	// 		              <Popup>
-
-	// 		              <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
-
-	// 		              		<h2>{this.props.doctorNames[i]}</h2>
-
-	// 		              </a>
-
-
-
-	// 		              </Popup>
-
-	// 		          </Marker>
-	// 		    )
-	// 		}
-	// 		return ArrayOfMarkers;
-	// }
-
-
 class DoctorMarkersData extends Component {
 
 	constructor() {
@@ -65,7 +31,7 @@ class DoctorMarkersData extends Component {
 
 
 		for (var i = 0; i < this.props.doctorMarkers.length; i++) {
-
+			//Swaps out BetterDoctor's generic image with our own if they don't have the doctor's picture
 			var imgSrc = this.props.doctorArray[i].profile.image_url;
 
 			if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_male.png") {
@@ -84,6 +50,18 @@ class DoctorMarkersData extends Component {
 			console.log("HELLO" + this.props.doctorArray[i].profile.image_url);
 
 			 for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
+
+			 	//Testing location distance and returning a statement
+					// 	//if (item.distance < 10) {
+
+				var statement = this.props.doctorDistance[i][j] + " miles from your location";
+
+				if (this.props.doctorDistance[i][j] === 1) {
+				 	statement = this.props.doctorDistance[i][j] + " mile from your location";
+				 }
+				 else if (this.props.doctorDistance[i][j] < 1) {
+				 	statement = " < 1 mile from your location";
+				 }
 
 
 				//var positionString = this.props.doctorMarkers[i][j];
@@ -109,26 +87,24 @@ class DoctorMarkersData extends Component {
 
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
-              		<h4>{this.props.doctorNames[i]}</h4>
+              		<h2>{this.props.doctorNames[i]}</h2>
 	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
-
-
 
 									<div className="contact-wrapper">
 
 									<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
 	              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class"></span></i></a>
-
+								</div>
 
 	              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
 	              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
-									</div>
 
 									<h2 className="specialties">{this.props.doctorArray[i].specialties[0].name}</h2>
 
               		<h2 className="address">
-		              {this.props.doctorAddress[i][j]}</h2>
-												<p className="distance-away">{this.props.doctorDistance[i][j] + " miles from your location"}</p>
+		              {this.props.doctorAddress[i][j]}
+		              <p>{statement}</p>
+	              	</h2>
 
 
 

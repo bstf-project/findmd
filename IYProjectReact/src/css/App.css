@@ -71,15 +71,15 @@ h1 {
   font-size: 50px; }
 
 h2 {
-  font-family: 'Raleway';
-  font-size: 17px; }
-
-h3 {
   color: #1C67A6;
   /*border-bottom: 1px solid $doctorBlue;*/
   font-family: 'Raleway', sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 10px; }
+
+h3 {
+  font-family: 'Raleway';
+  font-size: 17px; }
 
 h4 {
   color: #1C67A6;
@@ -103,7 +103,6 @@ a {
 
 a, a:visited {
   color: #54b4d2;
-  font-size: 25px;
   text-decoration: none !important; }
 
 a:hover {
@@ -256,8 +255,7 @@ td, th {
   min-width: 325px; }
 
 .google-search {
-  font-size: 2.5rem;
-  margin-left: .9rem; }
+  font-size: 1.8rem; }
 
 #app {
   padding: 2rem; }
@@ -324,16 +322,12 @@ td, th {
   clear: both;
   display: block; }
 
-.specialties {
-  font-weight: 400; }
-
-.mobile {
-  margin-left: 1rem;
-  font-size: 3.8rem;
-  text-align: center; }
+.google-search, .mobile {
+  display: block; }
 
 .contact-wrapper {
-  margin: 0 auto; }
+  margin: .3 5rem;
+  padding: 1rem; }
 
 .doctors-returned, .doctors-radius {
   background-color: white;
