@@ -20,7 +20,9 @@ class DoctorProfileList extends React.Component {
 		this.updateCoords = this.updateCoords.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.addDoctor = this.addDoctor.bind(this);
+		this.subtractDoctor = this.subtractDoctor.bind(this);
 		this.increaseRadius = this.increaseRadius.bind(this);
+		this.decreaseRadius = this.decreaseRadius.bind(this);
 
 
 		this.state = {
@@ -140,10 +142,36 @@ class DoctorProfileList extends React.Component {
 
 	}
 
+	subtractDoctor () {
+		if  (this.state.amountReturned > 10) {
+		this.setState({
+			amountReturned: this.state.amountReturned -= 10
+		})
+	}
+	else {null}
+
+		this.APIcall();
+
+	}
+
+
+
 	increaseRadius () {
 		this.setState({
 			distance: this.state.distance += 10
 		})
+
+		this.APIcall();
+	}
+
+	decreaseRadius () {
+
+		if  (this.state.distance > 10) {
+		this.setState({
+			distance: this.state.distance -= 10
+		})
+	}
+	else {null}
 
 		this.APIcall();
 	}
@@ -169,10 +197,16 @@ class DoctorProfileList extends React.Component {
 
 			      		</form>
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
-								<button className="search-button plus-radius btn-primary" onClick={this.increaseRadius}>+ Expand Search Radius <h2>Within {this.state.distance} miles</h2></button>
-						<button className="search-button btn-primary" onClick={this.addDoctor}>+ More Doctors <h2>Returned: {this.state.amountReturned}</h2></button>
+								<button className="search-button doctors-radius" disabled>Radius <h2>Within {this.state.distance} miles</h2></button>
+								<button className="plus-button  btn-primary" onClick={this.increaseRadius}>+</button>
+								<button className="minus-button btn-primary" onClick={this.decreaseRadius}>-</button>
 
-		      		
+						<button className="search-button  doctors-returned" disabled>Doctors <h2>Returned: {this.state.amountReturned}</h2></button>
+						<button className="plus-button btn-primary" onClick={this.addDoctor}>+</button>
+						<button className="minus-button btn-primary" onClick={this.subtractDoctor}>-</button>
+
+
+
 						</div>
 					</div>
 
