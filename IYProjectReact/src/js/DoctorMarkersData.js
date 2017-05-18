@@ -124,6 +124,7 @@ class DoctorMarkersData extends Component {
 
               		<h2 className="address">
 		              {this.props.doctorAddress[i][j]}
+		              <p>{this.props.doctorDistance[i][j] + " miles from your location"}</p>
 	              	</h2>
 
 
