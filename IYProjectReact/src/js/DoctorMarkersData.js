@@ -110,16 +110,20 @@ class DoctorMarkersData extends Component {
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
               		<h4>{this.props.doctorNames[i]}</h4>
-              		<h2>{this.props.doctorArray[i].specialties[0].name}</h2>
+              		<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
               		
-              		<h2>
-		              {this.props.doctorAddress[i][j]}
-	              	</h2>
-	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
+              		<div className="doc-specialties">
+              			<p>{this.props.doctorArray[i].specialties[0].name}</p>
+              		</div>
+              		
+              		<div className="doc-specialties">
+		              <p>{this.props.doctorAddress[i][j]}</p>
+	              	</div>
+	              	
 	              	<a href={"tel:" + this.props.doctorPhones[i][j]}>
 	              	<i className="fa fa-mobile fa-2x"><span className="span-class">Call</span></i></a>
 	              	<a href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank"> 
-	              	<i className="fa fa-google fa-2x"><span className="span-class">Search</span></i>
+	              	<i className="fa fa-google fa-1x"><span className="span-class">Search</span></i>
 
 	              	</a>
 

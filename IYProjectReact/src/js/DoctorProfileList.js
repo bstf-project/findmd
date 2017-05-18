@@ -97,7 +97,7 @@ class DoctorProfileList extends React.Component {
 
 
 	updateCoords (e) {
-		if (e.target.value.length === 5) {
+		if (Number(e.target.value) && e.target.value.length === 5) {
 			//e.preventDefault();
 
 			console.log("Zipcode LAT " + zipcodes.lookup(e.target.value).latitude );
@@ -118,6 +118,7 @@ class DoctorProfileList extends React.Component {
 			this.setState({amountReturned: defaultAmountReturned})
 			this.APIcall();
 		}
+		else {null}
 	}
 
 
