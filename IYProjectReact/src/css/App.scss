@@ -221,7 +221,7 @@ li {
   position: relative;
   top: 85vh;
   /* //: 100000; */
-  left: 62vw;
+  left: 92vw;
 }
 
 .leaflet-control-attribution {
@@ -241,6 +241,16 @@ li {
     border-radius: none;
 }
 
+.leaflet-popup-content h4 {
+  font-size: 1.5rem;
+  font-family: Lato;
+}
+
+.leaflet-popup-content h2 {
+font-size: .8rem;
+font-weight: bold;
+}
+
 .leaflet-popup-content-wrapper {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 5px;
@@ -248,6 +258,12 @@ li {
     border-radius: 5px;
     font-size: 25px;
     width: auto;
+    height: auto;
+    min-width: 300px;
+}
+
+.google-search {
+display: inline;
 }
 
 #app {
@@ -257,8 +273,8 @@ li {
 .docimg {
     float: left;
     height: 155px;
-    padding: .2em;
-    margin: 1.1em;
+    //padding: .2em;
+    margin: 1rem;
     border: 5px solid #aeb2ca;
     border-radius: 5px;
     position: relative;
@@ -330,6 +346,18 @@ li {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     //: 1;
+}
+.address, .specialties {
+  clear:both;
+  display: block;
+}
+
+.google-search, .mobile {
+  display: block;
+}
+
+.contact-wrapper {
+  margin: .3 0rem;
 }
 
 .doctors-returned, .doctors-radius {

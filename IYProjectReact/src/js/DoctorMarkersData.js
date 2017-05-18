@@ -22,14 +22,14 @@ import {Marker, Popup } from 'react-leaflet';
 	// 		              <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
 	// 		              		<h2>{this.props.doctorNames[i]}</h2>
-			                      
+
 	// 		              </a>
 
 
 
 	// 		              </Popup>
-			              		
-	// 		          </Marker> 
+
+	// 		          </Marker>
 	// 		    )
 	// 		}
 	// 		return ArrayOfMarkers;
@@ -49,7 +49,7 @@ class DoctorMarkersData extends Component {
 			doctor_url: 'https://api.betterdoctor.com/2016-03-01/doctors/',
 			doctor_uid: '333d4bb6fcf640e18e93b11b00fe09eb',
 			api_key: '789b28d7d74840d2eb449527c4d61127'
- 
+
 		}
 
 	}
@@ -66,7 +66,7 @@ class DoctorMarkersData extends Component {
 
 		for (var i = 0; i < this.props.doctorMarkers.length; i++) {
 
-			var imgSrc = this.props.doctorArray[i].profile.image_url;			
+			var imgSrc = this.props.doctorArray[i].profile.image_url;
 
 			if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_male.png") {
 
@@ -79,7 +79,7 @@ class DoctorMarkersData extends Component {
 				imgSrc = "https://img.clipartfest.com/3473fe27a237ac460a90f94f8fd47b9b_doctor-icon-doctor-icon-clipart_2100-2400.png";
 
 			}
-			
+
 
 			console.log("HELLO" + this.props.doctorArray[i].profile.image_url);
 
@@ -93,7 +93,7 @@ class DoctorMarkersData extends Component {
 				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7);
 				var positionStringLon = this.props.doctorMarkers[i][j].slice(10);
 
-				
+
 				console.log("Marker lat length: "+ positionStringLat + " " + positionStringLat.length);
 				console.log("Marker lon length: "+ positionStringLon + " " + positionStringLon.length);
 
@@ -110,22 +110,28 @@ class DoctorMarkersData extends Component {
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
               		<h4>{this.props.doctorNames[i]}</h4>
-              		<h2>{this.props.doctorArray[i].specialties[0].name}</h2>
-              		
-              		<h2>
+	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
+
+									<div className="contact-wrapper">
+									<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
+	              	<i className="mobile fa fa-mobile fa-2x"><span className="span-class">Call</span></i></a>
+								</div>
+
+	              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
+	              	<i className="google-search fa fa-google fa-1x"><span className="span-class ">Search</span></i>
+
+									<h2 className="specialties">{this.props.doctorArray[i].specialties[0].name}</h2>
+
+              		<h2 className="address">
 		              {this.props.doctorAddress[i][j]}
 	              	</h2>
-	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
-	              	<a href={"tel:" + this.props.doctorPhones[i][j]}>
-	              	<i className="fa fa-mobile fa-2x"><span className="span-class">Call</span></i></a>
-	              	<a href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank"> 
-	              	<i className="fa fa-google fa-2x"><span className="span-class">Search</span></i>
+
 
 	              	</a>
 
-              		   
-              		
-                      
+
+
+
               </a>
 
 
