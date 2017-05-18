@@ -217,10 +217,6 @@ class DoctorProfileList extends React.Component {
 					doctorArray={this.state.resultArr}
 					/>
 
-					<DoctorProfiles
-					searchRadius={this.state.distance}
-					doctorData={this.state.resultArr}
-					/>
 				</div>
 			);
 

@@ -130,7 +130,7 @@ class LeafletMap extends Component {
     return (
       <div >
         
-        <Map center={position} zoom={this.state.zoom} animate={true}>
+        <Map center={position} zoom={this.state.zoom} animate={true} useFlyTo={true}>
           <TileLayer
             attribution='&copy; <a href="#'
             url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
