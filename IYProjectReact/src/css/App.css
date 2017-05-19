@@ -197,9 +197,6 @@ td, th {
 .doctors-returned, .find-doctors {
   background-color: black; }
 
-.search-radius-wrap, .doctors-returned-wrap {
-  margin-top: .5rem; }
-
 .doctors-radius, .doctors-returned {
   float: left;
   display: block;
