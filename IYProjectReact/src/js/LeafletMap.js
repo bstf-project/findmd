@@ -28,6 +28,9 @@ class LeafletMap extends Component {
   changeZoom () {
     var zoom;
 
+    if (this.props.distance > 31) {
+      zoom = 7;
+    }
     if (this.props.distance > 21) {
        zoom = 9
     }
