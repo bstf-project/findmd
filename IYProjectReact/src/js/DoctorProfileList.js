@@ -36,7 +36,7 @@ class DoctorProfileList extends React.Component {
 			distance: defaultDistance,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: defaultAmountReturned,
-			skip_limit: 2,
+			skip_limit: 0,
 			map_zoom: 13
 
 		}
