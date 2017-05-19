@@ -87,7 +87,7 @@ class DoctorMarkersData extends Component {
 
               <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
 
-              		<h2>{this.props.doctorNames[i]}</h2>
+              		<h2 className="doc-name">{this.props.doctorNames[i]}</h2>
 	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
 
 									<div className="contact-wrapper">

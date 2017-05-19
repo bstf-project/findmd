@@ -198,13 +198,26 @@ li {
   background-color: black;
 }
 
+.search-radius-wrap, .doctors-returned-wrap {
+  margin-top: .5rem;
+}
+
+
+.doctors-radius, .doctors-returned {
+  float:left;
+  display: block;
+  height:80px;
+  width:110px;
+}
+
 .plus-button, .minus-button  {
-  width:50%;
+  height:40px;
+  width:40px;
   z-index: 2;
   position: relative;
-  display: inline;
+  display: block;
   pointer-events: auto;
-
+  float:right;
 }
 
 .wrap {
@@ -253,12 +266,13 @@ font-size: .8rem;
 font-weight: bold;
 }
 
-
+.doc-name {
+  size: 2rem;
+}
 
 .distance-away {
   font-size: .8rem;
   line-height: .8rem;
-  color: darkgreen;
 }
 
 .leaflet-popup-content-wrapper {
@@ -269,7 +283,7 @@ font-weight: bold;
     font-size: 25px;
     width: auto;
     height: auto;
-    min-width: 325px;
+    min-width: 320px;
 }
 
 .google-search {
