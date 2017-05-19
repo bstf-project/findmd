@@ -231,12 +231,12 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
 
 								<div className="search-radius-wrap">
-								<button className="search-button doctors-radius" disabled>Radius <h2>Within {this.state.distance} miles</h2></button>
+								<button className="search-button doctors-radius" disabled>Radius</button>
 								<button className="plus-button  btn-primary" onClick={this.increaseRadius}>+</button>
 								<button className="minus-button btn-primary" onClick={this.decreaseRadius}>-</button>
 							</div>
 						<div className="doctors-return-wrap">
-						<button className="search-button  doctors-returned" disabled>Results <h2>Returned: {this.state.amountReturned}</h2></button>
+						<button className="search-button  doctors-returned" disabled>Add</button>
 						<button className="plus-button btn-primary" onClick={this.addDoctor}>+</button>
 						<button className="minus-button btn-primary" onClick={this.subtractDoctor}>-</button>
 					</div>
