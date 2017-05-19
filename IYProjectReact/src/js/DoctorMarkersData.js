@@ -47,7 +47,6 @@ class DoctorMarkersData extends Component {
 			}
 
 
-			console.log("HELLO" + this.props.doctorArray[i].profile.image_url);
 
 			 for (var j = 0; j < this.props.doctorMarkers[i].length; j++) {
 
@@ -65,15 +64,10 @@ class DoctorMarkersData extends Component {
 
 
 				//var positionString = this.props.doctorMarkers[i][j];
-				console.log(this.props.doctorMarkers[i].length);
-				console.log(this.props.doctorMarkers[i]);
 
 				var positionStringLat = this.props.doctorMarkers[i][j].slice(0, 7);
 				var positionStringLon = this.props.doctorMarkers[i][j].slice(10);
 
-
-				console.log("Marker lat length: "+ positionStringLat + " " + positionStringLat.length);
-				console.log("Marker lon length: "+ positionStringLon + " " + positionStringLon.length);
 
 
 				var positionStringArray = [];
@@ -82,10 +76,10 @@ class DoctorMarkersData extends Component {
 
 
 				ArrayOfMarkers.push(
-          <Marker position={positionStringArray}>
+          <Marker position={positionStringArray} key={this.props.doctorUIDS[i][j]}>
               <Popup>
 
-              <a onClick={this.click} href={"#" +this.props.profileUIDS[i]}>
+              <a onClick={this.click} href={"#"}>
 
               		<h2 className="doc-name">{this.props.doctorNames[i]}</h2>
 	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
@@ -133,7 +127,7 @@ class DoctorMarkersData extends Component {
 
 	render() {
 
-		console.log(this.props.profileUIDS);
+
 
 		return (
 

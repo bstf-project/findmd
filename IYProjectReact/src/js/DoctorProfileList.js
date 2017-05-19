@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 //import DisplayDoctorProfiles from './displayDoctorProfiles';
-import DoctorProfiles from './DoctorProfiles';
+// import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
 import _ from 'lodash';
@@ -11,6 +11,7 @@ import _ from 'lodash';
 
 var defaultDistance = 1;
 var defaultAmountReturned = 10;
+
 
 class DoctorProfileList extends React.Component {
 
@@ -38,7 +39,7 @@ class DoctorProfileList extends React.Component {
 			// showDental: true,
 			// showVision: true,
 			distance: defaultDistance,
-			api_key: '789b28d7d74840d2eb449527c4d61127',
+			api_key: '10ed4e3765d043de9fad1d2f6bc3153a',
 			amountReturned: defaultAmountReturned,
 			skip_limit: 0,
 			map_zoom: 13
@@ -56,23 +57,23 @@ class DoctorProfileList extends React.Component {
 
     	var userPosition = String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
 
-    	console.log("userPosition " + userPosition);
+    	
 
 	    this.setState({coordinates : userPosition});
 
-    	console.log("this.state.coordinates "+ this.state.coordinates);
+    	
 
 		this.APIcall();
 	}
 
 	getLocation() {
-		console.log('getting geolocation...');
+		
 	    if (navigator.geolocation) {
 	    	console.log(navigator.geolocation.getCurrentPosition(this.showPosition));
 	        navigator.geolocation.getCurrentPosition(this.showPosition);
 
 	    } else {
-	    	console.log('geolocation fail!!!@#$%^&*()');
+	    	
 	    	this.APIcall();
 
 
@@ -84,10 +85,6 @@ class DoctorProfileList extends React.Component {
 	APIcall() {
 
 		console.log("API call " + this.state.coordinates);
-		//console.log(zipcodes.lookupByName('Columbia', 'SC'));
-		// console.log("HILLSLAT: " + hills.latitude);
-		// console.log("HILLSLONG: " + hills.longitude);
-		//API call using axios.get
 
 		//Skip limit affects if small town doctors get returned, apparently
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
@@ -125,7 +122,7 @@ class DoctorProfileList extends React.Component {
 			this.setState({amountReturned: defaultAmountReturned})
 			this.APIcall();
 		}
-		else {null}
+		
 	}
 
 
@@ -142,9 +139,9 @@ class DoctorProfileList extends React.Component {
 	}
 
 	addDoctor () {
-		console.log("addDoctor button clicked!")
+		
 		this.setState({
-			amountReturned: this.state.amountReturned += 10
+			amountReturned: this.state.amountReturned + 10
 		})
 
 		this.APIcall();
@@ -154,10 +151,9 @@ class DoctorProfileList extends React.Component {
 	subtractDoctor () {
 		if  (this.state.amountReturned > 10) {
 		this.setState({
-			amountReturned: this.state.amountReturned -= 10
+			amountReturned: this.state.amountReturned - 10
 		})
 	}
-	else {null}
 
 		this.APIcall();
 
@@ -167,7 +163,7 @@ class DoctorProfileList extends React.Component {
 
 	increaseRadius () {
 		this.setState({
-			distance: this.state.distance += 10
+			distance: this.state.distance + 10
 		})
 
 		this.APIcall();
@@ -177,16 +173,15 @@ class DoctorProfileList extends React.Component {
 
 		if  (this.state.distance > 10) {
 		this.setState({
-			distance: this.state.distance -= 10
+			distance: this.state.distance - 10
 		})
 	}
-	else {null}
 
 		this.APIcall();
 	}
 
 	doctorTypeFilterAll () {
-		console.log("Filter ALL CLICKED");
+		
 		this.setState({
 			doctorTypeFilter: 'all'
 		})
@@ -194,7 +189,7 @@ class DoctorProfileList extends React.Component {
 
 
 	filterMedical () {
-		console.log("Filter medical clicked");
+		
 
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
 		this.setState({
@@ -204,7 +199,7 @@ class DoctorProfileList extends React.Component {
 	}
 
 	filterDental () {
-		console.log("Filter dental clicked");
+		
 		
 		//this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
 		this.setState({
@@ -214,7 +209,7 @@ class DoctorProfileList extends React.Component {
 	}
 
 	filterVision () {
-		console.log("Filter vision clicked");
+		
 
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
 		this.setState({
