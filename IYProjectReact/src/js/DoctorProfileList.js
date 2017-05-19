@@ -23,12 +23,14 @@ class DoctorProfileList extends React.Component {
 		this.addDoctor = this.addDoctor.bind(this);
 		this.subtractDoctor = this.subtractDoctor.bind(this);
 		this.increaseRadius = this.increaseRadius.bind(this);
-		this.decreaseRadius = this.decreaseRadius.bind(this);
-
+		this.decreaseRadius = this.decreaseRadius.bind(this);		
+		this.filterMedical = this.filterMedical.bind(this);
+		this.filterDental = this.filterDental.bind(this);
+		this.filterVision = this.filterVision.bind(this);
 
 		this.state = {
 			resultArr: undefined,
-			doctorResultsArr: undefined,
+			
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			distance: defaultDistance,
@@ -180,6 +182,27 @@ class DoctorProfileList extends React.Component {
 	}
 
 
+	filterMedical () {
+		console.log("Filter medical clicked");
+
+		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
+
+	}
+
+	filterDental () {
+		console.log("Filter dental clicked");
+		
+		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
+
+	}
+
+	filterVision () {
+		console.log("Filter vision clicked");
+
+		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
+
+	}
+
 	render () {
 
 		if(this.state.resultArr !== undefined) {
@@ -199,6 +222,11 @@ class DoctorProfileList extends React.Component {
 					        />
 
 			      		</form>
+
+					   <button onClick={this.handleChange} className="search-button btn-primary">All</button>
+					   <button onClick={this.filterMedical} className="search-button btn-primary">Medical</button>
+					   <button onClick={this.filterDental} className="search-button btn-primary">Dental</button>
+					   <button onClick={this.filterVision} className="search-button btn-primary">Vision</button>		      		
 
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
 								<button className="search-button doctors-radius" disabled>Radius <h2>Within {this.state.distance} miles</h2></button>
