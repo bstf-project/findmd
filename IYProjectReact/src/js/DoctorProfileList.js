@@ -5,6 +5,7 @@ import axios from 'axios';
 import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
+import _ from 'lodash';
 
 
 
@@ -30,9 +31,12 @@ class DoctorProfileList extends React.Component {
 
 		this.state = {
 			resultArr: undefined,
-			
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
+			doctorTypeFilter: 'all',
+			// showMedical: true,
+			// showDental: true,
+			// showVision: true,
 			distance: defaultDistance,
 			api_key: '789b28d7d74840d2eb449527c4d61127',
 			amountReturned: defaultAmountReturned,
@@ -181,25 +185,41 @@ class DoctorProfileList extends React.Component {
 		this.APIcall();
 	}
 
+	doctorTypeFilterAll () {
+		console.log("Filter ALL CLICKED");
+		this.setState({
+			doctorTypeFilter: 'all'
+		})
+	}
+
 
 	filterMedical () {
 		console.log("Filter medical clicked");
 
-		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
+		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
+		this.setState({
+			doctorTypeFilter: 'medical'
+		})
 
 	}
 
 	filterDental () {
 		console.log("Filter dental clicked");
 		
-		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
+		//this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
+		this.setState({
+			doctorTypeFilter: 'dental'
+		})
 
 	}
 
 	filterVision () {
 		console.log("Filter vision clicked");
 
-		this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
+		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
+		this.setState({
+			doctorTypeFilter: 'vision'
+		})
 
 	}
 
@@ -223,12 +243,14 @@ class DoctorProfileList extends React.Component {
 
 			      		</form>
 
-					   <button onClick={this.handleChange} className="search-button btn-primary">All</button>
-					   <button onClick={this.filterMedical} className="search-button btn-primary">Medical</button>
-					   <button onClick={this.filterDental} className="search-button btn-primary">Dental</button>
-					   <button onClick={this.filterVision} className="search-button btn-primary">Vision</button>		      		
-
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
+		
+				      <form className="search-box">
+				        <input type="radio" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>
+				      	<input type="radio" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical<br/>
+				      	<input type="radio" name="doctorType" value="dental" onClick={this.filterDental} /> Dental<br/>
+				      	<input type="radio" name="doctorType" value="vision" onClick={this.filterVision} /> Vision<br/>
+				      </form>     		
 
 								<div className="search-radius-wrap">
 								<button className="search-button doctors-radius" disabled>Radius</button>
@@ -247,7 +269,22 @@ class DoctorProfileList extends React.Component {
 
 					<LeafletMap
 					centerLocation={this.state.coordinates}
-					doctorLocations={this.state.resultArr.map(this.mapLocations)}
+					doctorLocations={
+						this.state.resultArr
+						.filter(drOffice => {
+							if (this.state.doctorTypeFilter === 'all') return true;
+							else {
+								if(this.state.doctorTypeFilter === drOffice.specialties[0].category) return true
+								else return false
+							}
+						})
+						// .filter(drOffice => {
+						// 	return this.state.showVision 
+						// })
+						// .filter(drOffice => {
+						// 	return this.state.showDental
+						// })
+						.map(this.mapLocations)}
 					doctorArray={this.state.resultArr}
 					distance={this.state.distance}
 					mapZoom={this.state.map_zoom}
@@ -276,3 +313,11 @@ class DoctorProfileList extends React.Component {
 	}
 }
 module.exports = DoctorProfileList;
+
+// if (this.state.showMedical && this.state.showDental && this.state.showVision) {
+							// 	return drOffice;
+							// }
+							// else {
+
+
+							// }

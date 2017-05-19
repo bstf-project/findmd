@@ -26,15 +26,21 @@ class LeafletMap extends Component {
   }
 
   changeZoom () {
-    if (this.props.distance > 1) {
-      this.setState({zoom: this.state.zoom += 3});
+    var zoom;
+
+    if (this.props.distance > 21) {
+       zoom = 9
     }
-    else if (this.props.distance > 10) {
-      this.setState({zoom: this.state.zoom += 1});
+
+    else if (this.props.distance > 11) {
+       zoom = 10
     }
-    else if (this.props.distance > 20) {
-      this.setState({zoom: this.state.zoom += 1});
+
+    else if (this.props.distance > 1) {
+       zoom = 12
     }
+    else {zoom = 13}
+    return zoom;
   }
 
 
@@ -155,7 +161,7 @@ class LeafletMap extends Component {
     return (
       <div >
         
-        <Map center={position} zoom={this.state.zoom} animate={true} useFlyTo={true}>
+        <Map center={position} zoom={this.changeZoom()} animate={true} useFlyTo={true}>
           <TileLayer
             attribution='&copy; <a href="#'
             url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
