@@ -35,9 +35,9 @@ class DoctorProfileList extends React.Component {
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			doctorTypeFilter: 'all',
-			// showMedical: true,
-			// showDental: true,
-			// showVision: true,
+			showMedical: true,
+			showDental: true,
+			showVision: true,
 			distance: defaultDistance,
 			api_key: '10ed4e3765d043de9fad1d2f6bc3153a',
 			amountReturned: defaultAmountReturned,
@@ -180,28 +180,27 @@ class DoctorProfileList extends React.Component {
 		this.APIcall();
 	}
 
-	doctorTypeFilterAll () {
+	// doctorTypeFilterAll () {
 		
-		this.setState({
-			doctorTypeFilter: 'all'
-		})
-	}
+	// 	this.setState({
+	// 		doctorTypeFilter: 'all'
+	// 	})
+	// }
 
 
 	filterMedical () {
 		
-
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
 		this.setState({
 			doctorTypeFilter: 'medical'
 		})
 
+
 	}
 
 	filterDental () {
-		
-		
-		//this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
+
+		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'dental'})})
 		this.setState({
 			doctorTypeFilter: 'dental'
 		})
@@ -210,7 +209,6 @@ class DoctorProfileList extends React.Component {
 
 	filterVision () {
 		
-
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
 		this.setState({
 			doctorTypeFilter: 'vision'
