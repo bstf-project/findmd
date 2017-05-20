@@ -71,8 +71,7 @@ h1 {
   font-size: 50px; }
 
 h2 {
-  font-family: 'Raleway';
-  font-size: 17px; }
+  font-family: 'Raleway'; }
 
 h3 {
   color: #1C67A6;
@@ -244,15 +243,16 @@ td, th {
   font-family: Lato;
   text-align: center; }
 
-.leaflet-popup-content h2 {
-  font-size: .8rem;
-  font-weight: bold; }
-
 .doc-name {
-  size: 2rem; }
+  size: 2.25rem;
+  text-align: center; }
+
+.specialties, .address, .distance-away {
+  font-size: .8rem;
+  font-weight: bold;
+  text-align: center; }
 
 .distance-away {
-  font-size: .8rem;
   line-height: .8rem; }
 
 .leaflet-popup-content-wrapper {

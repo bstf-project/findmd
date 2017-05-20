@@ -44,7 +44,6 @@ h1 {
 
 h2 {
   font-family: 'Raleway';
-  font-size: 17px;
 }
 
 h3 {
@@ -257,17 +256,19 @@ li {
   text-align: center;
 }
 
-.leaflet-popup-content h2 {
+.doc-name {
+  size: 2.25rem;
+  text-align: center;
+}
+
+.specialties, .address, .distance-away {
 font-size: .8rem;
 font-weight: bold;
+text-align: center;
 }
 
-.doc-name {
-  size: 2rem;
-}
 
 .distance-away {
-  font-size: .8rem;
   line-height: .8rem;
 }
 
