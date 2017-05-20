@@ -76,7 +76,7 @@ class DoctorMarkersData extends Component {
 
 
 				ArrayOfMarkers.push(
-          <Marker position={positionStringArray} key={this.props.doctorUIDS[i][j]}>
+          <Marker position={positionStringArray}>
               <Popup>
 
               <a onClick={this.click} href={"#"}>

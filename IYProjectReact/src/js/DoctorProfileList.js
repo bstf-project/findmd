@@ -248,7 +248,7 @@ class DoctorProfileList extends React.Component {
 				      </form>     		
 
 								<div className="search-radius-wrap">
-								<button className="search-button doctors-radius" disabled>Radius</button>
+								<button className="search-button doctors-radius" disabled>Radius <h2>{this.state.distance} mi</h2></button>
 								<button className="plus-button  btn-primary" onClick={this.increaseRadius}>+</button>
 								<button className="minus-button btn-primary" onClick={this.decreaseRadius}>-</button>
 							</div>
@@ -280,9 +280,10 @@ class DoctorProfileList extends React.Component {
 						// 	return this.state.showDental
 						// })
 						.map(this.mapLocations)}
-					doctorArray={this.state.resultArr}
-					distance={this.state.distance}
-					mapZoom={this.state.map_zoom}
+						
+							doctorArray={this.state.resultArr}
+							distance={this.state.distance}
+							mapZoom={this.state.map_zoom}
 					/>
 
 				</div>
