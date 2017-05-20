@@ -253,7 +253,7 @@ class DoctorProfileList extends React.Component {
 								<button className="minus-button btn-primary" onClick={this.decreaseRadius}>-</button>
 							</div>
 						<div className="doctors-return-wrap">
-						<button className="search-button  doctors-returned" disabled>Add</button>
+						<button className="search-button  doctors-returned" disabled>Toggle Amount</button>
 						<button className="plus-button btn-primary" onClick={this.addDoctor}>+</button>
 						<button className="minus-button btn-primary" onClick={this.subtractDoctor}>-</button>
 					</div>
