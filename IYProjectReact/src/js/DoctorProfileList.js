@@ -240,7 +240,10 @@ class DoctorProfileList extends React.Component {
 
 		if(this.state.resultArr !== undefined) {
 			var arrState;
-			if (this.state.medical) {
+			if (this.state.medical && this.state.dental && this.state.vision) {
+				arrState = this.state.resultArr;
+			}
+			else if (this.state.medical) {
 				arrState = this.state.showMedical;
 			}
 			else if (this.state.dental) {
@@ -252,7 +255,7 @@ class DoctorProfileList extends React.Component {
 			else if (this.state.all) {
 				arrState = this.state.resultArr;
 			}
-			else {arrState = this.state.resultArr};
+			
 
 			return (
 				<div>
