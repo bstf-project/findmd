@@ -26,7 +26,7 @@ class DoctorProfileList extends React.Component {
 		this.addDoctor = this.addDoctor.bind(this);
 		this.subtractDoctor = this.subtractDoctor.bind(this);
 		this.increaseRadius = this.increaseRadius.bind(this);
-		this.decreaseRadius = this.decreaseRadius.bind(this);		
+		this.decreaseRadius = this.decreaseRadius.bind(this);
 		this.filterMedical = this.filterMedical.bind(this);
 		this.filterDental = this.filterDental.bind(this);
 		this.filterVision = this.filterVision.bind(this);
@@ -62,23 +62,23 @@ class DoctorProfileList extends React.Component {
 
     	var userPosition = String(position.coords.latitude).slice(0, 6) + "," + String(position.coords.longitude).slice(0, 7);
 
-    	
+
 
 	    this.setState({coordinates : userPosition});
 
-    	
+
 
 		this.APIcall();
 	}
 
 	getLocation() {
-		
+
 	    if (navigator.geolocation) {
 	    	console.log(navigator.geolocation.getCurrentPosition(this.showPosition));
 	        navigator.geolocation.getCurrentPosition(this.showPosition);
 
 	    } else {
-	    	
+
 	    	this.APIcall();
 
 
@@ -127,7 +127,7 @@ class DoctorProfileList extends React.Component {
 			this.setState({amountReturned: defaultAmountReturned})
 			this.APIcall();
 		}
-		
+
 	}
 
 
@@ -144,7 +144,7 @@ class DoctorProfileList extends React.Component {
 	}
 
 	addDoctor () {
-		
+
 		this.setState({
 			amountReturned: this.state.amountReturned + 10
 		})
@@ -186,7 +186,7 @@ class DoctorProfileList extends React.Component {
 	}
 
 	doctorTypeFilterAll () {
-		
+
 		this.setState({
 			doctorTypeFilter: 'all'
 		})
@@ -194,7 +194,7 @@ class DoctorProfileList extends React.Component {
 
 
 	filterMedical () {
-		
+
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'medical'})})
 		this.setState({
 			doctorTypeFilter: 'medical'
@@ -213,7 +213,7 @@ class DoctorProfileList extends React.Component {
 	}
 
 	filterVision () {
-		
+
 		// this.setState({resultArr: this.state.resultArr.filter(function (obj) {return obj.specialties[0].category === 'vision'})})
 		this.setState({
 			doctorTypeFilter: 'vision'
@@ -242,13 +242,13 @@ class DoctorProfileList extends React.Component {
 			      		</form>
 
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
-		
-				      <form className="search-box">
-				        <input type="radio" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>
-				      	<input type="radio" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical<br/>
-				      	<input type="radio" name="doctorType" value="dental" onClick={this.filterDental} /> Dental<br/>
-				      	<input type="radio" name="doctorType" value="vision" onClick={this.filterVision} /> Vision<br/>
-				      </form>     		
+
+				      <form className="search-box radio-box btn-primary" disabled>
+				        <input type="radio" className="radioButton" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>
+				      	<input type="radio" className="radioButton" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical<br/>
+				      	<input type="radio" className="radioButton" name="doctorType" value="dental" onClick={this.filterDental} /> Dental<br/>
+				      	<input type="radio" className="radioButton" name="doctorType" value="vision" onClick={this.filterVision} /> Vision<br/>
+				      </form>
 
 								<div className="search-radius-wrap">
 								<button className="search-button doctors-radius" disabled>Radius <h2>{this.state.distance} mi</h2></button>
@@ -277,13 +277,13 @@ class DoctorProfileList extends React.Component {
 						// 	}
 						// })
 						// // .filter(drOffice => {
-						// // 	return this.state.showVision 
+						// // 	return this.state.showVision
 						// // })
 						// // .filter(drOffice => {
 						// // 	return this.state.showDental
 						// // })
 						.map(this.mapLocations)}
-						
+
 							doctorArray={this.state.resultArr}
 							distance={this.state.distance}
 							mapZoom={this.state.map_zoom}
