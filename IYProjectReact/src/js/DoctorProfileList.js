@@ -11,6 +11,7 @@ import _ from 'lodash';
 
 var defaultDistance = 1;
 var defaultAmountReturned = 10;
+var storeResultArr;
 
 
 class DoctorProfileList extends React.Component {
@@ -35,9 +36,13 @@ class DoctorProfileList extends React.Component {
 			resource_url: 'https://api.betterdoctor.com/2016-03-01/doctors?location=',
 			coordinates: '40.713,-74.006', //Defaulted to NYC Coordinates
 			doctorTypeFilter: 'all',
-			showMedical: true,
-			showDental: true,
-			showVision: true,
+			// showAll: true,
+			// showMedical: true,
+			// showDental: true,
+			// showVision: true,
+			medicalArr: undefined,
+			dentalArr: undefined,
+			visionArr: undefined,
 			distance: defaultDistance,
 			api_key: '10ed4e3765d043de9fad1d2f6bc3153a',
 			amountReturned: defaultAmountReturned,
@@ -90,8 +95,8 @@ class DoctorProfileList extends React.Component {
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
 
 			.then(response => {this.setState({resultArr: response.data.data});
+				storeResultArr = response.responseJSON;
 
-			console.log(this.state.resultArr);
 
 			console.log(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key);
 		});
@@ -180,12 +185,12 @@ class DoctorProfileList extends React.Component {
 		this.APIcall();
 	}
 
-	// doctorTypeFilterAll () {
+	doctorTypeFilterAll () {
 		
-	// 	this.setState({
-	// 		doctorTypeFilter: 'all'
-	// 	})
-	// }
+		this.setState({
+			doctorTypeFilter: 'all'
+		})
+	}
 
 
 	filterMedical () {
@@ -264,19 +269,19 @@ class DoctorProfileList extends React.Component {
 					centerLocation={this.state.coordinates}
 					doctorLocations={
 						this.state.resultArr
-						.filter(drOffice => {
-							if (this.state.doctorTypeFilter === 'all') return true;
-							else {
-								if(this.state.doctorTypeFilter === drOffice.specialties[0].category) return true
-								else return false
-							}
-						})
 						// .filter(drOffice => {
-						// 	return this.state.showVision 
+						// 	if (this.state.doctorTypeFilter === 'all') return true;
+						// 	else {
+						// 		if(this.state.doctorTypeFilter === drOffice.specialties[0].category) return true
+						// 		else return false
+						// 	}
 						// })
-						// .filter(drOffice => {
-						// 	return this.state.showDental
-						// })
+						// // .filter(drOffice => {
+						// // 	return this.state.showVision 
+						// // })
+						// // .filter(drOffice => {
+						// // 	return this.state.showDental
+						// // })
 						.map(this.mapLocations)}
 						
 							doctorArray={this.state.resultArr}
@@ -288,6 +293,7 @@ class DoctorProfileList extends React.Component {
 			);
 
 		}
+
 		else {
 
 			return (
