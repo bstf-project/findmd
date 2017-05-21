@@ -40,9 +40,9 @@ class DoctorProfileList extends React.Component {
 			showDental: [],
 			showVision: [],
 			all: true,
-			medical: true,
-			dental: true,
-			vision: true,
+			medical: false,
+			dental: false,
+			vision: false,
 			distance: defaultDistance,
 			api_key: '10ed4e3765d043de9fad1d2f6bc3153a',
 			amountReturned: defaultAmountReturned,
@@ -274,9 +274,9 @@ class DoctorProfileList extends React.Component {
 		
 				      <form className="search-box">
 				        {/*<input type="checkbox" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>*/}
-				      	<input type="checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical <br/>
-				      	<input type="checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental <br/>
-				      	<input type="checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision <br/>
+				      	<input type="checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/>
+				      	<input type="checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/>
+				      	<input type="checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/>
 				      </form>     		
 
 								<div className="search-radius-wrap">
