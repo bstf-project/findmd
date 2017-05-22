@@ -385,10 +385,10 @@ td, th {
 
   .search-wrapper {
     bottom: 0px;
-    height: 33%;
     width: 100%;
-    margin: .5rem 0;
-    position: fixed; }
+    margin: 0;
+    position: fixed;
+    overflow-y: auto; }
 
   .btn-primary {
     width: 25%; }

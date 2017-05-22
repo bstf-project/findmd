@@ -439,10 +439,12 @@ width: 5rem;
 
     .search-wrapper {
      bottom:0px;
-     height:33%;
+     //height:33%;
      width: 100%;
-     margin:.5rem 0;
+     margin: 0;
      position: fixed;
+     overflow-y : auto;
+
    }
 
     .btn-primary {
