@@ -214,9 +214,17 @@ td, th {
 .radioButton {
   font-size: 2.5rem; }
 
-.filter-checkbox {
-  text-align: left; }
+.filter-box {
+  position: relative !important;
+  left: 2rem !important; }
 
+.input-box {
+  display: inline; }
+
+@media only screen and (max-width: 850px) {
+  .input-box {
+    display: inline-flex;
+    margin: 0 1rem; } }
 .checkbox {
   margin: 0;
   text-align: left; }

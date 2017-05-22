@@ -1,8 +1,6 @@
 
 import React from 'react';
 import axios from 'axios';
-//import DisplayDoctorProfiles from './displayDoctorProfiles';
-// import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
 import _ from 'lodash';
@@ -275,10 +273,12 @@ class DoctorProfileList extends React.Component {
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
 
 				      <form className="search-box btn-primary checkbox" disabled>
-				        {/*<input type="checkbox" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>*/}
-				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/>
-				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/>
-				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/>
+				      <div className="filter-box">
+					        {/*<input type="checkbox" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>*/}
+					      	<div className="input-box"><input type="checkbox" className="input-box"  name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/></div>
+					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/></div>
+					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/></div>
+				      </div>
 				      </form>
 
 								<div className="search-radius-wrap">
