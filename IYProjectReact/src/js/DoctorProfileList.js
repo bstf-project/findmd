@@ -11,8 +11,6 @@ import _ from 'lodash';
 
 var defaultDistance = 1;
 var defaultAmountReturned = 10;
-var storeResultArr;
-
 
 class DoctorProfileList extends React.Component {
 
@@ -94,12 +92,13 @@ class DoctorProfileList extends React.Component {
 		//Skip limit affects if small town doctors get returned, apparently
 		axios.get(this.state.resource_url + this.state.coordinates + ',' + this.state.distance + '&skip='+ this.state.skip_limit +'&limit='+this.state.amountReturned+'&user_key=' + this.state.api_key)
 
-			.then(response => {this.setState({resultArr: response.data.data});
-				{this.setState({showMedical: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'medical'})})}
+			.then(response => 
+				{this.setState({resultArr: response.data.data});
+				{this.setState({showMedical: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'medical'})})};
 
-				{this.setState({showVision: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'vision'})})}
+				{this.setState({showVision: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'vision'})})};
 
-				{this.setState({showDental: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'dental'})})}
+				{this.setState({showDental: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'dental'})})};
 
 
 
