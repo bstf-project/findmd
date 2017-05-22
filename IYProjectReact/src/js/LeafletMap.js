@@ -141,7 +141,7 @@ class LeafletMap extends Component {
           
           <Marker position={position}>
             <Popup>
-              <span>Your location</span>
+             <h2>My Location</h2>
               
             </Popup>
           </Marker>
