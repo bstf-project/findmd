@@ -82,7 +82,9 @@ h3 {
 
 h4 {
   color: #1C67A6;
-  font-size: 1rem; }
+  font-size: 1rem;
+  /*  margin: .5em 0;
+    padding: 5px;*/ }
 
 p {
   /*padding: 10px;*/
