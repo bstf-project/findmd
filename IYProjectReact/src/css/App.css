@@ -214,7 +214,11 @@ td, th {
 .radioButton {
   font-size: 2.5rem; }
 
-.radio-box {
+.filter-checkbox {
+  text-align: left; }
+
+.checkbox {
+  margin: 0;
   text-align: left; }
 
 .wrap {
@@ -397,9 +401,8 @@ td, th {
     width: 100%;
     margin: 0 auto; }
 
-  .checkbox {
-    font-size: 1rem;
-    display: inline-block; }
+  .checkbox-filter {
+    display: inline; }
 
   .search-button {
     display: inline;
