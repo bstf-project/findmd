@@ -76,46 +76,46 @@ class DoctorMarkersData extends Component {
 
 
 				ArrayOfMarkers.push(
-          <Marker position={positionStringArray}>
-              <Popup>
+		          <Marker key={"key" + i + j} position={positionStringArray}>
+		              <Popup>
 
-              <a onClick={this.click} href={"#"}>
+		              <a onClick={this.click} href={"#"}>
 
-              		<h2 className="doc-name">{this.props.doctorNames[i]}</h2>
-	              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
+		              		<h2 className="doc-name">{this.props.doctorNames[i]}</h2>
+			              	<img className="docimg" src={imgSrc} alt={this.props.doctorNames[i]} />
 
-									<div className="contact-wrapper">
+											<div className="contact-wrapper">
 
-									<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
-	              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class"></span></i></a>
-								</div>
+											<a className="mobile" href={"tel:" + this.props.doctorPhones[i][j]}>
+			              	<i className="mobile fa fa-mobile fa-3x"><span className="span-class"></span></i></a>
+										</div>
 
-	              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
-	              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
+			              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
+			              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
 
-									<h2 className="specialties disabled">{this.props.doctorArray[i].specialties[0].name || ""}</h2>
+											<h2 className="specialties disabled">{this.props.doctorArray[i].specialties[0].name || ""}</h2>
 
-              		<h2 className="address disabled">
-		              {this.props.doctorAddress[i][j]}
-		              <p>{statement}</p>
-	              	</h2>
-
-
+		              		<h2 className="address disabled">
+				              {this.props.doctorAddress[i][j]}
+				              <p>{statement}</p>
+			              	</h2>
 
 
 
 
 
-              </a>
+
+
+		              </a>
 
 
 
-              </Popup>
-              		}
-              		}
-              		}
-          </Marker>
-      );
+		              </Popup>
+		              		}
+		              		}
+		              		}
+		          </Marker>
+		      	);
 
 			}
 
