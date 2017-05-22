@@ -276,9 +276,9 @@ class DoctorProfileList extends React.Component {
 
 				      <form className="search-box btn-primary checkbox" disabled>
 				        {/*<input type="checkbox" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>*/}
-				      	<input type="checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/>
-				      	<input type="checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/>
-				      	<input type="checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/>
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/>
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/>
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/>
 				      </form>
 
 								<div className="search-radius-wrap">
