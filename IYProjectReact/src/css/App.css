@@ -377,11 +377,18 @@ td, th {
   .leaflet-container {
     width: 100%; }
 
+  .title-name {
+    background-size: 75%;
+    margin: 0;
+    height: 3rem;
+    width: 5rem; }
+
   .search-wrapper {
     bottom: 0px;
     height: 33%;
     width: 100%;
-    margin: .5rem 0; }
+    margin: .5rem 0;
+    position: fixed; }
 
   .btn-primary {
     width: 25%; }
@@ -391,7 +398,8 @@ td, th {
     margin: 0 auto; }
 
   .checkbox {
-    font-size: 1rem; }
+    font-size: 1rem;
+    display: inline-block; }
 
   .search-button {
     display: inline;
