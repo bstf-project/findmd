@@ -430,11 +430,21 @@ color: $doctorBlue;
       //height: 66%;
     }
 
+    .title-name {
+background-size: 75%;
+margin: 0;
+height:3rem;
+width: 5rem;
+   }
+
     .search-wrapper {
-     bottom: 0px;
-     height:33%;
+     bottom:0px;
+     //height:33%;
      width: 100%;
-     margin:.5rem 0;
+     margin: 0;
+     position: fixed;
+     overflow-y : auto;
+
    }
 
     .btn-primary {
@@ -449,8 +459,8 @@ color: $doctorBlue;
 
     .checkbox {
       font-size: 1rem;
+      display: inline-block;
     }
-
 
     .search-button {
       display: inline;
