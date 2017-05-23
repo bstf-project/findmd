@@ -272,14 +272,13 @@ class DoctorProfileList extends React.Component {
 
 			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
 
-				      <form className="search-box btn-primary checkbox" disabled>
+				      {/*<form className="search-box btn-primary checkbox" disabled>
 				      <div className="filter-box">
-					        {/*<input type="checkbox" name="doctorType" value="all" onClick={this.doctorTypeFilterAll} defaultChecked/> All<br/>*/}
 					      	<div className="input-box"><input type="checkbox" className="input-box"  name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/></div>
 					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/></div>
 					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/></div>
 				      </div>
-				      </form>
+				      </form> */}
 
 								<div className="search-radius-wrap">
 								<button className="search-button doctors-radius" disabled>Radius <h2>{this.state.distance} mi</h2></button>
