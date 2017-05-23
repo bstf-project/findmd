@@ -120,7 +120,7 @@ class LeafletMap extends Component {
         <Map center={position} zoom={this.changeZoom()} animate={true} useFlyTo={true}>
           <TileLayer
             attribution='&copy; <a href="#'
-            url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
+            url='https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
           />
 
           <DoctorMarkersData 
