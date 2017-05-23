@@ -93,7 +93,7 @@ class DoctorMarkersData extends Component {
 			              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
 			              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
 
-											<h2 className="specialties disabled">{this.props.doctorArray[i].specialties[0].name || ""}</h2>
+											<h2 className="specialties disabled">{this.props.doctorArray[i].specialties !== undefined ? this.props.doctorArray[i].specialties[0].name : null}</h2>
 
 		              		<h2 className="address disabled">
 				              {this.props.doctorAddress[i][j]}
