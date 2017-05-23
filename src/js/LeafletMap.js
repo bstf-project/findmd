@@ -107,10 +107,10 @@ class LeafletMap extends Component {
     var centerLat;
     var centerLng;
 
- 
+    if (Number(this.props.centerLocation !== undefined)) { 
       centerLat = Number(this.props.centerLocation.slice(0, 6));
       centerLng = Number(this.props.centerLocation.slice(7));
-
+    }
 
     var position = [centerLat, centerLng];
 
@@ -120,7 +120,7 @@ class LeafletMap extends Component {
         <Map center={position} zoom={this.changeZoom()} animate={true} useFlyTo={true}>
           <TileLayer
             attribution='&copy; <a href="#'
-            url='https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
+            url='http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png'
           />
 
           <DoctorMarkersData 

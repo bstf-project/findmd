@@ -1,6 +1,8 @@
 
 import React from 'react';
 import axios from 'axios';
+//import DisplayDoctorProfiles from './displayDoctorProfiles';
+// import DoctorProfiles from './DoctorProfiles';
 import zipcodes from 'zipcodes';
 import LeafletMap from './LeafletMap.js';
 import _ from 'lodash';
@@ -249,9 +251,7 @@ class DoctorProfileList extends React.Component {
 			else if (this.state.vision) {
 				arrState = this.state.showVision;
 			}
-			else if (this.state.all) {
-				arrState = this.state.resultArr;
-			}
+			else {arrState = this.state.resultArr}
 
 
 			return (
@@ -270,25 +270,24 @@ class DoctorProfileList extends React.Component {
 
 			      		</form>
 
-			      		<button className="search-button btn-primary" onClick={this.handleChange}>Find Doctors</button>
+			      		<button className="search-button search-button-primary btn-primary" onClick={this.handleChange}>Find Doctors</button>
 
-				      {/*<form className="search-box btn-primary checkbox" disabled>
-				      <div className="filter-box">
-					      	<div className="input-box"><input type="checkbox" className="input-box"  name="doctorType" value="medical" onClick={this.filterMedical} /> Medical only <br/></div>
-					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="dental" onClick={this.filterDental} /> Dental only<br/></div>
-					      	<div className="input-box"><input type="checkbox" className="input-box" name="doctorType" value="vision" onClick={this.filterVision} /> Vision only<br/></div>
-				      </div>
-				      </form> */}
+
+				      {/*<form className="search-button checkbox-filter">
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="medical" onClick={this.filterMedical} /> Medical<br/>
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="dental" onClick={this.filterDental} /> Dental<br/>
+				      	<input type="checkbox" className="filter-checkbox" name="doctorType" value="vision" onClick={this.filterVision} /> Vision<br/>
+				      </form>*/}
 
 								<div className="search-radius-wrap">
 								<button className="search-button doctors-radius" disabled>Radius <h2>{this.state.distance} mi</h2></button>
-								<button className="plus-button  btn-primary" onClick={this.increaseRadius}>+</button>
-								<button className="minus-button btn-primary" onClick={this.decreaseRadius}>-</button>
+								<button className="plus-button" onClick={this.increaseRadius}>+</button>
+								<button className="minus-button" onClick={this.decreaseRadius}>-</button>
 							</div>
 						<div className="doctors-return-wrap">
 						<button className="search-button  doctors-returned" disabled>Toggle Amount</button>
-						<button className="plus-button btn-primary" onClick={this.addDoctor}>+</button>
-						<button className="minus-button btn-primary" onClick={this.subtractDoctor}>-</button>
+						<button className="plus-button" onClick={this.addDoctor}>+</button>
+						<button className="minus-button" onClick={this.subtractDoctor}>-</button>
 					</div>
 
 
