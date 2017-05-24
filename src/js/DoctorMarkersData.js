@@ -36,7 +36,7 @@ class DoctorMarkersData extends Component {
 
 			if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_male.png") {
 
-				imgSrc = "//medclinica.kz/wp-content/uploads/2016/10/no-avatar-man-300x400.png";
+				imgSrc = "https://medclinica.kz/wp-content/uploads/2016/10/no-avatar-man-300x400.png";
 
 			}
 
