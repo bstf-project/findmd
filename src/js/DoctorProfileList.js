@@ -94,11 +94,12 @@ class DoctorProfileList extends React.Component {
 
 			.then(response =>
 				{this.setState({resultArr: response.data.data});
-				{this.setState({showMedical: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'medical'})})};
+				//Taking filters out for now => will add in later
+				// {this.setState({showMedical: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'medical'})})};
 
-				{this.setState({showVision: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'vision'})})};
+				// {this.setState({showVision: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'vision'})})};
 
-				{this.setState({showDental: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'dental'})})};
+				// {this.setState({showDental: response.data.data.filter(function (obj) {return obj.specialties[0].category === 'dental'})})};
 
 
 
