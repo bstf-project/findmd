@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Marker, Popup } from 'react-leaflet';
 
 
+
 class DoctorMarkersData extends Component {
 
 	constructor() {
@@ -36,13 +37,13 @@ class DoctorMarkersData extends Component {
 
 			if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_male.png") {
 
-				imgSrc = "https://medclinica.kz/wp-content/uploads/2016/10/no-avatar-man-300x400.png";
+				imgSrc = require('../img/male.png');
 
 			}
 
 			else if (this.props.doctorArray[i].profile.image_url.slice(39) === "general_doctor_female.png") {
 
-				imgSrc = "https://img.clipartfest.com/3473fe27a237ac460a90f94f8fd47b9b_doctor-icon-doctor-icon-clipart_2100-2400.png";
+				imgSrc = require('../img/female.png');
 
 			}
 
@@ -93,7 +94,7 @@ class DoctorMarkersData extends Component {
 			              	<a className="google-search" href={"https://google.com/#q=" + this.props.doctorArray[i].profile.first_name + "+" + this.props.doctorArray[i].profile.last_name + "+" + this.props.doctorArray[i].profile.title} target="_blank">
 			              	<i className="google-search fa fa-google fa-2x"><span className="span-class "></span></i></a>
 
-							<h2 className="specialties disabled">{this.props.doctorArray[i].specialties[0] !== undefined ? this.props.doctorArray[i].specialties[0].name : null}</h2>
+							<h2 className="specialties disabled">{this.props.doctorArray[i].specialties !== undefined ? this.props.doctorArray[i].specialties[0].name : null}</h2>
 
 		              		<h2 className="address disabled">
 				              {this.props.doctorAddress[i][j]}
