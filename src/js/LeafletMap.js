@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker, Popup} from 'react-leaflet';
 import DoctorMarkersData from './DoctorMarkersData';
 import '../css/App.css';
 
-
+var userLocation = 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
 
 class LeafletMap extends Component {
 
@@ -102,7 +102,6 @@ class LeafletMap extends Component {
     return array.map(fetchPhone);
   }
 
-
   render() {
     var centerLat;
     var centerLng;
@@ -138,13 +137,13 @@ class LeafletMap extends Component {
             }
             }
 
-          
-          <Marker position={position}>
+        <Marker position={position}>    
             <Popup>
              <h2>My Location</h2>
               
             </Popup>
-          </Marker>
+        </Marker>
+
 
           
         </Map>

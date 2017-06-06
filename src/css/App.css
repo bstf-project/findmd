@@ -317,6 +317,10 @@ td, th {
   height: auto;
   width: auto; }
 
+#user-location {
+  position: relative !important;
+  z-index: 99999; }
+
 #app {
   padding: 2rem; }
 
@@ -408,7 +412,7 @@ td, th {
   display: block;
   overflow: auto; }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 500px) {
   .leaflet-container {
     width: 100%; }
 
